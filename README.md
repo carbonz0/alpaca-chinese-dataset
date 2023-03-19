@@ -1,6 +1,11 @@
 # alpaca-chinese-dataset
 alpaca中文指令微调数据集
 
+## 格式
+- 与原始alpaca数据json格式相同
+
+### 样例
+
 ``` json
 [
   {
