@@ -1,8 +1,20 @@
 # alpaca-chinese-dataset
 alpaca中文指令微调数据集
 
+## TODO
+- 没份数据的生成方法待补充
+- 清洗关键词及规则待补充
+
 ## 格式
 - 与原始alpaca数据json格式相同
+
+## 方法
+
+### 数据生成
+- 机器翻译
+- self-instruct
+
+### 数据清洗
 
 ### 样例
 
