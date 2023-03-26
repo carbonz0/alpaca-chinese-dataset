@@ -2277,7 +2277,7 @@
 {
     "instruction": "创建一个正则表达式模式以匹配有效的电子邮件地址。",
     "input": "",
-    "output": "正则表达式模式 ^[a-zA-Z0-9.!#$%&amp;'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a- zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-] {0,61}[a-zA-Z0-9])?)*$ 将匹配有效的电子邮件地址。"
+    "output": "正则表达式模式 ^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a- zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-] {0,61}[a-zA-Z0-9])?)*$ 将匹配有效的电子邮件地址。"
 },
 {
     "instruction": "列出人类的五种感官。",
@@ -7112,7 +7112,7 @@
 {
     "instruction": "根据流派对歌曲进行分类",
     "input": "这首歌被艾瑞莎富兰克林称为“Walk on By”",
-    "output": "Aretha Franklin 的歌曲“Walk on By”被归类为 Soul/R&amp;B。"
+    "output": "Aretha Franklin 的歌曲“Walk on By”被归类为 Soul/R&B。"
 },
 {
     "instruction": "确定转移所需的时间",
@@ -7922,7 +7922,7 @@
 {
     "instruction": "生成包含十个在线商业创意的列表。",
     "input": "",
-    "output": "1. 在线课程&amp;辅导平台\n2.在线语言学习平台\n3.在线自由市场\n4. 个人购物及礼宾服务\n5.网上杂货购物和送货服务\n6. 社交媒体咨询\n7. 在线艺术与工艺用品商店\n8. 虚拟协助机构\n9.在线订阅盒业务\n10. 在线游戏平台"
+    "output": "1. 在线课程&辅导平台\n2.在线语言学习平台\n3.在线自由市场\n4. 个人购物及礼宾服务\n5.网上杂货购物和送货服务\n6. 社交媒体咨询\n7. 在线艺术与工艺用品商店\n8. 虚拟协助机构\n9.在线订阅盒业务\n10. 在线游戏平台"
 },
 {
     "instruction": "IP over Asynchronous Transfer Mode (ATM) 和 IP over Ethernet (Ethernet) 之间的主要区别是什么？",
@@ -9152,7 +9152,7 @@
 {
     "instruction": "研究一位著名歌手并撰写不超过 100 字的简历。",
     "input": "",
-    "output": "碧昂斯 (Beyoncé) 是享誉世界的美国歌手、词曲作者、演员和企业家。她出生于得克萨斯州休斯顿，在 1990 年代后期作为 R&amp;B 女子组合 Destiny's Child 的核心成员一举成名。自 2006 年分手后，碧昂斯开始了成功的单飞生涯，发行了单曲《单身女士（戴上戒指）》和《疯狂恋爱》等排行榜单曲。作为独奏艺术家，她已售出超过 1.18 亿张唱片，并与 Destiny's Child 一起售出 6000 万张唱片，使她成为世界上最畅销的音乐艺术家之一。"
+    "output": "碧昂斯 (Beyoncé) 是享誉世界的美国歌手、词曲作者、演员和企业家。她出生于得克萨斯州休斯顿，在 1990 年代后期作为 R&B 女子组合 Destiny's Child 的核心成员一举成名。自 2006 年分手后，碧昂斯开始了成功的单飞生涯，发行了单曲《单身女士（戴上戒指）》和《疯狂恋爱》等排行榜单曲。作为独奏艺术家，她已售出超过 1.18 亿张唱片，并与 Destiny's Child 一起售出 6000 万张唱片，使她成为世界上最畅销的音乐艺术家之一。"
 },
 {
     "instruction": "用四句话描述人寿保险的重要性。",
@@ -10031,7 +10031,7 @@
 },
 {
     "instruction": "评论以下照片的质量。",
-    "input": "图片网址：https://images.unsplash.com/photo-1583427053007-7d1d032e2c09?ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=675&amp;q=80",
+    "input": "图片网址：https://images.unsplash.com/photo-1583427053007-7d1d032e2c09?ixlib=rb-1.2.1&auto=format&fit=crop&w=675&q=80",
     "output": "这张照片展示了令人惊叹的风景，一览无余的雪山、深蓝色的湖泊和背景中的金色连绵起伏的丘陵。图像的色彩和清晰度使这成为一个真正令人惊叹的景象。"
 },
 {
@@ -11757,7 +11757,7 @@
 {
     "instruction": "为电子邮件地址编写正则表达式。",
     "input": "",
-    "output": "^[a-zA-Z0-9.!#$%&amp;'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0 -9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0, 61}[a-zA-Z0-9])?)*$"
+    "output": "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0 -9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0, 61}[a-zA-Z0-9])?)*$"
 },
 {
     "instruction": "集思广益改善公共交通的三个解决方案。",
@@ -15077,7 +15077,7 @@
 {
     "instruction": "生成包含数字、字母和特殊字符的唯一密码。",
     "input": "",
-    "output": "$&amp;stG76t#"
+    "output": "$&stG76t#"
 },
 {
     "instruction": "撰写有说​​服力的论据，鼓励某人访问您的家乡。",
@@ -18867,7 +18867,7 @@
 {
     "instruction": "头脑风暴过去一年中三个最成功的营销活动。",
     "input": "",
-    "output": "可口可乐的“Share a Coke”活动、AT&amp;T 的“It's Not Complicated”活动以及汉堡王的“Whopper Detour”活动。"
+    "output": "可口可乐的“Share a Coke”活动、AT&T 的“It's Not Complicated”活动以及汉堡王的“Whopper Detour”活动。"
 },
 {
     "instruction": "为允许用户与朋友和家人联系的新移动应用程序创建一个朗朗上口的标语。",
@@ -19737,7 +19737,7 @@
 {
     "instruction": "设计一个算法来寻找两个字符串之间的最长公共子序列",
     "input": "s1 = 'ABCDGH'\ns2 = 'AEDFHR'",
-    "output": "定义 LCS（s1，s2）：\n    m = len(s1)\n    n = len(s2)\n  \n    # 声明用于存储 dp 值的数组\n    L = [[None]*(n + 1) for _ in range(m + 1)]\n  \n    \"\"\"以下步骤以自下而上的方式构建 L[m + 1][n + 1]\n    注：L[i][j]包含X[0..i-1]的LCS长度\n    和 Y[0..j-1]\"\"\"\n    对于我在范围内（m + 1）：\n        # 前一行全为零，\n        # 因为没有公共序列可以使用它们\n        对于范围 (n + 1) 中的 j：\n            # 所有行的第一列都是0\n            如果我 == 0 或 j == 0 ：\n                L[i][j] = 0\n            elif s1[i-1] == s2[j-1]:\n                L[i][j] = L[i-1][j-1]+1\n            别的：\n                L[i][j] = max(L[i-1][j] , L[i][j-1])\n  \n    # L[m][n]包含X[0..n-1] &amp; Y[0..m-1]的LCS长度\n    返回 L[m][n]"
+    "output": "定义 LCS（s1，s2）：\n    m = len(s1)\n    n = len(s2)\n  \n    # 声明用于存储 dp 值的数组\n    L = [[None]*(n + 1) for _ in range(m + 1)]\n  \n    \"\"\"以下步骤以自下而上的方式构建 L[m + 1][n + 1]\n    注：L[i][j]包含X[0..i-1]的LCS长度\n    和 Y[0..j-1]\"\"\"\n    对于我在范围内（m + 1）：\n        # 前一行全为零，\n        # 因为没有公共序列可以使用它们\n        对于范围 (n + 1) 中的 j：\n            # 所有行的第一列都是0\n            如果我 == 0 或 j == 0 ：\n                L[i][j] = 0\n            elif s1[i-1] == s2[j-1]:\n                L[i][j] = L[i-1][j-1]+1\n            别的：\n                L[i][j] = max(L[i-1][j] , L[i][j-1])\n  \n    # L[m][n]包含X[0..n-1] & Y[0..m-1]的LCS长度\n    返回 L[m][n]"
 },
 {
     "instruction": "求所有小于 100 的自然数之和",
@@ -26936,7 +26936,7 @@
 },
 {
     "instruction": "看看这张汽车照片，用 2-3 句话向我描述它是什么样的。",
-    "input": "<图片：https://images.unsplash.com/photo-1514943473584-375a27f73301?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;w=1000&amp;q=80>",
+    "input": "<图片：https://images.unsplash.com/photo-1514943473584-375a27f73301?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80>",
     "output": "这辆车看起来时尚而时尚。它有光滑的黑色外观，窗户和车轮周围有镀铬装饰。内部看起来舒适且设备齐全，配有充满现代技术的仪表板。"
 },
 {
@@ -28887,7 +28887,7 @@
 {
     "instruction": "描述用于创建展览的元素。",
     "input": "维多利亚和阿尔伯特博物馆的“生活剧场”展览展示了 17 世纪和 18 世纪巴洛克和洛可可时期的布景设计、服装、模型和室内装饰。",
-    "output": "V&amp;A 博物馆的“生活剧场”展览包括错综复杂的布景设计、精致的服装、比例模型以及巴洛克和洛可可时期令人眼花缭乱的室内装饰。"
+    "output": "V&A 博物馆的“生活剧场”展览包括错综复杂的布景设计、精致的服装、比例模型以及巴洛克和洛可可时期令人眼花缭乱的室内装饰。"
 },
 {
     "instruction": "说出下列化合物中存在的所有元素。",
@@ -31185,8 +31185,8 @@
     "output": "减少碳排放的一种创造性解决方案是通过为选择从化石燃料转向可再生能源替代品的个人和企业提供税收抵免来鼓励使用可再生能源。此外，投资于风能和太阳能等可再生能源技术的研发，将​​有助于使这些解决方案更广泛可用和更容易获得。最后，提高对减少碳排放的必要性以及改用可再生能源的好处的认识有助于鼓励个人和企业进行转换。"
 },
 {
-    "instruction": "计算所有 M&amp;M's 的总和",
-    "input": "12 个 M&amp;M's 装在一个袋子里",
+    "instruction": "计算所有 M&M's 的总和",
+    "input": "12 个 M&M's 装在一个袋子里",
     "output": "12"
 },
 {
@@ -31287,7 +31287,7 @@
 {
     "instruction": "写一个体现可持续实践的示例组织的描述。",
     "input": "",
-    "output": "Floors &amp; Walls 是可持续发展组织的一个例子，该公司使用无毒、可再生和节能的回收材料制造地板和墙壁绝缘材料。"
+    "output": "Floors & Walls 是可持续发展组织的一个例子，该公司使用无毒、可再生和节能的回收材料制造地板和墙壁绝缘材料。"
 },
 {
     "instruction": "说出一种用于员工敬业度的流行策略。",
@@ -34857,7 +34857,7 @@
 {
     "instruction": "为给定位置的人确定合适的手机套餐",
     "input": "加利福尼亚州洛杉矶",
-    "output": "一个适合加利福尼亚州洛杉矶人的手机套餐是 AT&amp;T 的 Unlimited Starter。该计划包括无限制的通话、文本和数据，没有数据上限或超额费用。它还配备了 10GB 的 4G LTE 移动热点和高清流媒体，以及来自美国的国际消息。"
+    "output": "一个适合加利福尼亚州洛杉矶人的手机套餐是 AT&T 的 Unlimited Starter。该计划包括无限制的通话、文本和数据，没有数据上限或超额费用。它还配备了 10GB 的 4G LTE 移动热点和高清流媒体，以及来自美国的国际消息。"
 },
 {
     "instruction": "这句话有拼写错误吗？",
@@ -38882,7 +38882,7 @@
 {
     "instruction": "输出以下歌曲的音乐艺术家：",
     "input": "歌曲：《泪珠》",
-    "output": "歌曲“Teardrops”的音乐艺术家是 Womack &amp; Womack。"
+    "output": "歌曲“Teardrops”的音乐艺术家是 Womack & Womack。"
 },
 {
     "instruction": "输出美国允许同性婚姻的州列表。",
@@ -46207,7 +46207,7 @@
 {
     "instruction": "为致力于动物保护的非政府组织设计徽标",
     "input": "",
-    "output": "![替代文本](https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSjXGJNJxgxovB1GJZ-z-KEYamo50gbfeJFoyMS_dikopPQ9ykF&amp;usqp=CAU)"
+    "output": "![替代文本](https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSjXGJNJxgxovB1GJZ-z-KEYamo50gbfeJFoyMS_dikopPQ9ykF&usqp=CAU)"
 },
 {
     "instruction": "在 100 字以内，讲述一个关于人们所做选择的后果的故事",
@@ -49262,7 +49262,7 @@
 {
     "instruction": "创建与以下主题相关的书籍列表：育儿。",
     "input": "",
-    "output": "- 全脑儿童：12 种革命性的策略来培养孩子的发展思维，在日常育儿斗争中生存，并帮助您的家庭茁壮成长丹尼尔·J·西格尔医学博士和蒂娜·佩恩·布赖森\n\n- 婴儿大脑法则（更新和扩展）：约翰·梅迪纳 (John Medina) 如何从零到五岁培养一个聪明快乐的孩子\n\n- 剥皮膝盖的祝福：Wendy Mogel 博士使用犹太教义培养自力更生的孩子。\n\n- 用爱和逻辑养育孩子：培养孩子的责任感 Foster Cline 和 Jim Fay\n\n- 无戏剧纪律：全脑平息混乱和培养孩子发展思维的方法丹尼尔·J·西格尔和蒂娜·佩恩·布赖森\n\n- How To Talk So Kids Will Listen &amp; Listen So Kids Will Talk 阿黛尔费伯和伊莱恩马兹利什\n\n- 简单育儿：Kim John Payne 使用更少的非凡力量培养更平静、更快乐、更安全的孩子"
+    "output": "- 全脑儿童：12 种革命性的策略来培养孩子的发展思维，在日常育儿斗争中生存，并帮助您的家庭茁壮成长丹尼尔·J·西格尔医学博士和蒂娜·佩恩·布赖森\n\n- 婴儿大脑法则（更新和扩展）：约翰·梅迪纳 (John Medina) 如何从零到五岁培养一个聪明快乐的孩子\n\n- 剥皮膝盖的祝福：Wendy Mogel 博士使用犹太教义培养自力更生的孩子。\n\n- 用爱和逻辑养育孩子：培养孩子的责任感 Foster Cline 和 Jim Fay\n\n- 无戏剧纪律：全脑平息混乱和培养孩子发展思维的方法丹尼尔·J·西格尔和蒂娜·佩恩·布赖森\n\n- How To Talk So Kids Will Listen & Listen So Kids Will Talk 阿黛尔费伯和伊莱恩马兹利什\n\n- 简单育儿：Kim John Payne 使用更少的非凡力量培养更平静、更快乐、更安全的孩子"
 },
 {
     "instruction": "识别以下哺乳动物：黑豹",
@@ -52112,7 +52112,7 @@
 {
     "instruction": "生成 API 调用以获取给定城市的天气数据。",
     "input": "昌迪加尔",
-    "output": "获取给定城市天气数据的 API 调用是：http://api.openweathermap.org/data/2.5/weather?q=Chandigarh&amp;appid=APPID。"
+    "output": "获取给定城市天气数据的 API 调用是：http://api.openweathermap.org/data/2.5/weather?q=Chandigarh&appid=APPID。"
 },
 {
     "instruction": "将以下工作分类为兼职或全职。",
