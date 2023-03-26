@@ -3637,7 +3637,7 @@
 {
     "instruction": "编写代码显示从1到100的所有质数",
     "input": "",
-    "output": "# 显示从1到100的所有质数的Python程序\n \nprint(\"All the prime numbers between 1 to 100 are:\")\nfor num in range(1,101):\n    # prime numbers are greater than 1\n    if num > 1:\n        for i in range(2,num):\n            if (num % i) == 0:\n                break\n        else:\n            print(num)",
+    "output": "# 显示从1到100的所有质数的Python程序\n \nprint(\"All the prime numbers between 1 to 100 are:\")\nfor num in range(1,101):\n    # prime numbers are greater than 1\n    if num > 1:\n        for i in range(2,num):\n            if (num % i) == 0:\n                break\n        else:\n            print(num)"
 },
 {
     "instruction": "自动回复确认用户注册的电子邮件",
@@ -52112,7 +52112,7 @@
 {
     "instruction": "生成 API 调用以获取给定城市的天气数据。",
     "input": "昌迪加尔",
-    "output": "获取给定城市天气数据的 API 调用是：http://api.openweathermap.org/data/2.5/weather?q=Chandigarh&appid=APPID。"
+    "output": "获取给定城市天气数据的 API 调用是：http://api.openweathermap.org/data/2.5/weather?q=Chandigarh&appid=APPID 。"
 },
 {
     "instruction": "将以下工作分类为兼职或全职。",
