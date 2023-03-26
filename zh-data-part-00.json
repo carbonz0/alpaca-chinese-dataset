@@ -86,8 +86,8 @@
 },
 {
     "instruction": "逆向工程此代码以创建新版本",
-    "input": "def 阶乘（数量）：\n  阶乘 = 1\n  对于范围内的我（1，数字）：\n    阶乘 *= 我\n  \n  返回阶乘",
-    "output": "def 阶乘（数量）：\n  阶乘 = 1\n  对于范围内的我（数字，0，-1）：\n    阶乘 *= 我\n  \n  返回阶乘"
+    "input": "def factorialize(num):\n  factorial = 1\n  for i in range(1, num):\n    factorial *= i\n  \n  return factorial",
+    "output": "def factorialize(num):\n  factorial = 1\n  for i in range(num, 0, -1):\n    factorial *= i\n  \n  return factorial"
 },
 {
     "instruction": "提出数据隐私问题的道德解决方案",
@@ -732,12 +732,12 @@
 {
     "instruction": "编写一个函数来计算给定数字的阶乘。",
     "input": "",
-    "output": "def阶乘（n）：\n    如果 n == 0：\n        返回 1\n    返回 n * 阶乘（n-1）"
+    "output": "def factorial(n):\n    if n == 0:\n        return 1\n    return n * factorial(n-1)"
 },
 {
     "instruction": "编写一个函数将给定的字符串转换为大写。",
     "input": "",
-    "output": "def toUpperCase(str):\n    返回 str.upper()"
+    "output": "def toUpperCase(str):\n    return str.upper()"
 },
 {
     "instruction": "从数组中提取正整数？",
@@ -747,12 +747,12 @@
 {
     "instruction": "计算给定数字的平方根。",
     "input": "",
-    "output": "自定义平方根（n）：\n    低 = 0\n    高 = n\n    \n    而低 &lt;= 高：\n        中 = (低 + 高) // 2\n        如果中间 * 中间 == n:\n            返回中间\n        elif mid * mid &lt; n:\n            低 = 中 + 1\n        别的：\n            高 = 中 - 1\n            \n    返回低 - 1"
+    "output": "def sqrt(n):\n    low = 0\n    high = n\n    \n    while low <= high:\n        mid = (low + high) // 2\n        if mid * mid == n:\n            return mid\n        elif mid * mid < n:\n            low = mid + 1\n        else:\n            high = mid - 1\n            \n    return low - 1"
 },
 {
     "instruction": "反转链表。",
     "input": "",
-    "output": "定义反向（头）：\n    上一个 = 无\n    当前 = 头\n\n    而当前：\n        下一个=当前下一个\n        当前.下一个=上一个\n        上一个 = 当前\n        当前 = 下一个\n    头 = 上一个\n    \n    返回头"
+    "output": "def reverse(head): \n    prev = None\n    cur = head \n\n    while cur:\n        next = cur.next\n        cur.next = prev \n        prev = cur \n        cur = next\n    head = prev\n    \n    return head"
 },
 {
     "instruction": "计算给定数组的最长递增子序列？",
@@ -782,7 +782,7 @@
 {
     "instruction": "给定一棵二叉树，检查它是否是二叉搜索树？",
     "input": "",
-    "output": "def isBST（根）：\n如果 root 是 None ：\n返回真\n\n如果 root.left 不是 None 并且 root.left.val &gt; root.val：\n返回假\n\n如果 root.right 不是 None 并且 root.right.val &lt; root.val：\n返回假\n\n返回 isBST(root.left) 和 isBST(root.right)"
+    "output": "def isBST(root):\nif root is None : \n\treturn True\n\nif root.left is not None and root.left.val > root.val: \n\treturn False\n\nif root.right is not None and root.right.val < root.val: \n\treturn False\n\nreturn isBST(root.left) and isBST(root.right)"
 },
 {
     "instruction": "找出可以从给定的交易序列中获得的最大利润？",
@@ -1712,7 +1712,7 @@
 {
     "instruction": "生成用于计算列表均值的函数。",
     "input": "",
-    "output": "定义均值（lst）：\n    返回总和（lst）/ len（lst）"
+    "output": "def mean(lst): \n    return sum(lst) / len(lst)"
 },
 {
     "instruction": "写一篇关于人工智能如何改变医疗保健行业的博文。",
@@ -1737,7 +1737,7 @@
 {
     "instruction": "生成一个函数以按字母顺序对字符串列表进行排序",
     "input": "",
-    "output": "def alphabetic_sort（lst）：\n    返回排序（lst，key=str.lower）"
+    "output": "def alphabetic_sort(lst): \n    return sorted(lst, key=str.lower)"
 },
 {
     "instruction": "写一篇关于冠状病毒大流行的讽刺文章",
@@ -1747,7 +1747,7 @@
 {
     "instruction": "创建一个函数来检查两个字符串是否是变位词。",
     "input": "",
-    "output": "def is_anagram(s1, s2):\n    s1 = 排序（s1.lower（））\n    s2 = 排序（s2.lower（））\n    返回 s1 == s2"
+    "output": "def is_anagram(s1, s2): \n    s1 = sorted(s1.lower()) \n    s2 = sorted(s2.lower()) \n    return s1 == s2"
 },
 {
     "instruction": "解释什么是神经网络",
@@ -2416,8 +2416,8 @@
 },
 {
     "instruction": "设计一个函数来计算字符串中唯一字符的数量。",
-    "input": "字符串 = “蝴蝶”",
-    "output": "def count_unique_chars（字符串）：\n  字符字典 = {}\n  对于字符串中的字符：\n    如果 char_dict 中有 char：\n      字符字典[字符] += 1\n    别的：\n      字符字典[字符] = 1\n  返回 len(char_dict)\n\n打印（count_unique_chars（“蝴蝶”））\n# 输出：9"
+    "input": "string = \u201cButterflies\u201d",
+    "output": "def count_unique_chars(string):\n  char_dict = {}\n  for char in string:\n    if char in char_dict:\n      char_dict[char] += 1\n    else:\n      char_dict[char] = 1\n  return len(char_dict)\n\nprint(count_unique_chars(\"Butterflies\"))\n# Output: 9"
 },
 {
     "instruction": "为 Mac 推荐一个好的屏幕捕获工具。",
@@ -2432,7 +2432,7 @@
 {
     "instruction": "编写一个 Python 函数，它接受两个整数并返回它们的最小公倍数。",
     "input": "",
-    "output": "def lcm（a，b）：\n  如果 a &gt; b:\n    更大=一个\n  别的：\n    更大 = b\n  同时（真）：\n    如果（（更大的 % a == 0）和（更大的 % b == 0））：\n      lcm = 更大\n      休息\n    更大 += 1\n  返回 lcm\n\n打印（lcm（15、18））\n# 输出：90"
+    "output": "def lcm(a, b):\n  if a > b:\n    greater = a\n  else:\n    greater = b\n  while(True):\n    if((greater % a == 0) and (greater % b == 0)):\n      lcm = greater\n      break\n    greater += 1\n  return lcm\n\nprint(lcm(15, 18))\n# Output: 90"
 },
 {
     "instruction": "用主动语态重写以下段落",
@@ -2556,8 +2556,8 @@
 },
 {
     "instruction": "使用提供的信息，构建 SQL 查询以提取价值最高的前 10 个订单。",
-    "input": "表名：订单\n列：ID（主键）、值、customer_id、日期",
-    "output": "选择前 10 名 *\n来自订单\nORDER BY 值降序；"
+    "input": "Table Name: Orders\nColumns: ID (primary key), value, customer_id, date",
+    "output": "SELECT TOP 10 *\nFROM Orders\nORDER BY value DESC;"
 },
 {
     "instruction": "使用给定的数据创建列表。",
@@ -2687,7 +2687,7 @@
 {
     "instruction": "编辑以下句子以消除任何语法错误： They tried to fix the car all day.",
     "input": "",
-    "output": "他们整天都想修车。"
+    "output": "They tried to fix the car all day."
 },
 {
     "instruction": "比较和对比这两款软件，Microsoft Word 和 Google Docs。",
@@ -3050,9 +3050,9 @@
     "output": "闲暇"
 },
 {
-    "instruction": "为以下问题设计一个合适的查询",
+    "instruction": "为以下问题设计一个合适的SQL查询",
     "input": "网站主页中最重要的五个元素是什么？",
-    "output": "从主页中选择前 5 个元素，按重要性排序；"
+    "output": "SELECT TOP 5 Elements FROM Homepages ORDER BY importance DESC;"
 },
 {
     "instruction": "生成正确的公式来计算三角形的表面积",
@@ -3407,7 +3407,7 @@
 {
     "instruction": "写一个将华氏温度转换为摄氏温度的函数",
     "input": "",
-    "output": "定义 F2C(F):\n    C = (F-32)*(5/9)\n    返回 C"
+    "output": "def F2C(F):\n    C = (F-32)*(5/9)\n    return C"
 },
 {
     "instruction": "从给定的 3 个边计算三角形的面积",
@@ -3642,7 +3642,7 @@
 {
     "instruction": "生成用于对数组进行排序的伪代码。",
     "input": "",
-    "output": "A。将指向数组中第一个元素的指针设置为低\nb.将指针设置为高指向数组中的最后一个元素\nC。而低指针小于高指针\nd.如果低指针处的元素高于高指针处的元素\n  我。交换元素\n  二.低指针加 1\n  三.高指针减1\ne.重复步骤c，直到低指针等于或高于高指针\nF。使用相同的过程对两个指针之间的子数组中的元素进行排序\nG。重复直到子数组完全排序"
+    "output": "a.将指向数组中第一个元素的指针设置为低\nb.将指针设置为高指向数组中的最后一个元素\nc.而低指针小于高指针\nd.如果低指针处的元素高于高指针处的元素\n  i. 交换元素\n  ii.低指针加1\n  iii.高指针减1\ne.重复步骤c，直到低指针等于或高于高指针\nf. 使用相同的过程对两个指针之间的子数组中的元素进行排序\ng. 重复直到子数组完全排序"
 },
 {
     "instruction": "请助理订了6月9日从波士顿飞往迈阿密的机票。",
@@ -3677,7 +3677,7 @@
 {
     "instruction": "给我一个 CSS 代码，使字体大小为 20px。",
     "input": "",
-    "output": "字体大小：20px；"
+    "output": "font-size: 20px;"
 },
 {
     "instruction": "从这篇 1000 字的文章中删除不属于的段落。",
@@ -4415,7 +4415,7 @@
     "output": "IBM 现任 CEO 是 Arvind Krishna。"
 },
 {
-    "instruction": "对以下代码片段进行逆向工程，并用 4 句话解释发生了什么。\n\n变量 x = 3\n变量 y = x + 4",
+    "instruction": "对以下代码片段进行逆向工程，并用 4 句话解释发生了什么。\n\nvar x = 3\nvar y = x + 4",
     "input": "",
     "output": "此代码片段创建两个变量 - x 和 y。给变量x赋值3，然后x的值加上4赋值给变量y。因此，y 的值为 7。此代码将值 3 赋给 x，然后将 x 的值加上 4，并将该结果赋给 y。"
 },
@@ -4647,7 +4647,7 @@
 {
     "instruction": "构造一个 SQL 查询，该查询将从名为“Customers”的表中检索前 5 条记录。",
     "input": "",
-    "output": "从客户中选择 *\n按编号订购\n限制 5；"
+    "output": "SELECT * FROM Customers \nORDER BY id\nLIMIT 5;"
 },
 {
     "instruction": "推荐适合工作的健康零食。",
@@ -5327,7 +5327,7 @@
 {
     "instruction": "编写一个函数，它接受一个数字列表并以相反的顺序返回一个数字列表。",
     "input": "",
-    "output": "&quot;&quot;&quot;\n反转数字列表的函数\n&quot;&quot;&quot;\n\ndef reverse_list（输入列表）：\n    reverse_list = input_list.copy()\n    reverse_list.reverse()\n    返回反向列表\n\n如果 __name__ == &#39;__main__&#39;:\n    l = [1, 2, 3, 4, 5]\n    打印（反向列表（l））\n    # 输出：[5, 4, 3, 2, 1]"
+    "output": "\"\"\"\n反转数字列表\n\"\"\"\n\ndef reverse_list(input_list):\n    reverse_list = input_list.copy()\n    reverse_list.reverse()\n    return reverse_list\n\nif __name__ == '__main__':\n    l = [1, 2, 3, 4, 5]\n    print(reverse_list(l))\n    # Output: [5, 4, 3, 2, 1]"
 },
 {
     "instruction": "将以下文本分类为“主观”或“客观”",
@@ -5347,7 +5347,7 @@
 {
     "instruction": "编写一个 JavaScript 函数，它接受一个字符串并返回一个对象，该对象以字符串的每个字符作为键，该字符在字符串中出现的次数作为值。",
     "input": "",
-    "output": "&quot;&quot;&quot;\n计算字符串中字符出现频率的函数\n&quot;&quot;&quot;\n\n函数计数字符频率（字符串）{\n    让 freqObj = {};\n    for (let c of string) {\n        如果 (freqObj[c]) {\n            频率对象[c]++；\n        } 别的 {\n            频率对象 [c] = 1;\n        }\n    }\n    返回频率对象；\n}\n\n如果 __name__ == &#39;__main__&#39;:\n    str = &quot;你好世界&quot;;\n    console.log(countCharacterFrequency(str));\n    // 输出：{ h: 1, e: 1, l: 3, o: 2, w: 1, r: 1, d: 1 }"
+    "output": "\"\"\"\nFunction to count character frequency in a string\n\"\"\"\n\nfunction countCharacterFrequency(string) {\n    let freqObj = {};\n    for (let c of string) {\n        if (freqObj[c]) {\n            freqObj[c]++;\n        } else {\n            freqObj[c] = 1;\n        }\n    }\n    return freqObj;\n}\n\nif __name__ == '__main__':\n    str = \"hello world\";\n    console.log(countCharacterFrequency(str)); \n    // Output: { h: 1, e: 1, l: 3, o: 2, w: 1, r: 1, d: 1 }"
 },
 {
     "instruction": "写一个包含双曲线隐喻的句子。",
@@ -5372,7 +5372,7 @@
 {
     "instruction": "编写一个 python 脚本将温度从摄氏度转换为华氏度。",
     "input": "",
-    "output": "&quot;&quot;&quot;\n将摄氏度转换为华氏度的脚本\n&quot;&quot;&quot;\n\ndef celsius_to_fahrenheit（摄氏度）：\n    返回摄氏度 * 9/5 + 32\n\n如果 __name__ == &#39;__main__&#39;:\n    摄氏度 = 37\n    打印（celsius_to_fahrenheit（摄氏度））\n    # 输出：98.6"
+    "output": "\"\"\"\nScript to convert Celsius to Fahrenheit\n\"\"\"\n\ndef celsius_to_fahrenheit(celsius):\n    return celsius * 9/5 + 32\n\nif __name__ == '__main__':\n    celsius = 37\n    print(celsius_to_fahrenheit(celsius))\n    # Output: 98.6"
 },
 {
     "instruction": "用同音字造三个例句。",
@@ -6127,7 +6127,7 @@
 {
     "instruction": "创建一个脚本来生成一个随机数数组。",
     "input": "",
-    "output": "随机导入\ndef random_array(n):\n    arr = []\n    对于范围内的我（n）：\n        arr.append(random.randint(0, 100))\n    返回 arr"
+    "output": "import random\ndef random_array(n):\n    arr = []\n    for i in range(n):\n        arr.append(random.randint(0, 100))\n    return arr"
 },
 {
     "instruction": "举出五个极端天气情况的例子。",
@@ -6496,8 +6496,8 @@
 },
 {
     "instruction": "编译 Python 程序。",
-    "input": "# 主.py\n\n定义你好（）：\n    打印（&#39;你好世界！&#39;）\n\n如果 __name__ == &#39;__main__&#39;:\n    你好（）",
-    "output": "&lt;nooutput&gt;（这条指令的输出是编译后的Python程序）"
+    "input": "# main.py\n\ndef hello():\n    print('Hello World!')\n\nif __name__ == '__main__':\n    hello()",
+    "output": "<nooutput> (The output of this instruction is the compiled Python program)"
 },
 {
     "instruction": "找到世界上最高峰。",
@@ -6877,7 +6877,7 @@
 {
     "instruction": "编写一个函数来确定两个字符串是否是彼此的变位词。",
     "input": "",
-    "output": "def isAnagram(string1, string2):\n  \n    # 确保两个字符串的长度相同\n    如果 len(string1) != len(string2):\n        返回假\n  \n    # 用于存储 string1 中字符出现频率的字典\n    计数 = [0] * 26\n  \n    # 对于 string1 中的每个字符增加其频率\n    对于范围内的我（len（string1））：\n        计数[ord(string1[i]) - ord(&#39;a&#39;)] += 1\n  \n    # 对 string2 中的每个字符递减其频率\n    对于范围内的我（len（string2））：\n        计数[ord(string2[i]) - ord(&#39;a&#39;)] -= 1\n  \n    # 如果任何频率达到负值，\n    # 那么字符串不能是变位词\n    对于我在范围内（len（计数））：\n        如果计数 [i] &lt; 0:\n            返回假\n  \n    # 如果所有频率都为零，string1 和 string2\n    # 是彼此的字谜\n    返回真"
+    "output": "def isAnagram(string1, string2): \n  \n    # Make sure both strings are of the same length \n    if len(string1) != len(string2): \n        return False\n  \n    # Dictionary to store frequency of characters in string1 \n    count = [0] * 26\n  \n    # For each character in string1 increment its frequency \n    for i in range(len(string1)): \n        count[ord(string1[i]) - ord('a')] += 1\n  \n    # For each character in string2 decrement its frequency \n    for i in range(len(string2)): \n        count[ord(string2[i]) - ord('a')] -= 1\n  \n    # If any frequency reaches a negative value, \n    # then strings can't be anagrams \n    for i in range(len(count)): \n        if count[i] < 0: \n            return False\n  \n    # If all frequencies are zero, string1 and string2 \n    # are anagrams of each other \n    return True"
 },
 {
     "instruction": "微分给定的功能。",
@@ -6916,8 +6916,8 @@
 },
 {
     "instruction": "创建一个 Spark SQL 查询来过滤下表中的数据。",
-    "input": "表：员工\n列：Employee_number、Employee_name、Department、Average_rating\n\n过滤器：部门 = &#39;HR&#39;",
-    "output": "选择 Employee_number, Employee_name, department, Average_rating\n来自员工\nWHERE 部门 = &#39;HR&#39;;"
+    "input": "Table: Employee\nColumns: Employee_number, Employee_name, Department,  Average_rating\n\nFilter: Department = 'HR'",
+    "output": "SELECT Employee_number, Employee_name, department, Average_rating \nFROM Employee \nWHERE Department = 'HR';"
 },
 {
     "instruction": "计算给定列表的平均温度。",
@@ -7011,13 +7011,13 @@
 },
 {
     "instruction": "写出函数“sum_numbers”的定义",
-    "input": "&lt;无输入&gt;",
-    "output": "def sum_numbers(x, y):\n    &quot;&quot;&quot;\n    返回两个数字的总和。\n    \n    参数\n    ----------\n    x：整数\n        第一个数字\n    是：整数\n        第二个号码\n\n    退货\n    ------\n    整数\n        两个数字的总和\n    &quot;&quot;&quot;\n    返回 x + y"
+    "input": "",
+    "output": "def sum_numbers(x, y):\n    \"\"\"\n    Returns the sum of two numbers.\n    \n    Parameters\n    ----------\n    x : int\n        The first number\n    y : int\n        The second number\n\n    Returns\n    -------\n    int\n        The sum of the two numbers\n    \"\"\"\n    return x + y"
 },
 {
     "instruction": "使用新地址和电话号码更新联系人列表",
-    "input": "约翰·史密斯：\n地址：123 大街\n电话号码：(123) 456-7890\n新地址：456 Park Street\n新电话号码：(234) 567-8901",
-    "output": "约翰·史密斯：\n地址：公园街456号\n电话号码：(234) 567-8901"
+    "input": "John Smith:\nAddress: 123 Main Street\nPhone number: (123) 456-7890\nNew Address: 456 Park Street\nNew Phone Number: (234) 567-8901",
+    "output": "John Smith:\nAddress: 456 Park Street\nPhone Number: (234) 567-8901"
 },
 {
     "instruction": "提供3个双曲线的例子",
@@ -7400,9 +7400,9 @@
     "output": "区块链分类账是一个不断增长的记录列表，称为块，由密码学保护。每个块都包含前一个块的加密哈希、时间戳和交易数据。存储在区块链分类账上的数据不可修改，使其成为一个安全可靠的系统。这些数据还可以用于形成永久的活动记录，例如支付、交易，以及最终的合同。"
 },
 {
-    "instruction": "在 Python 中创建一个 for 循环以打印从 1 到 10 的数字。",
+    "instruction": "Create a for loop in Python to print numbers from 1 to 10.",
     "input": "",
-    "output": "对于我在范围内（1,11）：\n    打印(i)"
+    "output": "for i in range(1,11):\n    print(i)"
 },
 {
     "instruction": "确定故事的主题。",
@@ -7551,8 +7551,8 @@
 },
 {
     "instruction": "给定对话，确定用户是否感到困惑。",
-    "input": "- 代理：您可以使用此代码兑换门票\n- 顾客：什么代码？",
-    "output": "使困惑"
+    "input": "- 门票代理：您可以使用此代码兑换门票\n- 顾客：什么代码？",
+    "output": "是的"
 },
 {
     "instruction": "写出两种产品之间的比较。",
@@ -7821,7 +7821,7 @@
 },
 {
     "instruction": "预测以下程序的输出。",
-    "input": "一 = 10\nb = 5\nc = a + b\n打印(c)",
+    "input": "a = 10\nb = 5\nc = a + b\nprint(c)",
     "output": "该程序的输出将为 15。"
 },
 {
@@ -8001,7 +8001,7 @@
 },
 {
     "instruction": "确定以下代码片段中的主要缺陷。",
-    "input": "def add_numbers(x,y):\n    返回 x+y\n\n添加_数字（2）",
+    "input": "def add_numbers(x,y):\n    return x+y\n\nadd_numbers(2)",
     "output": "代码片段中的主要缺陷是函数 add_numbers 需要两个参数，但在调用该函数时只提供了一个参数。这将导致运行时错误。"
 },
 {
@@ -8042,7 +8042,7 @@
 {
     "instruction": "编写 CSS 代码来自定义页眉的字体大小。",
     "input": "页眉是“.header”。",
-    "output": ".header {\n    字体大小：18px；\n}"
+    "output": ".header {\n    font-size: 18px;\n}"
 },
 {
     "instruction": "解释多标签分类的概念。",
@@ -8067,7 +8067,7 @@
 {
     "instruction": "编写一个算法来实现二叉搜索树。",
     "input": "",
-    "output": "def 插入（节点，数据）：\n    # 如果树为空，返回一个新节点\n    如果节点为无：\n        返回节点（数据）\n  \n    # 否则向树下递归\n    如果数据 &lt; 节点数据：\n        node.left = insert(node.left, 数据)\n    别的：\n        node.right = insert(node.right, 数据)\n  \n    # 返回（未改变的）节点指针\n    返回节点\n  \n# 搜索给定数据的函数\n定义搜索（节点，数据）：\n      \n    # 基本情况：如果 root 是 None 或者 key 存在于 root\n    如果节点是 None 或 node.data == data:\n        返回节点\n  \n    # 密钥大于root的密钥\n    如果 node.data &lt; 数据：\n        返回搜索（node.right，数据）\n  \n    # 密钥小于根的密钥\n    返回搜索（node.left，数据）"
+    "output": "def insert(node, data): \n    # If the tree is empty, return a new node \n    if node is None: \n        return Node(data) \n  \n    # Otherwise, recur down the tree\n    if data < node.data: \n        node.left = insert(node.left, data) \n    else: \n        node.right = insert(node.right, data) \n  \n    # return the (unchanged) node pointer \n    return node \n  \n# Function to search a given data \ndef search(node, data): \n      \n    # Base Case: if root is None or key is present at root \n    if node is None or node.data == data: \n        return node \n  \n    # Key is greater than root's key \n    if node.data < data: \n        return search(node.right, data) \n  \n    # Key is smaller than root's key \n    return search(node.left, data)"
 },
 {
     "instruction": "分析以下新闻文章并提供一个简短的摘要。",
@@ -8281,8 +8281,8 @@
 },
 {
     "instruction": "找出以下代码中的错误并修复它们。",
-    "input": "如果（x &gt; y）{\n如果（x == y）\n  y = 0；\n别的\n  x = 0;\n}",
-    "output": "如果（x &gt; y）{\n如果（x == y）{\n  y = 0；\n} 别的 {\n  x = 0;\n}\n}"
+    "input": "if (x > y) {\nif (x == y)\n  y = 0;\nelse\n  x = 0;\n}",
+    "output": "if (x > y) {\nif (x == y) {\n  y = 0;\n} else {\n  x = 0;\n}\n}"
 },
 {
     "instruction": "分析下面的诗并描述每一行如何营造不同的情绪。",
@@ -8302,7 +8302,7 @@
 {
     "instruction": "创建一个程序，按升序对数字列表进行排序。",
     "input": "[7, 3, 5, 10, 1]",
-    "output": "def sort_ascending(lst):\n    对于范围内的我（len（lst））：\n        对于范围内的 j（i+1，len（lst））：\n            如果 lst[i] &gt; lst[j]:\n                lst[i]、lst[j] = lst[j]、lst[i]\n    返回列表\n\nsort_ascending([7, 3, 5, 10, 1]) # 返回 [1, 3, 5, 7, 10]"
+    "output": "def sort_ascending(lst):\n    for i in range(len(lst)):\n        for j in range(i+1, len(lst)):\n            if lst[i] > lst[j]:\n                lst[i], lst[j] = lst[j], lst[i]\n    return lst\n\nsort_ascending([7, 3, 5, 10, 1])  # returns [1, 3, 5, 7, 10]"
 },
 {
     "instruction": "识别并解释现代操作系统的组件。",
@@ -9072,12 +9072,12 @@
 {
     "instruction": "说出 Roth 401(k) 计划的主要好处。",
     "input": "",
-    "output": "罗斯 401(k) 计划的主要好处是，它使您能够用已经征税的钱为退休储蓄，而且退休时的提款也是免税的。"
+    "output": "Roth 401(k) 计划的主要好处是，它使您能够用已经征税的钱为退休储蓄，而且退休时的提款也是免税的。"
 },
 {
     "instruction": "在 SQL 中制定查询以检索数据库中所有作者的姓名。",
     "input": "",
-    "output": "从作者中选择姓名；"
+    "output": "SELECT name FROM authors;"
 },
 {
     "instruction": "辩论“公立学校应从政府获得更多资助”的说法。",
@@ -9377,7 +9377,7 @@
 {
     "instruction": "创建一个程序来检查字符串的括号是否平衡。",
     "input": "",
-    "output": "def balanced_pa​​renthesis（字符串）：\n    堆栈 = []\n    对于我在字符串中：\n        如果我==&#39;（&#39;：\n            堆栈.append(i)\n        elif 我 == &#39;)&#39;:\n            如果 len(堆栈) == 0:\n                返回假\n            别的：\n                堆栈.pop()\n    如果 len(堆栈) == 0:\n        返回真\n    别的：\n        返回假"
+    "output": "def balanced_parenthesis(string):\n    stack = []\n    for i in string:\n        if i=='(':\n            stack.append(i)\n        elif i == ')':\n            if len(stack) == 0:\n                return False\n            else:\n                stack.pop()\n    if len(stack) == 0:\n        return True\n    else:\n        return False"
 },
 {
     "instruction": "为刚去世的狗的家庭写一张慰问卡",
@@ -9747,7 +9747,7 @@
 {
     "instruction": "创建一个函数来检查给定年份是否为闰年。",
     "input": "",
-    "output": "def is_leap_year（年）：\n    如果（年 % 4 == 0 和年 % 100 ！= 0）或（年 % 400 == 0）：\n        返回真\n    别的：\n        返回假"
+    "output": "def is_leap_year(year): \n    if (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0): \n        return True \n    else: \n        return False"
 },
 {
     "instruction": "根据人均 GDP 对以下国家/地区进行排名。",
@@ -10247,7 +10247,7 @@
 {
     "instruction": "编写一个函数来检查一个整数是否为质数。",
     "input": "",
-    "output": "def is_prime(n):\n    如果 n &lt;= 1：\n        返回假\n    对于范围内的我（2，n）：\n        如果 n % i == 0:\n            返回假\n    返回真"
+    "output": "def is_prime(n):\n    if n <= 1:\n        return False\n    for i in range(2, n):\n        if n % i == 0:\n            return False\n    return True"
 },
 {
     "instruction": "为什么 Python 是数据科学的好语言？",
@@ -10622,17 +10622,17 @@
 {
     "instruction": "提供使所有文本框在页面上可见的 CSS 代码。",
     "input": "",
-    "output": "使所有文本框在页面上可见的 CSS 代码是：\n\n`input[type=&quot;text&quot;] { 显示：块； }`"
+    "output": "使所有文本框在页面上可见的 CSS 代码是：\n\n`input[type=\"text\"] { display: block; }`"
 },
 {
     "instruction": "创建一个 SQL 查询以显示在特定部门工作的所有员工的姓名。",
     "input": "部门编号：21",
-    "output": "从员工中选择姓名\n其中 department_id = 21；"
+    "output": "SELECT name FROM Employees\nWHERE department_id = 21;"
 },
 {
     "instruction": "编写 JavaScript 代码以在按下“提交”按钮时显示警告消息。",
     "input": "",
-    "output": "按下“提交”按钮时显示警告消息的 JavaScript 代码是：\n\n`document.getElementById(&quot;提交&quot;).addEventListener(&quot;点击&quot;, function(){ alert(&quot;表单提交成功&quot;);});`"
+    "output": "按下“提交”按钮时显示警告消息的 JavaScript 代码是：\n\n`document.getElementById(\"提交\").addEventListener(\"click\", function(){ alert(\"表成功提交\");});`"
 },
 {
     "instruction": "法国国歌的名字是什么？",
@@ -11047,12 +11047,12 @@
 {
     "instruction": "构造一个 if-else 语句，如果 a 大于 b，则打印“Case1”，如果 a 小于 b，则打印“Case2”。",
     "input": "一 = 4\nb = 2",
-    "output": "如果 a &gt; b:\n  打印（“案例1”）\n别的：\n  打印（“案例2”）"
+    "output": "if a > b:\n  print(\"Case1\")\nelse:\n  print(\"Case2\")"
 },
 {
     "instruction": "给定一个数字列表，编写一个 Python 程序来查找列表中第二小的数字。",
     "input": "[114, 11, 90, 7, 34]",
-    "output": "def secondSmallest（列表）：\n  最小的 = 列表 [0]\n  secondSmallest = 列表[0]\n  对于列表中的 x：\n    如果 x &lt; 最小：\n        secondSmallest = 最小的\n        最小的 = x\n    elif x &lt; secondSmallest：\n        secondSmallest = x\n  返回第二小\n\nprint(secondSmallest([114, 11, 90, 7, 34]))\n\n# 输出：11"
+    "output": "def secondSmallest(list):\n  smallest = list[0]\n  secondSmallest = list[0]\n  for x in list:\n    if x < smallest:\n        secondSmallest = smallest\n        smallest = x\n    elif x < secondSmallest:\n        secondSmallest = x\n  return secondSmallest\n\nprint(secondSmallest([114, 11, 90, 7, 34]))\n\n# Output: 11"
 },
 {
     "instruction": "解释什么是 pin 码，并列出它的一些优点。",
@@ -11147,7 +11147,7 @@
 {
     "instruction": "编写一个 Python 函数来判断一个数是否为素数。",
     "input": "",
-    "output": "def is_prime(n):\n    如果 n &lt;= 1：\n        返回假\n    别的：\n        对于范围内的我（2，n）：\n            如果 n % i == 0:\n                返回假\n        返回真"
+    "output": "def is_prime(n):\n    if n <= 1:\n        return False\n    else:\n        for i in range(2,n):\n            if n % i == 0:\n                return False\n        return True"
 },
 {
     "instruction": "将此更改为过去时。",
@@ -11292,7 +11292,7 @@
 {
     "instruction": "编写查询以检索表中的所有客户",
     "input": "",
-    "output": "选择 *\n来自客户；"
+    "output": "SELECT * \nFROM customers;"
 },
 {
     "instruction": "列出量子计算的好处",
@@ -11302,7 +11302,7 @@
 {
     "instruction": "将以下句子分为两个可能的类别：正面或负面",
     "input": "我感到疲倦，没有力气。",
-    "output": "消极的"
+    "output": "负面"
 },
 {
     "instruction": "简述路由器和交换机的区别",
@@ -11432,7 +11432,7 @@
 {
     "instruction": "创建一个计算班级平均分的函数",
     "input": "",
-    "output": "def calculate_avg_marks（标记）：\n  # 计算平均分数\n  总分 = 0\n  对于 m 标记：\n    总分 += m\n  返回 totalMarks/len(marks)"
+    "output": "def calculate_avg_marks(marks):\n  # calculate the average marks\n  totalMarks = 0\n  for m in marks:\n    totalMarks += m\n  return totalMarks/len(marks)"
 },
 {
     "instruction": "列出人类的五项基本需求",
@@ -11697,7 +11697,7 @@
 {
     "instruction": "编写查询以从“用户”数据库表中选择所有用户的电子邮件。",
     "input": "",
-    "output": "从用户中选择电子邮件；"
+    "output": "SELECT email FROM Users;"
 },
 {
     "instruction": "生成一个关于青少年运动员的创意故事。",
@@ -11766,8 +11766,8 @@
 },
 {
     "instruction": "给你一个代码片段，你需要检测其中的错误。",
-    "input": "mystring = &quot;你好世界&quot;\nmystring.strip(&quot;H&quot;)",
-    "output": "此代码片段中的错误是字符串不是从 strip 函数的结果中分配的。这意味着“mystring”将保持为“Hello World”。正确的代码应该是 mystring = mystring.strip(&quot;H&quot;)。"
+    "input": "mystring = \"Hello World\" \nmystring.strip(\"H\")",
+    "output": "此代码片段中的错误是字符串不是从 strip 函数的结果中分配的。这意味着“mystring”将保持为“Hello World”。正确的代码应该是 mystring = mystring.strip(\"H\")."
 },
 {
     "instruction": "制定电子商务网站广告策略",
@@ -11827,7 +11827,7 @@
 {
     "instruction": "实现一个返回给定列表中最高值的函数",
     "input": "[4, 10, 20, 12]",
-    "output": "def 最大值（数组）：\n    最大值 = 0\n    对于数组中的我：\n        如果我 &gt; 最大值：\n            最大值 = i\n    返回最大值\n\nmaxVal = maxValue([4, 10, 20, 12])\n打印（最大值）"
+    "output": "def maxValue(array):\n    maxVal = 0\n    for i in array:\n        if i > maxVal:\n            maxVal = i \n    return maxVal \n\nmaxVal = maxValue([4, 10, 20, 12]) \nprint(maxVal)"
 },
 {
     "instruction": "使用以下成分生成新配方",
@@ -11847,7 +11847,7 @@
 {
     "instruction": "为包含从 1 到 10 的数字列表的数组编写代码",
     "input": "",
-    "output": "让数组 = [1,2,3,4,5,6,7,8,9,10];"
+    "output": "let array = [1,2,3,4,5,6,7,8,9,10];"
 },
 {
     "instruction": "查找用于制作时间表的免费在线工具",
@@ -12422,7 +12422,7 @@
 {
     "instruction": "构造一个 SQL 查询以按客户的名字和姓氏对客户进行排序。",
     "input": "",
-    "output": "SELECT * FROM customers ORDER BY 名字，姓氏"
+    "output": "SELECT * FROM customers ORDER BY 名字, 姓氏"
 },
 {
     "instruction": "创作一部关于枪支暴力的政治漫画。",
@@ -12597,12 +12597,12 @@
 {
     "instruction": "编译 5 个信誉良好的网站列表以学习编程。",
     "input": "",
-    "output": "- W3Schools\n- 乌迪米\n- Coursera\n- 代码学院\n- freeCodeCamp"
+    "output": "- W3Schools\n- Udemy\n- Coursera\n- Code Academy\n- freeCodeCamp"
 },
 {
     "instruction": "编写一个脚本，要求用户输入他们的名字。",
     "input": "",
-    "output": "name = input(&quot;你叫什么名字？&quot;)\nprint(&quot;你好 &quot; + 姓名 + &quot;，很高兴认识你！&quot;)"
+    "output": "name = input(\"你叫什么名字? \")\nprint(\"你好 \" + name + \",很高兴见到你!\")"
 },
 {
     "instruction": "将以下句子更改为主动语态： The presentation was given by our manager.",
@@ -13852,7 +13852,7 @@
 {
     "instruction": "编写一个函数，在给定边长的情况下计算三角形的面积。",
     "input": "",
-    "output": "&quot;&quot;&quot;\n给定边长计算三角形的面积\n&quot;&quot;&quot;\n\ndef triangle_area(a, b, c):\n    # 计算半周长\n    s = (a + b + c) / 2\n  \n    # 计算面积\n    面积 = (s*(s-a)*(s-b)*(s-c)) ** 0.5\n  \n    归还区\n\n如果 __name__ == &#39;__main__&#39;:\n    print(&quot;三角形的面积是&quot;,triangle_area(3,4,5))"
+    "output": "\"\"\"\n给定边长的情况下计算三角形的面积\n\"\"\"\n\ndef triangle_area(a, b, c): \n    # calculate the semi-perimeter \n    s = (a + b + c) / 2\n  \n    # calculate the area \n    area = (s*(s-a)*(s-b)*(s-c)) ** 0.5\n  \n    return area \n\nif __name__ == '__main__':\n    print(\"Area of triangle is\",triangle_area(3,4,5))"
 },
 {
     "instruction": "设计一个问题列表，让陌生人进行对话。",
@@ -13870,9 +13870,9 @@
     "output": "大 O 符号是一种数学符号，描述了算法相对于输入大小的限制。它衡量算法的时间复杂度，即执行它所花费的时间，以及空间复杂度，即所需的内存量。它通常用于比较不同的算法，以确定哪种算法在时间和空间方面更高效。"
 },
 {
-    "instruction": "创建一个函数来检查给定数字是否为阿姆斯壮数字。",
+    "instruction": "创建一个函数来检查给定数字是否为Armstrong数字。",
     "input": "",
-    "output": "&quot;&quot;&quot;\n检查给定数字是否为阿姆斯壮数字\n&quot;&quot;&quot;\n\ndef isArmstrongNumber(num):\n    #计算num的长度\n    n = len(str(num))\n  \n    # 初始化总和\n    总和 = 0\n  \n    # 求和的n次方\n    # 个人数字\n    温度=数字\n    当温度 &gt; 0 时：\n        数字 = 温度 % 10\n        总和 += 数字 ** n\n        温度 //= 10\n  \n    # 如果 num 等于总和则返回 True\n    # 其数字的 n 次方\n    如果 num == 总和：\n        返回真\n    别的：\n        返回假\n\n如果 __name__ == &#39;__main__&#39;:\n    打印（isArmstrongNumber（153））"
+    "output": "\"\"\"\n检查给定数字是否为Armstrong数字\n\"\"\"\n\ndef isArmstrongNumber(num): \n    # Calculate the length of num \n    n = len(str(num)) \n  \n    # Initialize sum \n    sum = 0\n  \n    # Find a sum of nth power of    \n    # individual digits\n    temp = num \n    while temp > 0: \n        digit = temp % 10\n        sum += digit ** n \n        temp //= 10\n  \n    # Return True if num is equal to the sum \n    # of nth power of its digits\n    if num == sum: \n        return True\n    else: \n        return False\n\nif __name__ == '__main__':\n    print(isArmstrongNumber(153))"
 },
 {
     "instruction": "用诗意的方式描写月亮。",
@@ -13902,12 +13902,12 @@
 {
     "instruction": "给定三个数，找出这三个数的最大公约数 (gcd)。",
     "input": "",
-    "output": "&quot;&quot;&quot;\n给定三个数，找出这三个数的最大公约数 (gcd)\n&quot;&quot;&quot;\n\n# 找出两个数的最大公约数（GCD）\ndef find_gcd(a, b):\n    当 b &gt; 0 时：\n        a, b = b, a % b\n  \n    返回一个\n\n# 给定三个数，找出这三个数的最大公约数（GCD）\ndef find_gcd_of_three_numbers(a, b, c):\n    gcd_a_b = find_gcd(a, b)\n    gcd_b_c = find_gcd(b, c)\n    gcd_a_c = find_gcd(a, c)\n  \n    gcd = find_gcd(gcd_a_b, gcd_b_c)\n    gcd = find_gcd(gcd, gcd_a_c)\n  \n    返回gcd\n\n如果 __name__ == &#39;__main__&#39;:\n    print(&quot;3个数的GCD为：&quot;, end=&quot;&quot;)\n    打印（find_gcd_of_three_numbers（18、24、30））"
+    "output": "\"\"\"\n给定三个数，找出这三个数的最大公约数 (gcd)\n\"\"\"\n\n\n# 找出两个数的最大公约数（GCD）\n\"\"\"\n\n# Find the greatest common divisor (GCD) of two numbers\ndef find_gcd(a, b): \n    while b > 0: \n        a, b = b, a % b \n  \n    return a \n\n# Given three numbers, find the greatest common divisor (GCD) of the three numbers\ndef find_gcd_of_three_numbers(a, b, c): \n    gcd_a_b = find_gcd(a, b) \n    gcd_b_c = find_gcd(b, c) \n    gcd_a_c = find_gcd(a, c) \n  \n    gcd = find_gcd(gcd_a_b, gcd_b_c) \n    gcd = find_gcd(gcd, gcd_a_c) \n  \n    return gcd  \n\nif __name__ == '__main__':\n    print(\"GCD of 3 numbers is: \", end=\"\") \n    print(find_gcd_of_three_numbers(18, 24, 30))"
 },
 {
     "instruction": "创建一个脚本来查找给定字符串中最长的回文",
     "input": "",
-    "output": "&quot;&quot;&quot;\n找出给定字符串中最长的回文\n&quot;&quot;&quot;\n\ndef find_longest_palindrome(s):\n# 初始化结果\n最大长度 = 1\n\n# 初始化开始和结束索引\n开始, 结束 = 0, 0\n\n# 遍历输入字符串\n对于我在范围内（1，len（s））：\n\n# 找到最长的偶数回文\n低，高 = i-1，我\n当 low &gt;= 0 且 high &lt; len(s) 且 s[low] == s[high] 时：\n如果高 - 低 + 1 &gt; max_length：\n开始=低\n结束=高\n最大长度 = 高 - 低 + 1\n低 -= 1\n高 += 1\n# 找到最长的奇数长度回文\n低, 高 = i-1, i+1\n当 low &gt;= 0 且 high &lt; len(s) 且 s[low] == s[high] 时：\n如果高 - 低 + 1 &gt; max_length：\n开始=低\n结束=高\n最大长度 = 高 - 低 + 1\n低 -= 1\n高 += 1\n\n# 返回结果\n返回 s[开始：结束+1]\n\n如果 __name__ == &#39;__main__&#39;:\ns = &quot;坏蛋&quot;\nprint(&quot;最长的回文是：&quot;, end=&quot;&quot;)\n打印（find_longest_palindrome（s））"
+    "output": "\"\"\"\nFind the longest palindrome in a given string\n\"\"\"\n\ndef find_longest_palindrome(s):\n\t# Initialize result \n\tmax_length = 1\t \n\t\n\t# Initialize start and end index\n\tstart, end = 0, 0\n\t\n\t# Iterate over the input string\n\tfor i in range(1, len(s)):\n\t\t\t\t\n\t\t# Find the longest even length palindrome\n\t\tlow, high = i-1, i \n\t\twhile low >= 0 and high < len(s) and s[low] == s[high]:\n\t\t\tif high - low + 1 > max_length:\n\t\t\t\tstart = low \n\t\t\t\tend = high \n\t\t\t\tmax_length = high - low + 1 \n\t\t\tlow -= 1\n\t\t\thigh += 1\n\t\t# Find the longest odd length palindrome\n\t\tlow, high = i-1, i+1 \n\t\twhile low >= 0 and high < len(s) and s[low] == s[high]: \n\t\t\tif high - low + 1 > max_length:\n\t\t\t\tstart = low \n\t\t\t\tend = high \n\t\t\t\tmax_length = high - low + 1 \n\t\t\tlow -= 1\n\t\t\thigh += 1\n\t\n\t# return result\n\treturn s[start:end+1]\n\t\nif __name__ == '__main__':\n\ts = \"babad\"\n\tprint(\"The longest palindrome is: \", end=\"\")\n\tprint(find_longest_palindrome(s))"
 },
 {
     "instruction": "总结以下诗歌的主要信息。",
@@ -13972,7 +13972,7 @@
 {
     "instruction": "编写代码来检测数组中的重复项。",
     "input": "[3, 2, 1, 2, 3, 4]",
-    "output": "&quot;&quot;&quot;\n# 查找列表中的重复元素\n\ndef find_duplicates（数据）：\n    看到=设置（）\n    重复 = []\n\n    对于数据中的元素：\n        如果看到元素：\n            duplicates.append（元素）\n        别的：\n            seen.add(元素)\n    \n    返回重复项\n\n如果 __name__ == &quot;__main__&quot;：\n    arr = [3, 2, 1, 2, 3, 4]\n    重复项 = find_duplicates(arr)\n    打印（重复）\n&quot;&quot;&quot;"
+    "output": "\"\"\"\n# Find duplicate elements in a list\n\ndef find_duplicates(data):\n    seen = set()\n    duplicates = []\n\n    for element in data:\n        if element in seen:\n            duplicates.append(element)\n        else:\n            seen.add(element)\n    \n    return duplicates\n\nif __name__ == \"__main__\":\n    arr = [3, 2, 1, 2, 3, 4]\n    duplicates = find_duplicates(arr)\n    print(duplicates)\n\"\"\""
 },
 {
     "instruction": "从不同的角度改写下面的诗。",
@@ -14196,8 +14196,8 @@
 },
 {
     "instruction": "创建一个程序来接受用户输入并判断输入是否为质数",
-    "input": "无输入",
-    "output": "def check_prime(num):\n  \n  # 检查负输入或零输入\n  如果数字 &lt;= 0：\n    返回假\n  \n  # 检查 1\n  如果数字 == 1：\n    返回假\n  \n  # 检查数字是否可以被 2 到 n-1 之间的任何数字整除\n  对于范围内的我（2，数字）：\n    如果 num % i == 0:\n      返回假\n  \n  # 如果没有除数，则该数为质数\n  返回真"
+    "input": "def check_prime(num):\n    for n in range(2, num):\n        if num % n == 0:\n            return False\n    return True",
+    "output": "def check_prime(num):\n    if num < 2:\n        return False\n\n    # check only odd numbers\n    if num % 2 == 0:\n        return False\n    \n    for n in range(3, int(num**0.5)+1, 2):\n        if num % n == 0:\n            return False\n    return True"
 },
 {
     "instruction": "给定一个句子，你应该提供它的同义词",
@@ -14317,7 +14317,7 @@
 {
     "instruction": "编写查询以查找给定月份内销售的产品数量。",
     "input": "",
-    "output": "从销售日期在“月开始”和“月结束”之间的产品中选择计数 (*)；"
+    "output": "SELECT COUNT(*) FROM Products WHERE DateSold BETWEEN 'MonthStart' AND 'MonthEnd';"
 },
 {
     "instruction": "推荐3本书，每个人都应该读一读。",
@@ -14832,7 +14832,7 @@
 {
     "instruction": "创建一个带有表格和两个按钮的标准 HTML 页面。",
     "input": "",
-    "output": "&lt;!DOCTYPE html&gt;\n&lt;html&gt;\n&lt;头&gt;\n    &lt;title&gt;表格示例&lt;/title&gt;\n&lt;/头&gt;\n&lt;正文&gt;\n    &lt;表&gt;\n        &lt;tr&gt;\n            &lt;th&gt;姓名&lt;/th&gt;\n            &lt;th&gt;年龄&lt;/th&gt;\n        &lt;/tr&gt;\n        &lt;tr&gt;\n            &lt;td&gt;詹姆斯&lt;/td&gt;\n            &lt;td&gt;24&lt;/td&gt;\n        &lt;/tr&gt;\n        &lt;tr&gt;\n            &lt;td&gt;约翰&lt;/td&gt;\n            &lt;td&gt;30&lt;/td&gt;\n        &lt;/tr&gt;\n    &lt;/表&gt;\n    &lt;button&gt;添加&lt;/button&gt;\n    &lt;button&gt;删除&lt;/button&gt;\n&lt;/body&gt;\n&lt;/html&gt;"
+    "output": "<!DOCTYPE html>\n<html>\n<head>\n    <title>Table Example</title>\n</head>\n<body>\n    <table>\n        <tr>\n            <th>Name</th>\n            <th>Age</th>\n        </tr>\n        <tr>\n            <td>James</td>\n            <td>24</td>\n        </tr>\n        <tr>\n            <td>John</td>\n            <td>30</td>\n        </tr>\n    </table>\n    <button>Add</button>\n    <button>Delete</button>\n</body>\n</html>"
 },
 {
     "instruction": "演示如何制作牛肉炒菜。",
@@ -14847,7 +14847,7 @@
 {
     "instruction": "用 JavaScript 编写一个函数，该函数将一个数字数组作为输入并找到数组中第二大的数字。",
     "input": "[11, 2, 31, 7, 15]",
-    "output": "函数 findSecondHighest(arr) {\n  让 highestNumber = 0;\n  让 secondHighestNumber = 0;\n  arr.forEach（数字=&gt; {\n    如果（数字 &gt; highestNumber）{\n      secondHighestNumber = highestNumber;\n      最高数 = 数；\n    } else if (number &gt; secondHighestNumber &amp;&amp; number != highestNumber) {\n      secondHighestNumber = 数字；\n    }\n  });\n  返回第二个最高数；\n}"
+    "output": "function findSecondHighest(arr) {\n  let highestNumber = 0;\n  let secondHighestNumber = 0;\n  arr.forEach(number => {\n    if (number > highestNumber) {\n      secondHighestNumber = highestNumber;\n      highestNumber = number;\n    } else if (number > secondHighestNumber && number != highestNumber) {\n      secondHighestNumber = number;\n    }\n  });\n  return secondHighestNumber;\n}"
 },
 {
     "instruction": "创建一个显示热门运动结果的移动应用程序",
@@ -14872,7 +14872,7 @@
 {
     "instruction": "创建一个 SQL 查询以检索“衬衫”类别中的所有产品。",
     "input": "",
-    "output": "SELECT * FROM products WHERE category = &#39;衬衫&#39;;"
+    "output": "SELECT * FROM products WHERE category = '衬衫';"
 },
 {
     "instruction": "制作美味又健康的冰沙食谱。",
@@ -15351,8 +15351,8 @@
 },
 {
     "instruction": "查找并修复以下代码中的错误。",
-    "input": "```蟒蛇\ndef myFunc(x):\n    如果（x == 0 {\n        返回 0\n    } 别的 {\n        返回 x * 2\n    }\n```",
-    "output": "```蟒蛇\ndef myFunc(x):\n    如果（x == 0）：\n        返回 0\n    别的：\n        返回 x * 2\n```"
+    "input": "```python\ndef myFunc(x):\n    if (x == 0 {\n        return 0\n    } else {\n        return x * 2\n    }\n```",
+    "output": "```python\ndef myFunc(x):\n    if (x == 0):\n        return 0\n    else:\n        return x * 2\n```"
 },
 {
     "instruction": "更改以下句子以使用正确的代词形式。",
@@ -15362,7 +15362,7 @@
 {
     "instruction": "创建一个 SQL 查询以显示名为“employees”的表中的所有字段。",
     "input": "",
-    "output": "从员工中选择 *；"
+    "output": "SELECT * FROM employees;"
 },
 {
     "instruction": "将下列句子转换成疑问句形式。",
@@ -15592,7 +15592,7 @@
 {
     "instruction": "编写一个函数来查找两个字符串的最长公共子串。",
     "input": "",
-    "output": "def longest_common_substring(s1, s2):\n    # 初始化字符串长度。\n    m = len(s1)\n    n = len(s2)\n  \n    # 初始化最长公共子串\n    结果=“”\n  \n    # 从两个字符串的长度开始\n    # 并设置两个索引\n    对于我在范围内（米）：\n        对于范围 (n) 中的 j：\n  \n            # 初始化计数器\n            计数 = 0\n  \n            # 寻找最长公共子串\n            while (i + count &lt; m and\n                   j + count &lt; n 和\n                   s1[i + 计数] == s2[j + 计数]):\n                计数+= 1\n  \n            # 更新最长公共子串\n            如果计数 &gt; len（结果）：\n                结果 = s1[i:i + 计数]\n    返回结果"
+    "output": "def longest_common_substring(s1, s2):\n    # Initialize the string lengths.\n    m = len(s1)\n    n = len(s2)\n  \n    # Initialize the longest common substring \n    result = \"\"\n  \n    # Start from the lengths of two strings  \n    # and set two indices\n    for i in range(m): \n        for j in range(n): \n  \n            # Initialize counter \n            count = 0\n  \n            # Find the longest common substring \n            while (i + count < m and \n                   j + count < n and \n                   s1[i + count] == s2[j + count]): \n                count+= 1\n  \n            # Updates the longest common substring \n            if count > len(result): \n                result = s1[i:i + count] \n    return result"
 },
 {
     "instruction": "日本是欧盟的一部分吗？",
@@ -15877,7 +15877,7 @@
 {
     "instruction": "构造一个 SQL 查询，它将输出所有 1990 年之前出生的人的姓名。",
     "input": "",
-    "output": "从出生年份 &lt; 1990 的人中选择姓名"
+    "output": "SELECT name FROM people WHERE birthyear < 1990"
 },
 {
     "instruction": "为产品集思广益三种新的营销策略。",
@@ -16012,7 +16012,7 @@
 {
     "instruction": "找到以下函数的一阶导数。",
     "input": "f(x) = x^2",
-    "output": "f&#39;(x) = 2x"
+    "output": "f'(x) = 2x"
 },
 {
     "instruction": "创建关于数字版权主题的 OpEd。",
@@ -16172,7 +16172,7 @@
 {
     "instruction": "创建一个返回两个数字之和的函数。",
     "input": "",
-    "output": "定义总和（a，b）：\n  返回 a + b"
+    "output": "def sum(a,b): \n  return a + b"
 },
 {
     "instruction": "编辑这三个句子。",
@@ -16221,8 +16221,8 @@
 },
 {
     "instruction": "生成一个 Python 脚本来解析给定的列表。",
-    "input": "列表 = [[5, 10], [2, 3, 4], [50]]",
-    "output": "def parse_list（lst）：\n    结果 = []\n    对于 lst 中的元素：\n        如果类型（元素）是列表：\n            结果.扩展（元素）\n        别的：\n            结果.追加（元素）\n    返回结果\n\n结果 = 解析列表（列表）\n打印（结果）"
+    "input": "list = [[5, 10], [2, 3, 4], [50]]",
+    "output": "def parse_list(lst): \n    result = [] \n    for element in lst: \n        if type(element) is list: \n            result.extend(element) \n        else: \n            result.append(element) \n    return result \n\nresult = parse_list(list) \nprint(result)"
 },
 {
     "instruction": "查找给定字符串中的单词总数。",
@@ -16302,7 +16302,7 @@
 {
     "instruction": "为给定的概念生成代码片段。",
     "input": "在控制台打印“Hello World”",
-    "output": "Console.WriteLine(&quot;Hello World!&quot;);"
+    "output": "Console.WriteLine(\"Hello World!\");"
 },
 {
     "instruction": "解释给定的两个相似词之间的区别。",
@@ -16511,8 +16511,8 @@
 },
 {
     "instruction": "如何提高以下代码的可读性？",
-    "input": "对于（让我= 0；我&lt;列表。长度；我++）\n{\n  名单[我] * = 2\n}",
-    "output": "对于（让 i = 0；i &lt; list.length；i++）{\n  列表[i] = 列表[i] * 2;\n}"
+    "input": "for(let i = 0; i < list.length; i++)\n{\n  list[i] *=2\n}",
+    "output": "for (let i = 0; i < list.length; i++) {\n  list[i] = list[i] * 2;\n}"
 },
 {
     "instruction": "生成一个表达乐观的句子。",
@@ -16896,7 +16896,7 @@
 },
 {
     "instruction": "给定程序的输出是什么？",
-    "input": "一 = 8\nb = 5\nc = a + b",
+    "input": "a = 8\nb = 5\nc = a + b",
     "output": "给定程序的输出是 13。"
 },
 {
@@ -17276,7 +17276,7 @@
 },
 {
     "instruction": "比较和对比两种给定的编程语言",
-    "input": "围棋和蟒蛇",
+    "input": "Go和Python",
     "output": "Go 和 Python 都是开源的跨平台编程语言。 Go 是一种静态类型的语言，而 Python 是动态类型的。 Go 被直接编译为机器代码，而 Python 被解释。 Go 旨在快速高效，而 Python 更注重可读性和易用性。 Go 具有更结构化的代码编写方法，而 Python 在编写代码方面提供了更多的自由。 Go 更适合创建大型应用程序，而 Python 更常用于创建小程序和脚本。"
 },
 {
@@ -17692,7 +17692,7 @@
 {
     "instruction": "从列表中选择一个随机元素 [apple, oranges, pears, strawberries]。",
     "input": "",
-    "output": "选择的随机元素是梨。"
+    "output": "选择的随机元素是pears。"
 },
 {
     "instruction": "产生一种在食谱中使用蜂蜜的创造性方法。",
@@ -17916,8 +17916,8 @@
 },
 {
     "instruction": "推荐优化以下代码以提高其效率的最佳方法。",
-    "input": "整数计数 = 0；\n\nfor(int i = 0; i &lt; array.length; i++){\n  如果（数组[i] == 0）{\n    计数++；\n  }\n}",
-    "output": "为了优化代码以提高效率，最好的方法是使用 Java 8 Stream API 的 Count() 方法，该方法使用内部迭代来计算某个元素在数组中出现的次数，传入 0 作为参数.然后可以将代码修改为以下内容以提高其效率：\n\nint count = (int)Arrays.stream(array).filter(i -&gt; i == 0).count();"
+    "input": "int count = 0;\n\nfor(int i = 0; i < array.length; i++){\n  if(array[i] == 0){\n    count++;\n  }\n}",
+    "output": "为了优化代码以提高效率，最好的方法是使用 Java 8 Stream API 的 Count() 方法，该方法使用内部迭代来计算某个元素在数组中出现的次数，传入 0 作为参数.然后可以将代码修改为以下内容以提高其效率：\n\nint count = (int)Arrays.stream(array).filter(i -> i == 0).count();"
 },
 {
     "instruction": "总结以下文章中讨论的要点。",
@@ -18197,7 +18197,7 @@
 {
     "instruction": "在 C++ 中创建一个函数来计算三角形的面积。",
     "input": "",
-    "output": "浮动三角形区域（浮动底，浮动高度）{\n    浮动区；\n    面积=（底*高）/2；\n    退货区；\n}"
+    "output": "float triangleArea(float base, float height) {\n    float area;\n    area = (base * height) / 2;\n    return area; \n}"
 },
 {
     "instruction": "比较和对比美国和中国的教育体系。",
@@ -18537,7 +18537,7 @@
 {
     "instruction": "为以下每种计算机语言分配一个等级：Python、Java、JavaScript、C++",
     "input": "",
-    "output": "1.蟒蛇\n2.Java\n3. JavaScript\n4.C++"
+    "output": "1.Python\n2.Java\n3. JavaScript\n4.C++"
 },
 {
     "instruction": "将“我早该这样做”这句话转换成表示遗憾的句子。",
@@ -18597,7 +18597,7 @@
 {
     "instruction": "选择单词“necessary”的正确拼写。",
     "input": "",
-    "output": "必要的"
+    "output": "Necessary"
 },
 {
     "instruction": "给定一段，列出所有名词。",
@@ -18807,7 +18807,7 @@
 {
     "instruction": "给定一个数据库表，生成 5 个有用的 SQL 查询",
     "input": "表架构：\n\n书籍（id、标题、作者、类型、价格）",
-    "output": "1. SELECT AVG(price) FROM 书籍；\n2. SELECT title, author FROM books WHERE genre=&#39;horror&#39;;\n3. SELECT COUNT(*) FROM books WHERE price&gt;20;\n4. SELECT * FROM books WHERE author=&#39;John Doe&#39;;\n5. SELECT title, price FROM books WHERE price&gt;15 ORDER BY price ASC;"
+    "output": "1. SELECT AVG(价格) FROM 书籍;\n2. SELECT 标题, 作者 FROM 书籍 WHERE 类型='恐怖';\n3. SELECT COUNT(*) FROM 书籍 WHERE 价格>20;\n4. SELECT * FROM 书籍 WHERE 作者='John Doe';\n5. SELECT 标题, 价格 FROM 书籍 WHERE 价格>15 ORDER BY 价格 ASC;"
 },
 {
     "instruction": "为虚拟助手创建一个任务，提醒您每周二给妈妈打电话",
@@ -18827,7 +18827,7 @@
 {
     "instruction": "给定一个数字数组，使用 Python 求出所有数字的总和",
     "input": "arr = [3, 6, 9, 12]",
-    "output": "总和 = 30"
+    "output": "sum = 30"
 },
 {
     "instruction": "生成生活小贴士",
@@ -18886,8 +18886,8 @@
 },
 {
     "instruction": "完成代码以产生预期的输出。",
-    "input": "def get_string（文本）：\n  单词 = text.split()\n  #你的代码在这里\n  返回字符串\n\n输入：“你好，你好吗？”\n\n预期输出：“Hello_there_how_are_you?”",
-    "output": "def get_string（文本）：\n  单词 = text.split()\n  string = &quot;_&quot;.join(单词)\n  返回字符串\n\n输入：“你好，你好吗？”\n\n预期输出：“Hello_there_how_are_you?”"
+    "input": "def get_string(text):\n  words = text.split()\n  #Your Code goes here\n  return string\n\nInput: \"Hello there how are you?\"\n\nExpected Output: \"Hello_there_how_are_you?\"",
+    "output": "def get_string(text):\n  words = text.split()\n  string = \"_\".join(words)\n  return string\n\nInput: \"Hello there how are you?\"\n\nExpected Output: \"Hello_there_how_are_you?\""
 },
 {
     "instruction": "选择文本中最能说明给定概念的句子。",
@@ -19007,12 +19007,12 @@
 {
     "instruction": "编写一个脚本来确定给定的数字是偶数还是奇数。",
     "input": "23",
-    "output": "如果（数字 % 2 == 0）{\n    System.out.println(&quot;数字是偶数&quot;);\n} 别的 {\n    System.out.println(&quot;数字是奇数&quot;);\n}"
+    "output": "if (number % 2 == 0) {\n    System.out.println(\"The number is even\");\n} else {\n    System.out.println(\"The number is odd\");\n}"
 },
 {
     "instruction": "编写一个函数来颠倒句子中单词的顺序。",
     "input": "",
-    "output": "def reverse_words（句子）：\n    单词 = sentence.split(&#39; &#39;)\n    reversed_words = 单词[::-1]\n    reversed_sentence = &#39; &#39;.join(reversed_words)\n    返回颠倒的句子"
+    "output": "def reverse_words(sentence): \n    words = sentence.split(' ') \n    reversed_words = words[::-1] \n    reversed_sentence = ' '.join(reversed_words) \n    return reversed_sentence"
 },
 {
     "instruction": "用一组不同但意思相同的词重写句子。",
@@ -19421,8 +19421,8 @@
 },
 {
     "instruction": "在 Python 中创建代码以添加两个 numpy 数组的元素。",
-    "input": "一 = [1, 2, 3]\nb = [4, 5, 6]",
-    "output": "将 numpy 导入为 np\na = np.array([1,2,3])\nb = np.array([4,5,6])\n\nc = a + b\n\n打印(c)\n\n＃ 输出\n数组([5, 7, 9])"
+    "input": "a = [1, 2, 3]\nb = [4, 5, 6]",
+    "output": "import numpy as np\na = np.array([1,2,3])\nb = np.array([4,5,6])\n\nc = a+b\n\nprint(c)\n\n# Output\narray([5, 7, 9])"
 },
 {
     "instruction": "找出该算法的时间复杂度。",
@@ -19952,7 +19952,7 @@
 {
     "instruction": "编写一个返回字符串的命令提示符程序。",
     "input": "",
-    "output": "启动蟒蛇\n\n打印（“你好，世界！”）"
+    "output": "start python\n\nprint(\"Hello, World!\")"
 },
 {
     "instruction": "确定给定区域中存在的三种自然元素。",
@@ -20041,8 +20041,8 @@
 },
 {
     "instruction": "写一个函数打印出句子中每个单词的第一个字母",
-    "input": "欢迎来到这个世界。",
-    "output": "def first_letter（句子）：\n   单词 = sentence.split(&quot; &quot;)\n   逐字逐句：\n      打印（字[0]，结束=“”）\n   打印（）\n\nfirst_letter(&quot;欢迎来到这个世界。&quot;)\n\n＃ 输出\nWttw。"
+    "input": "Welcome to the world.",
+    "output": "def first_letter(sentence):\n   words = sentence.split(\" \") \n   for word in words:\n      print(word[0], end=\"\")\n   print()\n\nfirst_letter(\"Welcome to the world.\")\n\n# Output\nWttw."
 },
 {
     "instruction": "为新业务集思广益。",
@@ -20052,12 +20052,12 @@
 {
     "instruction": "找出列表中的平均数。",
     "input": "[4, 3, 6, 10, 8]",
-    "output": "def avg_list(nums):\n   总计 = 0\n   对于 n in nums：\n      总计 += n\n   返回总数 / len(nums)\n\n打印（平均列表（[4、3、6、10、8]））\n\n＃ 输出\n6.4"
+    "output": "def avg_list(nums):\n   total = 0\n   for n in nums:\n      total += n\n   return total / len(nums)\n\nprint(avg_list([4, 3, 6, 10, 8]))\n\n# Output\n6.4"
 },
 {
     "instruction": "创建一个算法来检查数字是否为质数。",
     "input": "7",
-    "output": "def is_prime（数字）：\n   如果数字 &lt;= 1：\n      返回假\n   别的：\n      对于范围内的 n（2，数字）：\n         如果数字 % n == 0:\n            返回假\n   返回真\n\n打印（is_prime（7））\n\n＃ 输出\n真的"
+    "output": "def is_prime(number):\n   if number <= 1:\n      return False\n   else:\n      for n in range(2, number):\n         if number % n == 0:\n            return False\n   return True\n\nprint(is_prime(7))\n\n# Output\nTrue"
 },
 {
     "instruction": "在不改变句子结构的情况下，将下面句子中的“渲染”一词替换为另一个意思相同的词。",
@@ -20076,8 +20076,8 @@
 },
 {
     "instruction": "编写一个打印两个数字之和的 Python 程序。",
-    "input": "21 和 9",
-    "output": "一 = 21\nb = 9\n打印（a + b）\n# 输出：30"
+    "input": "21 and 9",
+    "output": "a = 21 \nb = 9 \nprint(a + b) \n# Output: 30"
 },
 {
     "instruction": "用一句话描述人工智能。",
@@ -20122,7 +20122,7 @@
 {
     "instruction": "创建查询以查找给定表中的最高价格。",
     "input": "",
-    "output": "从表名中选择最大值（价格）；"
+    "output": "SELECT MAX(price) FROM table_name;"
 },
 {
     "instruction": "给定一张照片，提供三个标签来描述它",
@@ -20202,7 +20202,7 @@
 {
     "instruction": "列出 5 种计算机编程语言",
     "input": "",
-    "output": "1.Java\n2.蟒蛇\n3.C#\n4.C++\n5. JavaScript"
+    "output": "1.Java\n2.Python\n3.C#\n4.C++\n5. JavaScript"
 },
 {
     "instruction": "解释量子计算的概念",
@@ -20316,7 +20316,7 @@
 },
 {
     "instruction": "选择完成句子的最佳单词。",
-    "input": "吉尔是如此____。",
+    "input": "吉尔真是____。",
     "output": "吉尔真是太棒了。"
 },
 {
@@ -20632,7 +20632,7 @@
 {
     "instruction": "构造一个 JavaScript 函数来计算两个数字的总和。",
     "input": "",
-    "output": "函数总和（x，y）{\n    返回 x + y；\n}"
+    "output": "function sum(x, y) {\n    return x + y;\n}"
 },
 {
     "instruction": "写一篇文章分析技术的社会影响。",
@@ -21292,7 +21292,7 @@
 {
     "instruction": "使用 Python 执行以下任务",
     "input": "创建一个程序来打印数字 1 到 10 的乘法表。",
-    "output": "对于 range(1, 11) 中的 x：\n    对于范围 (1, 11) 中的 y：\n        打印（x，&#39;*&#39;，y，&#39;=&#39;，x*y）\n    打印（）"
+    "output": "for x in range(1, 11): \n    for y in range(1, 11): \n        print(x, '*', y, '=', x*y) \n    print()"
 },
 {
     "instruction": "在下面的菜中再添加一种配料。",
@@ -21307,7 +21307,7 @@
 {
     "instruction": "使用编程语言解释尾递归的概念",
     "input": "",
-    "output": "尾递归是递归函数中使用的一种优化技术，它允许函数调用自身而无需存储程序的先前状态。这是通过用循环替换递归调用来完成的，从而消除了将先前状态存储在堆栈中的需要。作为示例，以下 Python 代码演示了一个尾递归函数，该函数查找前 n 个数字的总和：\n\ndef tail_recursive(n, 结果):\n    如果 n == 0：\n        返回结果\n    别的：\n        返回 tail_recursive(n - 1, n + 结果)\n\nsum = tail_recursive(5, 0)"
+    "output": "尾递归是递归函数中使用的一种优化技术，它允许函数调用自身而无需存储程序的先前状态。这是通过用循环替换递归调用来完成的，从而消除了将先前状态存储在堆栈中的需要。作为示例，以下 Python 代码演示了一个尾递归函数，该函数查找前 n 个数字的总和：\n\ndef tail_recursive(n, result):\n    if n == 0:\n        return result\n    else:\n        return tail_recursive(n - 1, n + result)\n\nsum = tail_recursive(5, 0)"
 },
 {
     "instruction": "生成 100 字的创意文本。",
@@ -21732,7 +21732,7 @@
 {
     "instruction": "使用 python 创建代码片段。",
     "input": "",
-    "output": "定义 print_hello_world():\n  打印（“你好世界！”）\n\n打印你好世界（）"
+    "output": "def print_hello_world():\n  print(\"Hello World!\")  \n\nprint_hello_world()"
 },
 {
     "instruction": "为什么急救箱很重要？",
@@ -21851,8 +21851,8 @@
 },
 {
     "instruction": "为 SQL 数据库编写查询。",
-    "input": "一个电影数据库，其中包含一张“电影”表和一张“演员”表。",
-    "output": "选择 movies.title, actors.name\n来自电影\nINNER JOIN actors ON movies.actor_id = actors.id;"
+    "input": "一个电影数据库，其中包含一张“movies”表和一张“actors”表。",
+    "output": "SELECT movies.title, actors.name\nFROM movies\nINNER JOIN actors ON movies.actor_id = actors.id;"
 },
 {
     "instruction": "计算这两个数字的总和。",
@@ -22367,7 +22367,7 @@
 {
     "instruction": "将以下语句转换为代码片段。",
     "input": "打印 1 和 2 的总和。",
-    "output": "控制台日志（1 + 2）；"
+    "output": "Console.log(1 + 2);"
 },
 {
     "instruction": "给定互联网域“https://abc.com”，为页面“about”生成一个完整的 URL。",
@@ -22472,7 +22472,7 @@
 {
     "instruction": "为以下逻辑生成正确的 C++ 程序。",
     "input": "给定一个正数 N，以相反的顺序打印从 1 到 N 的数字。",
-    "output": "#include&lt;iostream&gt;\n \n使用命名空间标准；\n \n主函数()\n{\n    诠释 n;\n    辛&gt;&gt; n;\n    for(int i=n;i&gt;=1;i--){\n        输出&lt;&lt;我&lt;&lt;“”；\n    }\n    返回 0；\n}"
+    "output": "#include<iostream>\n \nusing namespace std;\n \nint main()\n{\n    int n;\n    cin>>n;\n    for(int i=n;i>=1;i--){\n        cout << i << \" \";\n    }\n    return 0;\n}"
 },
 {
     "instruction": "“run”的过去式是什么？",
@@ -22546,8 +22546,8 @@
 },
 {
     "instruction": "将以下编程语言从最难学到最难学的顺序排列。",
-    "input": "爪哇\nPython\nC++",
-    "output": "编程语言的排名应该如下：\n1.C++\n2.Java\n3.蟒蛇"
+    "input": "Java\nPython\nC++",
+    "output": "编程语言的排名应该如下：\n1.C++\n2.Java\n3.Python"
 },
 {
     "instruction": "为客户满意度调查生成选项列表。",
@@ -22651,8 +22651,8 @@
 },
 {
     "instruction": "运行以下代码时禁止显示警告消息：",
-    "input": "print(&quot;警告：加载失败&quot;)",
-    "output": "导入警告\nwarnings.filterwarnings(&quot;忽略&quot;)"
+    "input": "print(\"Warning: Failed to load\")",
+    "output": "import warnings\nwarnings.filterwarnings(\"ignore\")"
 },
 {
     "instruction": "写一封感谢信给朋友。",
@@ -22952,12 +22952,12 @@
 {
     "instruction": "创建一个打印 Hello World 的函数",
     "input": "",
-    "output": "定义 print_hello_world():\n    打印（“你好世界”）"
+    "output": "def print_hello_world():\n    print(\"Hello World\")"
 },
 {
     "instruction": "创建一个对数组进行排序的程序",
     "input": "[4, 7, 1, 6, 3]",
-    "output": "def sort_array(arr):\n  arr.排序()\n  返回 arr\n  \n打印（排序数组（[4, 7, 1, 6, 3]））\n\n输出：[1, 3, 4, 6, 7]"
+    "output": "def sort_array(arr): \n  arr.sort() \n  return arr \n  \nprint(sort_array([4, 7, 1, 6, 3])) \n\nOutput: [1, 3, 4, 6, 7]"
 },
 {
     "instruction": "以下字符串是否是有效的电话号码？输出 1 表示有效，0 表示无效。",
@@ -23011,8 +23011,8 @@
 },
 {
     "instruction": "将动画添加到以下程序中。",
-    "input": "菜单 -\n1.添加\n2.减法\n3.退出",
-    "output": "菜单 -\n1. 添加&lt;span class=&quot;anim-grow&quot;&gt;[+] &lt;/span&gt;\n2.减去&lt;span class=&quot;anim-shrink&quot;&gt;[-] &lt;/span&gt;\n3.退出&lt;span class=&quot;anim-exit&quot;&gt;[X] &lt;/span&gt;"
+    "input": "菜单 -\n1.添加\n2.删除\n3.退出",
+    "output": "菜单 - \n1. Add  <span class=\"anim-grow\">[+] </span>\n2. 删除 <span class=\"anim-shrink\">[-] </span>\n3. 退出 <span class=\"anim-exit\">[X] </span>"
 },
 {
     "instruction": "将数据集中的每个员工分类为“高绩效”、“中等绩效”或“低绩效”。",
@@ -23707,7 +23707,7 @@
 {
     "instruction": "给定一个数字列表，编写代码来计算算术平均值。",
     "input": "[25, 20, 15, 8, 5]",
-    "output": "def calculate_mean（数字）：\n  总计 = 0\n  对于数字中的数字：\n    总数 += 数量\n  均值 = 总数 / len(个数)\n  回归均值\n\n计算均值（[25、20、15、8、5]）"
+    "output": "def calculate_mean(numbers):\n  total = 0\n  for number in numbers:\n    total += number\n  mean = total / len(numbers)\n  return mean\n\ncalculate_mean([25, 20, 15, 8, 5])"
 },
 {
     "instruction": "编辑以下句子，使其不包含任何错误。",
@@ -23717,7 +23717,7 @@
 {
     "instruction": "创建一个函数，它接受一个字符串和一个数字，并将给定的字符串反转指定的次数。",
     "input": "",
-    "output": "def reverse_string(string, num):\n  对于 _ 在范围内（数量）：\n    字符串 = 字符串[::-1]\n  返回字符串\n\nreverse_string(&quot;你好&quot;, 3)"
+    "output": "def reverse_string(string, num): \n  for _ in range(num):\n    string = string[::-1]\n  return string \n\nreverse_string(\"Hello\", 3)"
 },
 {
     "instruction": "5 岁以下儿童的主要死因是什么？",
@@ -23827,7 +23827,7 @@
 {
     "instruction": "编写查询以查找居住在加利福尼亚州的所有客户。",
     "input": "",
-    "output": "SELECT * FROM customers WHERE state = &#39;California&#39;;"
+    "output": "SELECT * FROM customers WHERE state = '加利福尼亚';"
 },
 {
     "instruction": "领导者和管理者的区别",
@@ -24187,7 +24187,7 @@
 {
     "instruction": "创建计算圆面积的计算机程序。",
     "input": "半径 = 5",
-    "output": "计算圆面积的程序：\n\nradius = input(&#39;圆的半径是多少？&#39;)\n面积 = 3.14 * 半径**2\nprint(&#39;圆的面积是：&#39;, area)"
+    "output": "A计算圆面积的程序:\n\nradius = input('What is the radius of the circle?')\narea = 3.14 * radius**2\nprint('The area of the circle is:', area)"
 },
 {
     "instruction": "描述社会主义国家的经济政策。",
@@ -24397,7 +24397,7 @@
 {
     "instruction": "生成代码以反转数组的顺序。",
     "input": "const arr = [3, 2, 1];",
-    "output": "const reverseArray = arr =&gt; arr.reverse();"
+    "output": "const reverseArray = arr => arr.reverse();"
 },
 {
     "instruction": "说出五种涉及物理的日常活动。",
@@ -24406,8 +24406,8 @@
 },
 {
     "instruction": "构建查询以查找特定日期范围内的所有客户。",
-    "input": "表：客户",
-    "output": "SELECT * FROM customers WHERE date BETWEEN &#39;&lt;start date&gt;&#39; AND &#39;&lt;end date&gt;&#39;"
+    "input": "Table: customers",
+    "output": "SELECT * FROM customers WHERE date BETWEEN '<start date>' AND '<end date>'"
 },
 {
     "instruction": "设计发展人工智能的战略。",
@@ -24417,7 +24417,7 @@
 {
     "instruction": "编写一个函数来计算含税产品的价格。",
     "input": "价格=100，税率=0.2",
-    "output": "const calculatePrice = (price, taxRate) =&gt; {\n   返回（价格*（1+税率））。toFixed（2）；\n}\n\n计算价格(100, 0.2) // 1"
+    "output": "const calculatePrice = (price, taxRate) => {\n   return (price * (1+taxRate)).toFixed(2);\n} \n\ncalculatePrice(100, 0.2) // 1"
 },
 {
     "instruction": "只用这两个词作曲",
@@ -24587,12 +24587,12 @@
 {
     "instruction": "在 Java 中如何生成 1 到 10 之间的随机数？",
     "input": "",
-    "output": "在 Java 中，您可以使用以下代码生成 1 到 10 之间的随机数：\n\n最大整数 = 10；\n最小值 = 1；\n整数范围 = 最大值 - 最小值 + 1；\n\nint randomNumber = (int) (Math.random() * range) + min;"
+    "output": "在 Java 中，您可以使用以下代码生成 1 到 10 之间的随机数： \n\nint max = 10;\nint min = 1;\nint range = max - min + 1;\n\nint randomNumber = (int) (Math.random() * range) + min;"
 },
 {
     "instruction": "在 Python 中创建一个程序来计算圆柱体的体积。",
     "input": "半径 = 5\n高度 = 8",
-    "output": "导入数学\n\ndef cylinder_volume（半径，高度）：\n  # 计算圆柱体的体积\n  base_area = math.pi * radius**2\n  体积 = 底面积 * 高度\n \n  # 打印结果\n  print(&quot;圆柱体的体积是&quot;, volume)\n \ncylinder_volume(5, 8)"
+    "output": "import math\n\ndef cylinder_volume(radius, height):\n  # Calculate the volume of a cylinder\n  base_area = math.pi * radius**2\n  volume = base_area * height\n \n  # Print the result\n  print(\"The volume of the cylinder is\", volume)\n \ncylinder_volume(5, 8)"
 },
 {
     "instruction": "什么样的植物喜欢沙质土壤？",
@@ -24602,7 +24602,7 @@
 {
     "instruction": "在 Python 中编写一个函数来比较两个字符串。",
     "input": "这两个字符串是“apple”和“orange”。",
-    "output": "def compare_strings(s1, s2):\n  # 比较两个字符串并返回一个布尔值\n  如果 s1 == s2：\n    返回真\n  别的：\n    返回假\n\n＃ 测试用例\nstring1 = &#39;苹果&#39;\nstring2 = &#39;橙色&#39;\n\n结果 = compare_strings(string1, string2)\n打印（结果）"
+    "output": "def compare_strings(s1, s2):\n  # Compare two strings and return a boolean value\n  if s1 == s2:\n    return True\n  else:\n    return False\n\n# Test case\nstring1 = 'apple'\nstring2 = 'orange'\n\nresult = compare_strings(string1, string2)\nprint(result)"
 },
 {
     "instruction": "什么是主要来源？",
@@ -25012,12 +25012,12 @@
 {
     "instruction": "为合并排序算法编写伪代码。",
     "input": "",
-    "output": "MergeSort(A, startIndex, endIndex):\n    // 如果数组中只有一个元素，则返回\n    如果 startIndex == endIndex：\n        返回\n\n    中间索引 = (startIndex + endIndex) / 2\n\n    // 对数组的左半部分进行排序\n    MergeSort(A, startIndex, middleIndex)\n\n    // 对数组的右半部分进行排序\n    MergeSort(A, middleIndex + 1, endIndex)\n\n    //合并两个排序好的数组\n    合并（A，开始索引，结束索引）\n\n合并（A，开始索引，结束索引）：\n    中间索引 = (startIndex + endIndex) / 2\n    leftIndex = startIndex\n    右索引 = 中索引 + 1\n\n    //临时数组来保存排序后的数组\n    临时数组[]\n\n    //遍历数组的两半\n    对于我在范围内（startIndex，endIndex + 1）：\n        // 如果左半边完成迭代，从右半边开始添加\n        如果 leftIndex &gt; middleIndex：\n            tempArray[i] = A[rightIndex]\n            右索引++\n\n        // 如果右半部分完成迭代，从左半部分开始添加\n        否则如果 rightIndex &gt; endIndex:\n            tempArray[i] = A[leftIndex]\n            左索引++\n\n        // 比较当前元素并添加较小的元素\n        否则如果 A[leftIndex] &lt; A[rightIndex]:\n            tempArray[i] = A[leftIndex]\n            左索引++\n        别的：\n            tempArray[i] = A[rightIndex]\n            右索引++\n\n    // 将 tempArray 复制回 A\n    对于我在范围内（startIndex，endIndex + 1）：\n        A[i] = 临时数组[i]"
+    "output": "MergeSort(A, startIndex, endIndex):\n    // If there is only one element in the array, return\n    if startIndex == endIndex:\n        return\n\n    middleIndex = (startIndex + endIndex) / 2\n\n    // Sort the left half of the array\n    MergeSort(A, startIndex, middleIndex)\n\n    // Sort the right half of the array\n    MergeSort(A, middleIndex + 1, endIndex)\n\n    // Merge the two sorted arrays\n    Merge(A, startIndex, endIndex)\n\nMerge(A, startIndex, endIndex):\n    middleIndex = (startIndex + endIndex) / 2\n    leftIndex = startIndex\n    rightIndex = middleIndex + 1\n\n    // Temporary array to hold the sorted array\n    tempArray[]\n\n    // Iterate through both halves of the array\n    for i in range(startIndex, endIndex+1):\n        // If left half is done iterating, add from right half\n        if leftIndex > middleIndex:\n            tempArray[i] = A[rightIndex]\n            rightIndex++\n\n        // If right half is done iterating, add from left half\n        else if rightIndex > endIndex:\n            tempArray[i] = A[leftIndex]\n            leftIndex++\n\n        // Compare current element and add the smaller element\n        else if A[leftIndex] < A[rightIndex]:\n            tempArray[i] = A[leftIndex]\n            leftIndex++\n        else:\n            tempArray[i] = A[rightIndex]\n            rightIndex++\n\n    // Copy the tempArray back to A\n    for i in range(startIndex, endIndex+1):\n        A[i] = tempArray[i]"
 },
 {
     "instruction": "提供证据解释为什么以下代码不正确。",
-    "input": "定义添加（a，b）：\n    返回 a + b",
-    "output": "上面的代码是不正确的，因为它不处理任何一个或两个参数都是“列表”类型的情况。它会抛出 TypeError，因为“+”运算符不能用于连接列表。要使其适用于任何类型的参数，应按如下方式修改代码：\n\n定义添加（a，b）：\n    如果 type(a) 是列表并且 type(b) 是列表：\n        返回 a + b\n    别的：\n        返回整数（a）+整数（b）"
+    "input": "def add(a, b):\n    return a + b",
+    "output": "上面的代码是不正确的，因为它不处理任何一个或两个参数都是“列表”类型的情况。它会抛出 TypeError，因为“+”运算符不能用于连接列表。要使其适用于任何类型的参数，应按如下方式修改代码：\n\n定义添加（a，b）：\n    如果 type(a) 是列表并且 type(b) 是列表：\n        return a + b\n    else:\n        return int(a) + int(b)"
 },
 {
     "instruction": "比较和对比面向对象编程和函数式编程。",
@@ -25176,8 +25176,8 @@
 },
 {
     "instruction": "修改给定的代码片段，使其打印“Hello World”。",
-    "input": "print(&#39;再见世界&#39;)",
-    "output": "打印（&#39;你好世界&#39;）"
+    "input": "print('Goodbye World')",
+    "output": "print('Hello World')"
 },
 {
     "instruction": "输入两组并确定它们是否不相交。",
@@ -25707,7 +25707,7 @@
 {
     "instruction": "创建一个函数，它接受两个参数并返回它们相乘的结果。",
     "input": "",
-    "output": "定义乘法（a，b）：\n    返回 a*b"
+    "output": "def multiply(a, b):\n    return a*b"
 },
 {
     "instruction": "英国的人均GDP是多少？",
@@ -26036,8 +26036,8 @@
 },
 {
     "instruction": "对以下代码进行逆向工程，使输出“奇数”。",
-    "input": "如果 (x % 2 == 0) {\n    打印（“偶数”）\n}",
-    "output": "如果 (x % 2 != 0) {\n    打印（“奇数”）\n}"
+    "input": "if (x % 2 == 0) {\n    print(\"even\")\n}",
+    "output": "if (x % 2 != 0) {\n    print(\"odd\")\n}"
 },
 {
     "instruction": "为以下问题提供三种可能的解决方案。",
@@ -26437,7 +26437,7 @@
 {
     "instruction": "创建一个接受数组并输出最大元素的程序",
     "input": "[1, 3, 15, 20, 8, 9]",
-    "output": "定义最大元素（arr）：\n    &quot;&quot;&quot;\n    获取一个元素数组并返回数组中最大的元素\n\n    参数：\n    arr（列表）：整数数组\n\n    退货：\n    largest (int): 数组中的最大元素\n    &quot;&quot;&quot;\n\n    # 将最大的初始化为数组中的第一个元素\n    最大的 = arr[0]\n\n    # 遍历数组中的其余元素\n    对于我在范围内（1，len（arr））：\n        # 如果元素较大则更新最大\n        如果 arr[i] &gt; 最大：\n            最大的 = arr[i]\n    # 返回最大的元素\n    回报最大"
+    "output": "def largest_element(arr):\n    \"\"\"\n    Takes an array of elements and returns the largest element in the array \n\n    Parameters:\n    arr (list): Array of integers \n\n    Returns:\n    largest (int): Largest element in array \n    \"\"\"\n\n    # Initialise largest as the first element in array\n    largest = arr[0]\n\n    # Iterate through rest of elements in array\n    for i in range(1, len(arr)):\n        # Update largest if element is larger\n        if arr[i] > largest:\n            largest = arr[i]\n    # Return the largest element\n    return largest"
 },
 {
     "instruction": "生成一个以短语开头的故事：“这是一年中最冷的夜晚”。",
@@ -27141,8 +27141,8 @@
 },
 {
     "instruction": "使用 HTML 和 JavaScript 构建计算器。",
-    "input": "无输入",
-    "output": "计算器的 HTML 代码如下所示：\n&lt;表格&gt;\n  &lt;input type=&quot;text&quot; id=&quot;calculator-screen&quot; 禁用&gt;\n&lt;/表格&gt;\n&lt;button type=&quot;button&quot; id=&quot;zero&quot; onclick=&quot;addNum(0)&quot;&gt;0&lt;/button&gt;\n&lt;button type=&quot;button&quot; id=&quot;one&quot; onclick=&quot;addNum(1)&quot;&gt;1&lt;/button&gt;\n&lt;button type=&quot;button&quot; id=&quot;two&quot; onclick=&quot;addNum(2)&quot;&gt;2&lt;/button&gt;\n&lt;button type=&quot;button&quot; id=&quot;three&quot; onclick=&quot;addNum(3)&quot;&gt;3&lt;/button&gt;\n&lt;button type=&quot;button&quot; id=&quot;add&quot; onclick=&quot;calculate(&#39;+&#39;)&quot;&gt;+&lt;/button&gt;\n&lt;button type=&quot;button&quot; id=&quot;subtract&quot; onclick=&quot;calculate(&#39;-&#39;)&quot;&gt;-&lt;/button&gt;\n&lt;button type=&quot;button&quot; id=&quot;multiply&quot; onclick=&quot;calculate(&#39;*&#39;)&quot;&gt;*&lt;/button&gt;\n&lt;button type=&quot;button&quot; id=&quot;divide&quot; onclick=&quot;calculate(&#39;/&#39;)&quot;&gt;/&lt;/button&gt;\n&lt;button type=&quot;button&quot; id=&quot;equal&quot; onclick=&quot;calculate(&#39;=&#39;)&quot;&gt;=&lt;/button&gt;\n\n计算器的 JavaScript 代码如下所示：\n\n函数 addNum(num) {\n  var screen = document.getElementById(&#39;calculator-screen&#39;);\n  屏幕.value += num;\n}\n\n函数计算（符号）{\n  var screen = document.getElementById(&#39;calculator-screen&#39;);\n  变量结果；\n  开关（标志）{\n    案例“+”：\n      结果=评估（屏幕。值）；\n      休息;\n    案件 &#39;-&#39;：\n      结果=评估（屏幕。值）；\n      休息;\n    案件 &#39;*&#39;：\n      结果=评估（屏幕。值）；\n      休息;\n    案件 &#39;/&#39;：\n      结果=评估（屏幕。值）；\n      休息;\n    案例&#39;=&#39;：\n      结果=评估（屏幕。值）；\n      休息;\n  }\n  screen.value = 结果；\n}"
+    "input": "",
+    "output": "The HTML code for the calculator would look like this:\n<form>\n  <input type=\"text\" id=\"calculator-screen\" disabled>\n</form>\n<button type=\"button\" id=\"zero\" onclick=\"addNum(0)\">0</button>\n<button type=\"button\" id=\"one\" onclick=\"addNum(1)\">1</button>\n<button type=\"button\" id=\"two\" onclick=\"addNum(2)\">2</button>\n<button type=\"button\" id=\"three\" onclick=\"addNum(3)\">3</button>\n<button type=\"button\" id=\"add\" onclick=\"calculate('+')\">+</button>\n<button type=\"button\" id=\"subtract\" onclick=\"calculate('-')\">-</button>\n<button type=\"button\" id=\"multiply\" onclick=\"calculate('*')\">*</button>\n<button type=\"button\" id=\"divide\" onclick=\"calculate('/')\">/</button>\n<button type=\"button\" id=\"equal\" onclick=\"calculate('=')\">=</button>\n\nAnd the JavaScript code for the calculator would look like this:\n\nfunction addNum(num) {\n  var screen = document.getElementById('calculator-screen');\n  screen.value += num;\n}\n\nfunction calculate(sign) {\n  var screen = document.getElementById('calculator-screen');\n  var result;\n  switch(sign) {\n    case '+':\n      result = eval(screen.value);\n      break;\n    case '-':\n      result = eval(screen.value);\n      break;\n    case '*':\n      result = eval(screen.value);\n      break;\n    case '/':\n      result = eval(screen.value);\n      break;\n    case '=':\n      result = eval(screen.value);\n      break;\n  }\n  screen.value = result;\n}"
 },
 {
     "instruction": "编辑以下段落以提高可读性和清晰度。",
@@ -27637,7 +27637,7 @@
 {
     "instruction": "编写一个打印 1 到 10 数字的小程序",
     "input": "",
-    "output": "#打印1到10的数字\n对于范围 (1, 11) 中的数字：\n    打印（数字）"
+    "output": "# 打印 1 到 10 \nfor num in range(1, 11):\n    print(num)"
 },
 {
     "instruction": "为单词“dog”生成单词关联",
@@ -28457,7 +28457,7 @@
 {
     "instruction": "编写一个函数来显示从 1 到 10 的给定数字的乘法表。",
     "input": "",
-    "output": "def 打印多表（n）：\n    对于我在范围 (1, 11) 中：\n        打印(n,&#39;x&#39;,i,&#39;=&#39;,n*i)"
+    "output": "def printMultiTable(n): \n    for i in range(1, 11): \n        print(n,'x',i,'=',n*i)"
 },
 {
     "instruction": "给这篇文章起个标题。",
@@ -28867,12 +28867,12 @@
 {
     "instruction": "分析下列句子，将其归类为陈述句或疑问句。",
     "input": "他没有说再见就离开了。",
-    "output": "声明性陈述"
+    "output": "陈述句"
 },
 {
     "instruction": "创建一个计算机程序来修复文本中的拼写错误。",
     "input": "",
-    "output": "def fixTypos（文本）：\n    单词 = text.split()\n    对于范围内的我（len（单词））：\n        单词 [i] = 拼写检查（单词 [i]）\n    返回 &#39;​​ &#39;.join(words)\n  \ndef 拼写检查（单词）：\n    dictionary = [&quot;你好&quot;, &quot;再见&quot;, &quot;世界&quot;]\n    minDistance = len(单词)\n    结果=单词\n    对于字典中的项目：\n        如果距离（单词，项目）&lt; minDistance：\n            minDistance = 距离（单词，项目）\n            结果 = 项目\n    返回结果\n    \n定义距离（a，b）：\n    len_a = len(a)\n    len_b = len(b)\n    如果 len_a &gt; len_b：\n        一个，乙=乙，一个\n        len_a, len_b = len_b, len_a\n  \n    当前行 = 范围 (len_a + 1)\n    对于我在范围内（1，len_b + 1）：\n        previous_row, current_row = current_row, [i] + [0] * len_a\n        对于范围内的 j（1，len_a + 1）：\n            添加、删除、更改 = previous_row[j] + 1, current_row[j - 1] + 1, previous_row[j - 1]\n            如果 a[j - 1] != b[i - 1]:\n                变化 +=​​ 1\n            current_row[j] = min(添加、删除、更改)\n      \n    返回当前行[len_a]"
+    "output": "def fixTypos(text): \n    words = text.split()\n    for i in range(len(words)):\n        words[i] = spellCheck(words[i])\n    return ' '.join(words)\n  \ndef spellCheck(word):\n    dictionary = [\"Hello\", \"Goodbye\", \"World\"]\n    minDistance = len(word)\n    result = word\n    for item in dictionary:\n        if distance(word, item) < minDistance:\n            minDistance = distance(word, item)\n            result = item\n    return result\n    \ndef distance(a, b):\n    len_a = len(a)\n    len_b = len(b)\n    if len_a > len_b: \n        a, b = b, a\n        len_a, len_b = len_b, len_a\n  \n    current_row = range(len_a + 1) \n    for i in range(1, len_b + 1): \n        previous_row, current_row = current_row, [i] + [0] * len_a \n        for j in range(1, len_a + 1): \n            add, delete, change = previous_row[j] + 1, current_row[j - 1] + 1, previous_row[j - 1] \n            if a[j - 1] != b[i - 1]: \n                change += 1\n            current_row[j] = min(add, delete, change) \n      \n    return current_row[len_a]"
 },
 {
     "instruction": "计算 34 X 65。",
@@ -28880,7 +28880,7 @@
     "output": "2210"
 },
 {
-    "instruction": "解释数字系统中零的使用。",
+    "instruction": "解释数字系统中0的使用。",
     "input": "",
     "output": "数字 0 是数字系统的重要组成部分，因为它表示没有数量。在数学中，0 表示缺少值或空量。它可以用作占位符，使方程式更易于理解，并有助于阐明某些数学运算的含义。零还有助于简化计算，因为它可用于抵消某些操作并提高结果的准确性。此外，数字 0 用于表示无限多的小数位，使其成为任何十进制系统的重要组成部分。"
 },
@@ -28892,7 +28892,7 @@
 {
     "instruction": "构造一个算法来生成斐波那契数列。",
     "input": "",
-    "output": "def generate_fibonacci_sequence(n):\n    一 = 0\n    b = 1\n    如果 n &lt; 0：\n        print(&quot;输入错误&quot;)\n    elif n == 0:\n        返回一个\n    elif n == 1:\n        返回 b\n    别的：\n        对于范围内的我（2，n）：\n            c = a + b\n            一个=乙\n            b = c\n        返回 b\n  \n# 驱动程序\n  \n打印（generate_fibonacci_sequence（9））"
+    "output": "def generate_fibonacci_sequence(n): \n    a = 0 \n    b = 1\n    if n < 0: \n        print(\"Incorrect input\") \n    elif n == 0: \n        return a \n    elif n == 1: \n        return b \n    else: \n        for i in range(2,n): \n            c = a + b \n            a = b \n            b = c \n        return b \n  \n# Driver Program \n  \nprint(generate_fibonacci_sequence(9))"
 },
 {
     "instruction": "导数在微积分中最常见的用途是什么？",
@@ -28906,7 +28906,7 @@
 },
 {
     "instruction": "获取以下字符串并将其转换为相应的整数：“126”。",
-    "input": "&quot;126&quot;",
+    "input": "\"126\"",
     "output": "对应的整数是126。"
 },
 {
@@ -29227,7 +29227,7 @@
 {
     "instruction": "生成一个编程代码来计算两个数字的总和",
     "input": "",
-    "output": "def sum_two_numbers(num1, num2):\n    总和 = num1 + num2\n    返回总和"
+    "output": "def sum_two_numbers(num1, num2):\n    summation = num1 + num2\n    return summation"
 },
 {
     "instruction": "解释国际组织如何有助于加强全球交流。",
@@ -29427,7 +29427,7 @@
 {
     "instruction": "编写一个函数，以相反的顺序打印 Python 列表的元素。",
     "input": "",
-    "output": "def print_list_reversed(lst):\n    对于我在范围内（len（lst）-1，-1，-1）：\n        打印（lst[i]）\n\nprint_list_reversed([1,2,3,4,5])\n\n# 输出：5 4 3 2 1"
+    "output": "def print_list_reversed(lst):\n    for i in range(len(lst)-1, -1, -1):\n        print(lst[i])\n\nprint_list_reversed([1,2,3,4,5])\n\n# Output: 5 4 3 2 1"
 },
 {
     "instruction": "总结小王子的故事。",
@@ -29437,7 +29437,7 @@
 {
     "instruction": "构造一个 SQL 查询以查找表“inventory”中数量大于 10 的所有记录。",
     "input": "",
-    "output": "SELECT * FROM inventory WHERE quantity &gt; 10;"
+    "output": "SELECT * FROM inventory WHERE quantity > 10;"
 },
 {
     "instruction": "对以下陈述进行分类：“空气污染对环境有负面影响。”",
@@ -29537,7 +29537,7 @@
 {
     "instruction": "创建一个函数，该函数将返回给定字符串的所有字谜。",
     "input": "",
-    "output": "def get_anagrams（str）：\n    &quot;&quot;&quot;\n    返回给定字符串的所有字谜的函数\n    \n    参数：\n    str：要进行变位的字符串\n    \n    退货：\n    anagrams：一个字符串列表，它们是给定字符串的 anagrams\n    &quot;&quot;&quot;\n    如果不是 str:\n        返回 []\n    \n    字谜 = []\n    字母=列表（str）\n    comb = itertools.permutations（字母，len（字母））\n    \n    对于梳中的 t：\n        anagram = &#39;&#39;.join(t)\n        如果变位词！= str：\n            anagrams.append（anagram）\n    \n    返回字谜"
+    "output": "def get_anagrams(str):\n    \"\"\"\n    Function to return all anagrams of the given string\n    \n    Parameters:\n    str: string to be anagrammed \n    \n    Returns: \n    anagrams: a list of strings that are anagrams of the given string\n    \"\"\"\n    if not str:\n        return []\n    \n    anagrams = []\n    letters = list(str)\n    comb = itertools.permutations(letters, len(letters))\n    \n    for t in comb:\n        anagram = ''.join(t)\n        if anagram != str:\n            anagrams.append(anagram)\n    \n    return anagrams"
 },
 {
     "instruction": "写一首关于自然的诗。",
@@ -29572,7 +29572,7 @@
 {
     "instruction": "为电子商务商店设计网页布局。",
     "input": "",
-    "output": "&lt;带有电子商务商店设计的网页&gt;"
+    "output": "<带有电子商务商店设计的网页>"
 },
 {
     "instruction": "制定教学生如何使用尺子的课程计划。",
@@ -29582,7 +29582,7 @@
 {
     "instruction": "编写一个查询，返回每个部门员工的平均工资。",
     "input": "",
-    "output": "选择 d.name, AVG(e.salary) AS average_salary\nFROM departments d LEFT JOIN employees e ON d.id = e.department_id\nGROUP BY d.name;"
+    "output": "SELECT d.name, AVG(e.salary) AS average_salary\nFROM departments d LEFT JOIN employees e ON d.id = e.department_id \nGROUP BY d.name;"
 },
 {
     "instruction": "制定一个基于 AI 的模型，可以区分狗和猫。",
@@ -29647,7 +29647,7 @@
 {
     "instruction": "编写 JavaScript 代码，将数字数组作为输入并返回不包含任何重复数字的数组副本。",
     "input": "[1, 2, 3, 2, 4, 5, 6, 7, 1, 4]",
-    "output": "const uniqueArray = arr =&gt; {\n  常量看到 = {};\n  常量输出 = [];\n  \n  对于（让 i = 0；i &lt; arr.length；i++）{\n    如果（！看到[arr [i]]）{\n      看到[arr[i]] = true；\n      output.push(arr[i]);\n    }\n  }\n  返回输出；\n}\n\nconsole.log (uniqueArray([1, 2, 3, 2, 4, 5, 6, 7, 1, 4]));\n// 输出：[1, 2, 3, 4, 5, 6, 7]"
+    "output": "const uniqueArray = arr => { \n  const seen = {}; \n  const output = []; \n  \n  for (let i = 0; i < arr.length; i++) { \n    if (!seen[arr[i]]) { \n      seen[arr[i]] = true; \n      output.push(arr[i]); \n    } \n  } \n  return output; \n} \n\nconsole.log (uniqueArray([1, 2, 3, 2, 4, 5, 6, 7, 1, 4])); \n// Output: [1, 2, 3, 4, 5, 6, 7]"
 },
 {
     "instruction": "解释编程语言和软件之间的区别。",
@@ -29816,8 +29816,8 @@
 },
 {
     "instruction": "用 Java 重写给定的程序。",
-    "input": "一 = 4\nb = 5\nc = a + b\n打印(c)",
-    "output": "整数 = 4；\n整数 b = 5;\nint c = a + b;\nSystem.out.println(c);"
+    "input": "a = 4\nb = 5\nc = a + b\nprint(c)",
+    "output": "int a = 4;\nint b = 5;\nint c = a + b;\nSystem.out.println(c);"
 },
 {
     "instruction": "提出建造更可持续住房的方法。",
@@ -30017,11 +30017,11 @@
 {
     "instruction": "编写一个函数，它接受一个数字数组并按升序对它们进行排序。",
     "input": "[5, 2, 9, 7, 4, 1]",
-    "output": "函数排序升序（arr）{\n    返回 arr.sort((a, b) =&gt; a-b);\n};"
+    "output": "function sortAscending(arr) { \n    return arr.sort((a, b) => a-b); \n};"
 },
 {
     "instruction": "解释为什么输出不准确",
-    "input": "代码：\n\n函数 addTwo(num1, num2) {\n 返回数字 1 + 数字 2；\n}\n\nconsole.log(addTwo(4, 3));\n\n输出：6",
+    "input": "Code:\n\nfunction addTwo(num1, num2) {\n return num1 + num2;\n}\n\nconsole.log(addTwo(4, 3));\n\nOutput: 6",
     "output": "输出是准确的，因为函数 addTwo 将 num1 和 num2 相加，在本例中是 4 和 3，结果是 6。"
 },
 {
@@ -30622,7 +30622,7 @@
 {
     "instruction": "编写一个 Python 脚本，用于按升序对整数列表进行排序。",
     "input": "",
-    "output": "def bubbleSort（arr）：\n    n = len(arr)\n\n    #遍历所有数组元素\n    对于范围内的我（n）：\n\n        # 最后 i 个元素已经到位\n        对于范围 (0, n-i-1) 中的 j：\n\n            #遍历数组从0到n-i-1\n            # 如果找到的元素更大则交换\n            # 比下一个元素\n            如果 arr[j] &gt; arr[j+1] ：\n                arr[j]，arr[j+1] = arr[j+1]，arr[j]\n\n# 上面要测试的驱动代码\narr = [64, 34, 25, 12, 22, 11, 90]\n\n冒泡排序（arr）\n\nprint(&quot;排序后的数组是：&quot;)\n对于范围内的我（len（arr））：\n    打印 (&quot;%d&quot; %arr[i]),"
+    "output": "def bubbleSort(arr): \n    n = len(arr) \n\n    # Traverse through all array elements \n    for i in range(n): \n\n        # Last i elements are already in place \n        for j in range(0, n-i-1): \n\n            # traverse the array from 0 to n-i-1 \n            # Swap if the element found is greater \n            # than the next element \n            if arr[j] > arr[j+1] : \n                arr[j], arr[j+1] = arr[j+1], arr[j] \n\n# Driver code to test above \narr = [64, 34, 25, 12, 22, 11, 90] \n\nbubbleSort(arr) \n\nprint (\"Sorted array is:\") \nfor i in range(len(arr)): \n    print (\"%d\" %arr[i]),"
 },
 {
     "instruction": "给出志愿服务重要的三个原因。",
@@ -30991,8 +30991,8 @@
 },
 {
     "instruction": "不使用 for 循环重写代码",
-    "input": "列表 1 = [1, 2, 3]\n清单 2 = [ ]\n对于列表 1 中的我：\n list2.append(i * 2)",
-    "output": "列表 1 = [1, 2, 3]\nlist2 = [i * 2 for i in list1]"
+    "input": "list1 = [1, 2, 3]\nlist2 = [ ]\nfor i in list1:\n list2.append(i * 2)",
+    "output": "list1 = [1, 2, 3]\nlist2 = [i * 2 for i in list1]"
 },
 {
     "instruction": "对此类文本进行分类。",
@@ -31127,7 +31127,7 @@
 {
     "instruction": "创建 HTML 代码以生成具有 5 列和 7 行的表格。",
     "input": "",
-    "output": "&lt;表&gt;\n  &lt;tr&gt;\n    &lt;th&gt;第 1 列&lt;/th&gt;\n    &lt;th&gt;第 2 栏&lt;/th&gt;\n    &lt;th&gt;第 3 栏&lt;/th&gt;\n    &lt;th&gt;第 4 栏&lt;/th&gt;\n    &lt;th&gt;第 5 栏&lt;/th&gt;\n  &lt;/tr&gt;\n  &lt;tr&gt;\n    &lt;td&gt;第 1 行&lt;/td&gt;\n    &lt;td&gt;第 1 行&lt;/td&gt;\n    &lt;td&gt;第 1 行&lt;/td&gt;\n    &lt;td&gt;第 1 行&lt;/td&gt;\n    &lt;td&gt;第 1 行&lt;/td&gt;\n  &lt;/tr&gt;\n  &lt;tr&gt;\n    &lt;td&gt;第2行&lt;/td&gt;\n    &lt;td&gt;第2行&lt;/td&gt;\n    &lt;td&gt;第2行&lt;/td&gt;\n    &lt;td&gt;第2行&lt;/td&gt;\n    &lt;td&gt;第2行&lt;/td&gt;\n  &lt;/tr&gt;\n  &lt;tr&gt;\n    &lt;td&gt;第3行&lt;/td&gt;\n    &lt;td&gt;第3行&lt;/td&gt;\n    &lt;td&gt;第3行&lt;/td&gt;\n    &lt;td&gt;第3行&lt;/td&gt;\n    &lt;td&gt;第3行&lt;/td&gt;\n  &lt;/tr&gt;\n  &lt;tr&gt;\n    &lt;td&gt;第4行&lt;/td&gt;\n    &lt;td&gt;第4行&lt;/td&gt;\n    &lt;td&gt;第4行&lt;/td&gt;\n    &lt;td&gt;第4行&lt;/td&gt;\n    &lt;td&gt;第4行&lt;/td&gt;\n  &lt;/tr&gt;\n  &lt;tr&gt;\n    &lt;td&gt;第5行&lt;/td&gt;\n    &lt;td&gt;第5行&lt;/td&gt;\n    &lt;td&gt;第5行&lt;/td&gt;\n    &lt;td&gt;第5行&lt;/td&gt;\n    &lt;td&gt;第5行&lt;/td&gt;\n  &lt;/tr&gt;\n  &lt;tr&gt;\n    &lt;td&gt;第6行&lt;/td&gt;\n    &lt;td&gt;第6行&lt;/td&gt;\n    &lt;td&gt;第6行&lt;/td&gt;\n    &lt;td&gt;第6行&lt;/td&gt;\n    &lt;td&gt;第6行&lt;/td&gt;\n  &lt;/tr&gt;\n  &lt;tr&gt;\n    &lt;td&gt;第7行&lt;/td&gt;\n    &lt;td&gt;第7行&lt;/td&gt;\n    &lt;td&gt;第7行&lt;/td&gt;\n    &lt;td&gt;第7行&lt;/td&gt;\n    &lt;td&gt;第7行&lt;/td&gt;\n  &lt;/tr&gt;\n&lt;/表&gt;"
+    "output": "<table>\n  <tr>\n    <th>Column 1</th>\n    <th>Column 2</th>\n    <th>Column 3</th>\n    <th>Column 4</th>\n    <th>Column 5</th>\n  </tr>\n  <tr>\n    <td>Row 1</td>\n    <td>Row 1</td>\n    <td>Row 1</td>\n    <td>Row 1</td>\n    <td>Row 1</td>\n  </tr>\n  <tr>\n    <td>Row 2</td>\n    <td>Row 2</td>\n    <td>Row 2</td>\n    <td>Row 2</td>\n    <td>Row 2</td>\n  </tr>\n  <tr>\n    <td>Row 3</td>\n    <td>Row 3</td>\n    <td>Row 3</td>\n    <td>Row 3</td>\n    <td>Row 3</td>\n  </tr>\n  <tr>\n    <td>Row 4</td>\n    <td>Row 4</td>\n    <td>Row 4</td>\n    <td>Row 4</td>\n    <td>Row 4</td>\n  </tr>\n  <tr>\n    <td>Row 5</td>\n    <td>Row 5</td>\n    <td>Row 5</td>\n    <td>Row 5</td>\n    <td>Row 5</td>\n  </tr>\n  <tr>\n    <td>Row 6</td>\n    <td>Row 6</td>\n    <td>Row 6</td>\n    <td>Row 6</td>\n    <td>Row 6</td>\n  </tr>\n  <tr>\n    <td>Row 7</td>\n    <td>Row 7</td>\n    <td>Row 7</td>\n    <td>Row 7</td>\n    <td>Row 7</td>\n  </tr>\n</table>"
 },
 {
     "instruction": "给定以下两个句子，创建一个关于它们之间联系的句子。",
@@ -31451,8 +31451,8 @@
 },
 {
     "instruction": "编辑给定的代码以匹配给定的输出。",
-    "input": "代码：\n对于我在范围内（4）：\n    print(&quot;数字是&quot; + i)\n\n输出：\n数量为0\n数量是 1\n数量是 2\n数量是 3",
-    "output": "对于我在范围内（4）：\n    print(&quot;数字是&quot; + str(i))\n\n输出：\n数量为0\n数量是 1\n数量是 2\n数量是 3"
+    "input": "代码:\nfor i in range(4):\n    print(\"The number is \" + i)\n\n输出:\nThe number is 0\nThe number is 1\nThe number is 2\nThe number is 3",
+    "output": "for i in range(4):\n    print(\"The number is \" + str(i))\n\n输出:\nThe number is 0\nThe number is 1\nThe number is 2\nThe number is 3"
 },
 {
     "instruction": "根据给定的信息生成假设。",
@@ -31461,7 +31461,7 @@
 },
 {
     "instruction": "你如何调试给定的程序？",
-    "input": "程序：\ndef calculate_sum（数字）：\n    总和 = 0\n    对于 n 个数字：\n        总和 = n + n\n    返回总和\n\n打印（计算总和（[1, 2, 3]））\n\n预期输出：6",
+    "input": "程序:\ndef calculate_sum(numbers):\n    sum = 0\n    for n in numbers:\n        sum = n + n\n    return sum\n\nprint(calculate_sum([1, 2, 3]))\n\nExpected output: 6",
     "output": "调试该程序的第一步是检查每一行并找出任何潜在的错误或拼写错误。如所写，代码将每个数字相加两次，而不是一次。要更正此错误，应将代码行 sum = n + n 更改为 sum = sum + n。\n\n下一步是测试程序以确认其运行正常。为此，运行该程序，并检查输出是否为 6，如预期的那样。\n\n如果输出不是6，则应进一步调试程序，直到得到正确的输出。"
 },
 {
@@ -31537,7 +31537,7 @@
 {
     "instruction": "编写一个接受两个数字并返回总和的函数。",
     "input": "",
-    "output": "def sumFunction(num1,num2):\n  返回 num1+num2"
+    "output": "def sumFunction(num1,num2):\n  return num1+num2"
 },
 {
     "instruction": "给定三个词，用这三个词写一个句子。",
@@ -31771,7 +31771,7 @@
 },
 {
     "instruction": "对提供的数据库进行查询并输出结果。",
-    "input": "数据库：天气\n查询：从天气中选择*",
+    "input": "数据库：天气\n查询: Select * from weather",
     "output": "温度 |地点\n21℃ |伦敦\n17℃ |纽约\n24℃ |东京"
 },
 {
@@ -32092,7 +32092,7 @@
 {
     "instruction": "编写与以下输出匹配的代码。",
     "input": "输入：[5,9,2,7]\n输出：[2,5,7,9]",
-    "output": "让 arr = [5,9,2,7];\narr.sort(函数(a,b){返回a-b});\n控制台日志（arr）； // 输出：[2,5,7,9]"
+    "output": "let arr = [5,9,2,7];\narr.sort(function(a,b){return a-b});\nconsole.log(arr); // Output: [2,5,7,9]"
 },
 {
     "instruction": "计算以下两个句子之间的余弦相似度。",
@@ -32136,12 +32136,12 @@
 },
 {
     "instruction": "确定以下代码的哪些部分可以重构。",
-    "input": "def calculate_data(a, b, c):\n    结果 = []\n    对于范围内的我（b）：\n        结果.append(a + c[i])\n    返回结果",
+    "input": "def calculate_data(a, b, c):\n    result = []\n    for i in range(b):\n        result.append(a + c[i])\n    return result",
     "output": "可以重构此代码以提高可读性和效率。可以使用一行代码代替 for 循环。表达式 a + c[i] 可以替换为更简单的表达式，例如 a + b。此外，可以使用替代数据类型（例如数组或映射）来存储结果。"
 },
 {
     "instruction": "有哪些方法可以重构此代码？",
-    "input": "定义检查数据（数据）：\n    如果数据 [0] == &quot;A&quot; 和\n        数据[1] == &quot;B&quot; 和\n        数据[2] ==“C”：\n        返回真\n    别的：\n        返回假",
+    "input": "def checkData(data):\n    if data[0] == \"A\" and \n        data[1] == \"B\" and \n        data[2] == \"C\":\n        return True\n    else:\n        return False",
     "output": "可以通过几种方式重构此代码以提高可读性和效率。一种方法是检查数据数组中的所有元素是否都等于相应的字母。这可以使用 Python 中的 all() 方法来完成，如下所示：\n\nreturn all(d == l for d, l in zip(data, [&quot;A&quot;,&quot;B&quot;,&quot;C&quot;]))\n\n此外，可以使用三元运算符来简化代码。 if/else 语句可以重写为：\n\n如果 data[0] == &quot;A&quot; and data[1] == &quot;B&quot; and data[2] ==&quot;C&quot; 则返回 True 否则为 False"
 },
 {
@@ -32252,7 +32252,7 @@
 {
     "instruction": "编写一些代码来计算给定 3 个边的三角形的面积。",
     "input": "",
-    "output": "&quot;&quot;&quot;\n计算给定 3 个边的三角形的面积\n&quot;&quot;&quot;\n\ndef area_triangle(a, b, c):\n    # 计算半周长\n    s = (a + b + c) / 2\n  \n    # 计算面积\n    面积 = (s * (s-a) * (s-b) * (s-c)) ** 0.5\n    归还区\n  \n# 驱动代码\n# a, b, c 是三角形边的长度\n一 = 4\nb = 5\nc = 6\nprint(&quot;三角形的面积是：%.2f&quot; % area_triangle(a, b, c))"
+    "output": "\"\"\"\n计算给定 3 个边的三角形的面积s\n\"\"\"\n\ndef area_triangle(a, b, c): \n    # calculate the semi-perimeter \n    s = (a + b + c) / 2\n  \n    # calculate the area \n    area = (s * (s-a) * (s-b) * (s-c)) ** 0.5\n    return area \n  \n# Driver Code \n# a, b, c are lengths of the sides of triangle\na = 4\nb = 5\nc = 6\nprint(\"Area of triangle is : %.2f\" % area_triangle(a, b, c))"
 },
 {
     "instruction": "延伸下面的故事。",
@@ -32297,7 +32297,7 @@
 {
     "instruction": "构建一个打印斐波那契数列前 10 项的 C 程序。",
     "input": "",
-    "output": "#include&lt;stdio.h&gt;\n \n主函数()\n{\n   int i, n1 = 0, n2 = 1, n3;\n \n   printf(&quot;斐波那契数列的前 10 项是：\\n&quot;);\n   printf(&quot;%d\\n%d\\n&quot;, n1, n2);\n \n   对于 (i = 3; i &lt;= 10; ++i)\n   {\n      n3 = n1 + n2;\n      printf(&quot;%d\\n&quot;, n3);\n      n1 = n2;\n      n2 = n3;\n   }\n   返回 0；\n}"
+    "output": "#include<stdio.h>\n \nint main()\n{\n   int i, n1 = 0, n2 = 1, n3;\n \n   printf(\"The first 10 terms of the Fibonacci sequence are:\\n\");\n   printf(\"%d\\n%d\\n\", n1, n2);\n \n   for (i = 3; i <= 10; ++i) \n   {\n      n3 = n1 + n2;\n      printf(\"%d\\n\", n3);\n      n1 = n2;\n      n2 = n3;\n   }\n   return 0;\n}"
 },
 {
     "instruction": "检测以下段落中的拼写错误。",
@@ -32316,13 +32316,13 @@
 },
 {
     "instruction": "给定一个数据集，编写一个程序来计算每个标签的实例数。",
-    "input": "数据集：\n\n[&#39;小狗&#39;, &#39;狗&#39;, &#39;小猫&#39;, &#39;猫&#39;, &#39;小狗&#39;, &#39;狗&#39;, &#39;鱼&#39;, &#39;猫&#39;]",
-    "output": "#include&lt;stdio.h&gt;\n#include &lt;字符串.h&gt;\n \n主函数()\n{\n    char data[][10] = {&quot;小狗&quot;,&quot;狗&quot;,&quot;小猫&quot;,&quot;猫&quot;,&quot;小狗&quot;,&quot;狗&quot;,&quot;鱼&quot;,&quot;猫&quot;};\n    int puppy_count = 0;\n    int dog_count = 0;\n    int kitten_count = 0;\n    int cat_count = 0;\n    int fish_count = 0;\n    诠释我;\n    int size = sizeof(data)/10;\n \n    对于（i=0；i&lt;大小；i++）\n    {\n        如果（strcmp（数据[i]，“小狗”）==0）\n            小狗计数++；\n        如果（strcmp（数据[i]，“狗”）==0）\n            狗数++；\n        如果（strcmp（数据[i]，“小猫”）==0）\n            小猫数++；\n        如果（strcmp（数据[i]，“猫”）==0）\n            猫数++；\n        如果（strcmp（数据[i]，“鱼”）==0）\n            鱼数++；\n    }\n    printf(&quot;小狗数是 %d\\n狗数是 %d\\n小猫数是 %d\\n猫数是 %d\\n鱼数是 %d\\n&quot;,\n    puppy_count, dog_count, kitten_count, cat_count, fish_count);\n \n    返回 0；\n  }"
+    "input": "Data Set:\n\n['puppy', 'dog', 'kitten', 'cat', 'puppy', 'dog', 'fish', 'cat']",
+    "output": "#include<stdio.h>\n#include <string.h>\n \nint main() \n{\n    char data[][10] = {\"puppy\",\"dog\",\"kitten\",\"cat\",\"puppy\",\"dog\",\"fish\",\"cat\"};\n    int puppy_count = 0;\n    int dog_count = 0;\n    int kitten_count = 0;\n    int cat_count = 0;\n    int fish_count = 0;\n    int i;\n    int size = sizeof(data)/10;\n \n    for(i=0;i<size;i++)\n    {\n        if(strcmp(data[i],\"puppy\")==0)\n            puppy_count++;\n        if(strcmp(data[i],\"dog\")==0)\n            dog_count++;\n        if(strcmp(data[i],\"kitten\")==0)\n            kitten_count++;\n        if(strcmp(data[i],\"cat\")==0)\n            cat_count++;\n        if(strcmp(data[i],\"fish\")==0)\n            fish_count++;\n    }\n    printf(\"puppy count is %d\\ndog count is %d\\nkitten count is %d\\ncat count is %d\\nfish count is %d\\n\",\n    puppy_count, dog_count, kitten_count, cat_count, fish_count);\n \n    return 0;\n  }"
 },
 {
     "instruction": "以下哪个国家人口最少？",
     "input": "A. 法国\nB. 英格兰\nC、俄罗斯\nD、日本",
-    "output": "D、日本"
+    "output": "D、英格兰"
 },
 {
     "instruction": "识别以下系列中的模式：1、4、7、11、？",
@@ -32332,7 +32332,7 @@
 {
     "instruction": "根据以下名称，创建一个首字母缩略词列表。",
     "input": "微软、苹果、IBM",
-    "output": "理学硕士、APL、IBM"
+    "output": "MS、APL、IBM"
 },
 {
     "instruction": "解释亚马逊的三层系统。",
@@ -32347,7 +32347,7 @@
 {
     "instruction": "对于以下字符串，打印最后四个字符。",
     "input": "Python",
-    "output": "吞"
+    "output": "thon"
 },
 {
     "instruction": "说出联合国的三个部门。",
@@ -32361,8 +32361,8 @@
 },
 {
     "instruction": "生成使用以下函数的示例。",
-    "input": "def append_to_list（lst，元素）：\n    lst.append（元素）\n    返回列表",
-    "output": "列表 1 = [1, 2, 3]\n元素 = 4\nappend_to_list(list1, element) # 返回 [1, 2, 3, 4]"
+    "input": "def append_to_list(lst, element):\n    lst.append(element)\n    return lst",
+    "output": "list1 = [1, 2, 3]\nelement = 4\nappend_to_list(list1, element) # returns [1, 2, 3, 4]"
 },
 {
     "instruction": "根据以下事实创作一个 4-5 句话的短篇故事。",
@@ -32372,22 +32372,22 @@
 {
     "instruction": "创建一个可以玩井字游戏的 AI 应用程序。",
     "input": "",
-    "output": "def board_played（棋盘）：\n    对于范围 (3) 中的 i：\n        对于范围 (3) 中的 j：\n            如果 board[i][j] != &#39;X&#39; 和 board[i][j] != &#39;O&#39;:\n                返回假\n\n# 执行基本 AI 操作以玩井字游戏的函数\ndef play_tic_tac_toe（棋盘）：\n    # 检查棋盘是否已满\n    如果 board_played (board) == False :\n        # 生成随机位置\n        行 = random.randint (0,3)\n        col = random.randint (0,3)\n        \n        # 检查安全位置\n        如果（板[行][列]！=&#39;X&#39;和板[行][列]！=&#39;O&#39;）：\n            板[行] [列] = &#39;O&#39;\n        别的：\n            # 再次调用函数\n            play_tic_tac_toe（棋盘）\n    别的：\n        打印（“棋盘播放”）"
+    "output": "def board_played (board):\n    for i in range (3):\n        for j in range (3):\n            if board[i][j] != 'X' and board[i][j] != 'O':\n                return False\n\n# Function to perform the basic AI operations to play tic-tac-toe\ndef play_tic_tac_toe (board):\n    # Check if board is full or not \n    if board_played (board) == False : \n        # Generate random position\n        row = random.randint (0,3) \n        col = random.randint (0,3) \n        \n        # Check the safe position \n        if (board[row][col] != 'X' and board[row][col] != 'O'): \n            board[row][col] = 'O'\n        else: \n            # Call function again \n            play_tic_tac_toe (board)\n    else: \n        print (\"Board Played\")"
 },
 {
     "instruction": "在场景中的两个角色之间写一段对话。",
     "input": "人物：乔，亚历克斯",
-    "output": "乔：嗨，亚历克斯，我们上次谈话已经有一段时间了！\n\n亚历克斯：嘿乔，它确实有！你最近怎么样？\n\n乔：我做得很好！我最近在工作中获得了晋升，而且进展非常顺利。你呢？\n\n亚历克斯：我也做得很好。我正在写一本新书，所以我真的很忙。这很艰难，但这是一种爱的劳动。"
+    "output": "乔：嗨，亚历克斯，我们上次谈话已经有一段时间了！\n\n亚历克斯：嘿乔，确实！你最近怎么样？\n\n乔：我做得很好！我最近在工作中获得了晋升，而且进展非常顺利。你呢？\n\n亚历克斯：我也做得很好。我正在写一本新书，所以我真的很忙。这很艰难，但这是一种爱的劳动。"
 },
 {
     "instruction": "编写一个函数，将给定的十六进制数转换为其等效的十进制数。",
     "input": "",
-    "output": "def hex_to_decimal(num):\n    小数 = 0\n    对于范围内的我（len（num））：\n        如果 num[i] == &#39;A&#39;:\n            十进制 += 10 * (16 ** (len(num)-i-1))\n        elif num[i] == &#39;B&#39;:\n            十进制 += 11 * (16 ** (len(num)-i-1))\n        elif num[i] == &#39;C&#39;:\n            十进制 += 12 * (16 ** (len(num)-i-1))\n        elif num[i] == &#39;D&#39;:\n            十进制 += 13 * (16 ** (len(num)-i-1))\n        elif num[i] == &#39;E&#39;:\n            十进制 += 14 * (16 ** (len(num)-i-1))\n        elif num[i] == &#39;F&#39;:\n            十进制 += 15 * (16 ** (len(num)-i-1))\n        别的：\n            十进制 += int(num[i]) * (16 ** (len(num)-i-1))\n    返回十进制"
+    "output": "def hex_to_decimal(num):\n    decimal = 0\n    for i in range(len(num)):\n        if num[i] == 'A':\n            decimal += 10 * (16 ** (len(num)-i-1))\n        elif num[i] == 'B':\n            decimal += 11 * (16 ** (len(num)-i-1))\n        elif num[i] == 'C':\n            decimal += 12 * (16 ** (len(num)-i-1))\n        elif num[i] == 'D':\n            decimal += 13 * (16 ** (len(num)-i-1))\n        elif num[i] == 'E':\n            decimal += 14 * (16 ** (len(num)-i-1))\n        elif num[i] == 'F':\n            decimal += 15 * (16 ** (len(num)-i-1))\n        else:\n            decimal += int(num[i]) * (16 ** (len(num)-i-1))\n    return decimal"
 },
 {
     "instruction": "假设您正在为商品目录编写程序。型号a\n类为此目的。",
     "input": "",
-    "output": "类 ItemCatalog：\n    def __init__(self, name, price, description, category, quantity):\n        self.name = 名字\n        self.price = 价格\n        self.description = 描述\n        self.category = 类别\n        self.quantity = 数量\n    \n    def update_item（自我，名称，价格，描述）：\n        self.name = 名字\n        self.price = 价格\n        self.description = 描述\n    \n    def update_quantity（自我，数量）：\n        self.quantity = 数量\n    \n    def get_item_info（自我）：\n        return (self.name, self.price, self.description, self.category, self.quantity)"
+    "output": "class ItemCatalog:\n    def __init__(self, name, price, description, category, quantity):\n        self.name = name\n        self.price = price\n        self.description = description\n        self.category = category\n        self.quantity = quantity\n    \n    def update_item(self, name, price, description):\n        self.name = name\n        self.price = price\n        self.description = description\n    \n    def update_quantity(self, quantity):\n        self.quantity = quantity\n    \n    def get_item_info(self):\n        return (self.name, self.price, self.description, self.category, self.quantity)"
 },
 {
     "instruction": "创建一个算法来查找字符串中的第一个重复字符。",
@@ -32417,7 +32417,7 @@
 {
     "instruction": "提供 Java 代码来求和两个数字",
     "input": "",
-    "output": "整数总和 = a + b;\nSystem.out.println(sum);"
+    "output": "int sum = a + b; \nSystem.out.println(sum);"
 },
 {
     "instruction": "使人工智能可靠的特征是什么？",
@@ -32517,7 +32517,7 @@
 {
     "instruction": "构造一个 SQL 查询以查找在 2021 年 2 月有订单的客户列表。",
     "input": "",
-    "output": "选择 c.customer_name\nFROM customers c INNER JOIN 订单 o ON c.customer_id = o.customer_id\n其中月份（o.order_date）= 2 AND year（o.order_date）= 2021；"
+    "output": "SELECT c.customer_name \nFROM customers c INNER JOIN orders o ON c.customer_id = o.customer_id \nWHERE month(o.order_date) = 2 AND year(o.order_date) = 2021;"
 },
 {
     "instruction": "总结圣雄甘地的行动在印度独立运动中的重要性。",
@@ -33292,7 +33292,7 @@
 {
     "instruction": "编写一个将罗马数字转换为整数的函数。",
     "input": "",
-    "output": "def convert_roman_to_integer（罗马）：\n    rom_val = {&#39;I&#39;: 1, &#39;V&#39;: 5, &#39;X&#39;: 10, &#39;L&#39;: 50, &#39;C&#39;: 100, &#39;D&#39;: 500, &#39;M&#39;: 1000}\n \n    int_val = 0\n    对于我在范围内（len（罗马））：\n        如果 i &gt; 0 且 rom_val[roman[i]] &gt; rom_val[roman[i - 1]]：\n            int_val += rom_val[roman[i]] - 2 * rom_val[roman[i - 1]]\n        别的：\n            int_val += rom_val[罗马[i]]\n\n    返回 int_val"
+    "output": "def convert_roman_to_integer(roman):\n    rom_val = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}\n \n    int_val = 0\n    for i in range(len(roman)):\n        if i > 0 and rom_val[roman[i]] > rom_val[roman[i - 1]]:\n            int_val += rom_val[roman[i]] - 2 * rom_val[roman[i - 1]]\n        else:\n            int_val += rom_val[roman[i]]\n\n    return int_val"
 },
 {
     "instruction": "以下序列中的下一个数字是什么？",
@@ -33316,8 +33316,8 @@
 },
 {
     "instruction": "评估以下代码并报告任何错误。",
-    "input": "def 称呼（姓名）：\n    如果名字 == &#39;鲍勃&#39;：\n        称呼 = &#39;你好&#39;\n    别的：\n        称呼=&#39;再见&#39;\n        打印（称呼）",
-    "output": "第 5 行的代码有一个错误。变量“salutation”被拼错为“saluation”，并且该函数没有返回语句，因此不会返回“salutation”变量。\n\n要解决此问题，应正确拼写变量（即“salutation”），并且应将 return 语句添加到函数中，以便它返回“salutation”变量。代码应如下所示：\n\ndef 称呼（姓名）：\n    如果名字 == &#39;鲍勃&#39;：\n        称呼 = &#39;你好&#39;\n    别的：\n        称呼=&#39;再见&#39;\n    打印（称呼）\n    回复称呼"
+    "input": "def salutation(name):\n    if name == 'bob':\n        salutation = 'Hello'\n    else:\n        salutation = 'Good bye'\n        print(saluation)",
+    "output": "第 5 行的代码有一个错误。变量“salutation”被拼错为“saluation”，并且该函数没有返回语句，因此不会返回“salutation”变量。\n\n要解决此问题，应正确拼写变量（即“salutation”），并且应将 return 语句添加到函数中，以便它返回“salutation”变量。代码应如下所示：\n\ndef salutation(name):\n    if name == 'bob':\n        salutation = 'Hello'\n    else:\n        salutation = 'Good bye'\n    print(salutation)\n    return salutation"
 },
 {
     "instruction": "为给定的人提出人生目标。",
@@ -33526,8 +33526,8 @@
 },
 {
     "instruction": "在下面的句子中创建一个元音列表。",
-    "input": "她在海边卖贝壳。",
-    "output": "[和，和，和，到，或，和]"
+    "input": "She sells seashells by the seashore.",
+    "output": "[e, e, e, a, o, e]"
 },
 {
     "instruction": "为以下任务提供示例输入和输出。",
@@ -33542,7 +33542,7 @@
 {
     "instruction": "搜索并提供可用于编写 Python 代码的工具列表",
     "input": "",
-    "output": "- 视觉工作室代码\n - 崇高的文字\n - PyCharm\n - 蜘蛛\n - 原子\n - VS\n - 科莫多编辑\n - 记事本++\n - 维姆"
+    "output": "- Visual Studio Code\n - Sublime Text\n - PyCharm\n - Spyder\n - Atom\n - VS\n - Komodo Edit\n - Notepad++\n - Vim"
 },
 {
     "instruction": "提出与以下主题相关的问题",
@@ -33596,13 +33596,13 @@
 },
 {
     "instruction": "区分这两个词的意思。",
-    "input": "强加和印象",
+    "input": "Impose and Impress",
     "output": "“impose”和“impress”这两个词之间的主要区别在于，“impose”是指强迫或胁迫某人做某事，而“impress”是指对某人产生积极或消极的影响。\n\n例如，你可以“强加”一个国家的人民遵守法律，同时你可以用你的智慧、知识或某种表现“打动”某人。"
 },
 {
     "instruction": "编写 HTML 代码以创建链接到特定页面的按钮。",
     "input": "页面链接：https://example.com\n按钮上的文字：单击此处",
-    "output": "&lt;button type=&quot;button&quot;&gt;&lt;a href=&quot;https://example.com&quot;&gt;点击此处&lt;/a&gt; &lt;/button&gt;"
+    "output": "<button type=\"button\"><a href=\"https://example.com\">单击此处</a> </button>"
 },
 {
     "instruction": "解释有限理性的概念。",
@@ -33637,7 +33637,7 @@
 {
     "instruction": "给定二元分类数据集，使用逻辑回归模型预测给定输入的输出类别。",
     "input": "输入：身高（英寸）：72，体重（磅）：200",
-    "output": "预测输出类别：1（正）"
+    "output": "预测输出类别：1（positive）"
 },
 {
     "instruction": "识别下列句子的类型，并将其转化为肯定陈述。",
@@ -33726,8 +33726,8 @@
 },
 {
     "instruction": "反转给定诗的每一行",
-    "input": "爱是耐心，\n爱是善良的。\n它不羡慕，\n它不自夸",
-    "output": "tnetiap si evol,\n日记是evoL。\n羡慕 llaes 的吨，\n来自拉斯的陶斯特顿"
+    "input": "Love is patient,\nLove is kind.\nIt does not envy,\nIt does not boast",
+    "output": "tnetiap si evoL,\ndnik si evoL.\nEnvy ton od llaes,\ntaost ton od llaes"
 },
 {
     "instruction": "集思广益 3 个可能的想法来推广以下产品",
@@ -33766,8 +33766,8 @@
 },
 {
     "instruction": "分析以下代码序列以确定是否有任何错误。",
-    "input": "一 = 5\nb = 10\nc = a + b\nprint(&quot;a + b 的和是：&quot; + c)",
-    "output": "这段代码有错误，因为print函数的参数必须是字符串，而c的值是整数。这可以通过在打印之前将 c 转换为字符串来解决。更正后的代码应如下所示：\n\n一 = 5\nb = 10\nc = a + b\nprint(&quot;a + b 的和是：&quot; + str(c))"
+    "input": "a = 5\nb = 10\nc = a + b\nprint(\"The sum of a + b is: \" + c)",
+    "output": "这段代码有错误，因为print函数的参数必须是字符串，而c的值是整数。这可以通过在打印之前将 c 转换为字符串来解决。更正后的代码应如下所示：\n\na = 5\nb = 10\nc = a + b\nprint(\"a + b 的和是：\" + str(c))"
 },
 {
     "instruction": "描述什么是 API 及其用途。",
@@ -33777,7 +33777,8 @@
 {
     "instruction": "生成用于收集用户反馈的示例表单模板。",
     "input": "",
-    "output": "&lt;表格&gt;\n    &lt;h2&gt;用户反馈调查&lt;/h2&gt;\n    &lt;p&gt;请回答以下有关您对我们产品的体验的问题。您的反馈将帮助我们改进为未来用户提供的服务。&lt;/p&gt;\n    \n    &lt;label for=&quot;overallRating&quot;&gt;总体评分&lt;/label&gt;\n    &lt;select name=&quot;overallRating&quot;&gt;\n        &lt;option&gt;1 - 差&lt;/option&gt;\n        &lt;option&gt;2 - 公平&lt;/option&gt;\n        &lt;option&gt;3 - 好&lt;/option&gt;\n        &lt;option&gt;4 - 非常好&lt;/option&gt;\n        &lt;option&gt;5 - 优秀&lt;/option&gt;\n    &lt;/选择&gt;\n\n    &lt;label for=&quot;easeOfUse&quot;&gt;易于使用&lt;/label&gt;\n    &lt;select name=&quot;easeOfUse&quot;&gt;\n        &lt;option&gt;1 - 差&lt;/option&gt;\n        &lt;option&gt;2 - 公平&lt;/option&gt;\n        &lt;option&gt;3 - 好&lt;/option&gt;\n        &lt;option&gt;4 - 非常好&lt;/option&gt;\n        &lt;option&gt;5 - 优秀&lt;/option&gt;\n    &lt;/选择&gt;\n\n    &lt;label for=&quot;features&quot;&gt;功能&lt;/label&gt;\n    &lt;选择名称=&quot;特征&quot;&gt;\n        &lt;option&gt;1 - 差&lt;/option&gt;\n        &lt;option&gt;2 - 公平&lt;/option&gt;\n        &lt;option&gt;3 - 好&lt;/option&gt;\n        &lt;option&gt;4 - 非常好&lt;/option&gt;\n        &lt;option&gt;5 - 优秀&lt;/option&gt;\n    &lt;/选择&gt;\n\n    &lt;label for=&quot;valueForMoney&quot;&gt;物有所值&lt;/label&gt;\n    &lt;select name=&quot;valueForMoney&quot;&gt;\n        &lt;option&gt;1 - 差&lt;/option&gt;\n        &lt;option&gt;2 - 公平&lt;/option&gt;\n        &lt;option&gt;3 - 好&lt;/option&gt;\n        &lt;option&gt;4 - 非常好&lt;/option&gt;\n        &lt;option&gt;5 - 优秀&lt;/option&gt;\n    &lt;/选择&gt;\n\n    &lt;label for=&quot;comments&quot;&gt;评论&lt;/label&gt;&lt;br&gt;\n    &lt;textarea name=&quot;comments&quot; rows=&quot;5&quot; cols=&quot;70&quot;&gt;&lt;/textarea&gt;\n\n    &lt;input type=&quot;提交&quot; value=&quot;提交&quot;&gt;\n\n&lt;/表格&gt;"
+    "output": "<form>\n    <h2>用户反馈调查</h2>\n    <p>请回答以下有关您对我们产品的体验的问题。您的反馈将帮助我们改进为未来用户提供的服务。</p>\n    \n    <label for=\"overallRating\">总体评分</label>\n    <select name=\"overallRating\">\n        <option>1 - 差</option>\n        <option>2 - 一般</option>\n        <option>3 - 好</option>\n        <option>4 - 很好</option>\n        <option>5 - 非常好</option>\n    </select>\n\n    <label for=\"easeOfUse\">Ease of Use</label>\n    <select name=\"easeOfUse\">\n        <option>1 - Poor</option>\n        <option>2 - Fair</option>\n        <option>3 - Good</option>\n        <option>4 - Very Good</option>\n        <option>5 - Excellent</option>\n    </select>\n\n    <label for=\"features\">Features</label>\n    <select name=\"features\">\n        <option>1 - Poor</option>\n        <option>2 - Fair</option>\n        <option>3 - Good</option>\n        <option>4 - Very Good</option>\n        <option>5 - Excellent</option>\n    </select>\n\n    <label for=\"valueForMoney\">Value for Money</label>\n    <select name=\"valueForMoney\">\n        <option>1 - Poor</option>\n        <option>2 - Fair</option>\n        <option>3 - Good</option>\n        <option>4 - Very Good</option>\n        <option>5 - Excellent</option>\n    </select>\n\n    <label for=\"comments\">Comments</label><br>\n    <textarea name=\"comments\" rows=\"5\" cols=\"70\"></textarea>\n\n    <input type=\"submit\" value=\"提交\">\n\n</form>"
+
 },
 {
     "instruction": "分析给定的句子以确定语气是否非正式。输出真或假。",
@@ -33861,8 +33862,8 @@
 },
 {
     "instruction": "实现给定的算法。",
-    "input": "二进制搜索",
-    "output": "函数 binary_search(arr, l, r, x)\n{\n    如果（￼r &gt;= l）{\n        var mid = l + (r - l) / 2;\n  \n        // 如果元素存在\n        // 在中间\n        如果（arr[mid] == x）\n            返回中间；\n  \n        // 如果元素更小\n        // 比中间，然后\n        // 它只能存在\n        // 在左子数组中\n        如果 (arr[mid] &gt; x)\n            返回 binary_search(arr, l, mid - 1, x);\n  \n        // 否则元素可以\n        // 只出现\n        // 在右子数组中\n        返回 binary_search(arr, mid + 1, r, x);\n    }\n  \n    // 我们什么时候到达这里\n    // 元素不存在\n    // 在数组中\n    返回-1；\n}"
+    "input": "二分搜索",
+    "output": "function binary_search(arr, l, r, x) \n{ \n    if (\ufffcr >= l) { \n        var mid = l + (r - l) / 2; \n  \n        // If the element is present \n        // at the middle   \n        if (arr[mid] == x)  \n            return mid; \n  \n        // If element is smaller \n        // than mid, then \n        // it can only be present \n        // in left sub array \n        if (arr[mid] > x)  \n            return binary_search(arr, l, mid - 1, x); \n  \n        // Else the element can \n        // only be present \n        // in right sub array \n        return binary_search(arr, mid + 1, r, x); \n    } \n  \n    // We reach here when  \n    // element is not present \n    // in array \n    return -1; \n}"
 },
 {
     "instruction": "用一句话描述给定的商业模式。",
@@ -34037,7 +34038,7 @@
 {
     "instruction": "生成英文字母的元音。",
     "input": "",
-    "output": "a, e, 我, o, 你"
+    "output": "a, e, i, o, u"
 },
 {
     "instruction": "用你自己的话解释什么是主动学习。",
@@ -34382,7 +34383,7 @@
 {
     "instruction": "在 python 中创建剪刀石头布游戏。",
     "input": "",
-    "output": "随机导入\n\noptions = [&quot;rock&quot;, &quot;paper&quot;, &quot;scissors&quot;]\n\nplayer1 = input(&quot;玩家1选择：&quot;)\nplayer2 = random.choice(选项)\n\n如果玩家 1 == 玩家 2：\n    print(&quot;这是平局！&quot;)\nelif player1 ==“摇滚”：\n    如果玩家 2 == “纸”：\n        print(&quot;玩家 2 获胜！&quot;)\n    elif player2 == “剪刀”：\n        print(&quot;玩家 1 获胜！&quot;)\nelif player1 ==“纸”：\n    如果玩家 2 == “摇滚”：\n        print(&quot;玩家 1 获胜！&quot;)\n    elif player2 == “剪刀”：\n        print(&quot;玩家 2 获胜！&quot;)\nelif player1 == “剪刀”：\n    如果玩家 2 == “摇滚”：\n        print(&quot;玩家 2 获胜！&quot;)\n    elif player2 ==“纸”：\n        print(&quot;玩家 1 获胜！&quot;)\n别的：\n    print(&quot;输入错误，您没有输入剪刀石头布，请重试。&quot;)"
+    "output": "import random\n\noptions = [\"rock\", \"paper\", \"scissors\"]\n\nplayer1 = input(\"Player1 choose: \")\nplayer2 = random.choice(options)\n\nif player1 == player2:\n    print(\"It's a tie!\")\nelif player1 == \"rock\":\n    if player2 == \"paper\":\n        print(\"Player2 wins!\")\n    elif player2 == \"scissors\":\n        print(\"Player1 wins!\")\nelif player1 == \"paper\":\n    if player2 == \"rock\":\n        print(\"Player1 wins!\")\n    elif player2 == \"scissors\":\n        print(\"Player2 wins!\")\nelif player1 == \"scissors\":\n    if player2 == \"rock\":\n        print(\"Player2 wins!\")\n    elif player2 == \"paper\":\n        print(\"Player1 wins!\")\nelse:\n    print(\"Invalid input. You have not entered rock, paper or scissors, try again.\")"
 },
 {
     "instruction": "分析这部政治漫画并解释它在说什么。",
@@ -34391,8 +34392,8 @@
 },
 {
     "instruction": "识别此程序中的错误并提出修复建议。",
-    "input": "定义我的函数（x）：\n    x += 10\n返回 x",
-    "output": "程序中的错误是在函数内部更改了&#39;x&#39;的值，但没有返回更改后的值。要解决此问题，程序应返回更改后的值，如下所示：\n定义我的函数（x）：\n    x += 10\n    返回 x"
+    "input": "def my_function(x):\n    x += 10\nreturn x",
+    "output": "程序中的错误是在函数内部更改了 'x' 的值，但没有返回更改后的值。要解决此问题，程序应返回更改后的值，如下所示：\ndef my_function(x):\n    x += 10\n    return x"
 },
 {
     "instruction": "根据共同特征对给定的项目进行分组",
@@ -34446,8 +34447,8 @@
 },
 {
     "instruction": "给定一个 python 函数，用英文重写它。",
-    "input": "定义 say_hello():\n  打印（&#39;你好！&#39;）",
-    "output": "函数 say_hello() 打印文本“你好！”到屏幕。"
+    "input": "def say_hello():\n  print('Hello there!')",
+    "output": "The function say_hello() prints the text 'Hello there!' to the screen."
 },
 {
     "instruction": "给定以下文章，以引人入胜的方式重写句子。",
@@ -34906,8 +34907,8 @@
 },
 {
     "instruction": "自动执行给定的任务并输出结果代码。",
-    "input": "任务：编写一个程序，读取一个文本文件并打印出文件中的单词数。",
-    "output": "#include &lt;iostream&gt;\n#include &lt;文件流&gt;\n#include &lt;字符串&gt;\n\n使用命名空间标准；\n\n诠释主要（）{\n    // 声明变量\n    弦线;\n    整数计数 = 0；\n\n    // 打开文本文件\n    ifstream myfile(&quot;文件.txt&quot;);\n\n    //逐行读取文件\n    while (getline(myfile, line)) {\n        // 用空格分割行\n        istringstream iss（线）；\n        字符串词；\n\n        // 读取每个单词并增加单词数\n        while (iss &gt;&gt; word) {\n            计数++；\n        }\n    }\n    \n    // 输出字数\n    cout &lt;&lt; &quot;单词个数：&quot; &lt;&lt; count &lt;&lt; endl;\n\n    返回 0；\n}"
+    "input": "任务：编写一个C++程序，读取一个文本文件并打印出文件中的单词数。",
+    "output": "#include <iostream>\n#include <fstream>\n#include <string>\n\nusing namespace std;\n\nint main() {\n    // Declare variables\n    string line;\n    int count = 0;\n\n    // Open text file\n    ifstream myfile(\"file.txt\");\n\n    // Read the file line by line\n    while (getline(myfile, line)) {\n        // Split the line by any whitespaces\n        istringstream iss(line);\n        string word;\n\n        // Read each word and increment the word count\n        while (iss >> word) {\n            count++;\n        }\n    }\n    \n    // Output the word count\n    cout << \"Number of words: \" << count << endl;\n\n    return 0;\n}"
 },
 {
     "instruction": "根据客户的购买历史，预测客户将来更有可能购买的产品。",
@@ -34961,8 +34962,8 @@
 },
 {
     "instruction": "为这个 leetcode 问题提出一个解决方案",
-    "input": "给定一个只包含三种字符的字符串：&#39;(&#39;, &#39;)&#39; 和 &#39;*&#39;，编写一个函数来检查这个字符串是否有效。我们通过以下规则定义字符串的有效性：\n\n任何左括号 &#39;(&#39; 必须有相应的右括号 &#39;)&#39;。\n任何右括号 &#39;)&#39; 必须有对应的左括号 &#39;(&#39;。\n左括号 &#39;(&#39; 必须在相应的右括号 &#39;)&#39; 之前。\n&#39;*&#39; 可以被视为单个右括号 &#39;)&#39; 或单个左括号 &#39;(&#39; 或空字符串。\n\n空字符串也是有效的。",
-    "output": "类解决方案：\n    def checkValidString(self, s: str) -&gt; 布尔值：\n        open_stack = []\n        star_stack = []\n        对于我，枚举中的字符：\n            \n            # 将左括号添加到 open_stack，将星标添加到 star_stack\n            如果 char == &quot;(&quot;:\n                open_stack.append(i)\n            elif 字符 == &quot;*&quot;：\n                star_stack.append(i)\n                \n            # 检查当前的左括号或星号，如果它们与右括号匹配则弹出它们\n            # 如果没有找到匹配的括号，则表达式无效。\n            elif 字符 == &quot;)&quot;:\n                如果打开堆栈：\n                    open_stack.pop()\n                elif star_stack：\n                    star_stack.pop()\n                别的：\n                    返回假\n\n        # 检查剩余栈的长度\n        而 open_stack 和 star_stack：\n            o = open_stack.pop()\n            s = star_stack.pop()\n\n            如果 o &gt; s：\n                返回假\n\n        返回 len(open_stack) == 0"
+    "input": "给定一个只包含三种字符的字符串： '(', ')' and '*';，编写一个函数来检查这个字符串是否有效。我们通过以下规则定义字符串的有效性：\n\n任何左括号 '('; 必须有相应的右括号  ')';。\n任何右括号 ')'; 必须有对应的左括号 '(';。\n左括号'(' 必须在相应的右括号 ')' 之前。\n'*' 可以被视为单个右括号')' 或单个左括号'(' 或空字符串。\n\n空字符串也是有效的。",
+    "output": "class Solution:\n    def checkValidString(self, s: str) -> bool:\n        open_stack = []\n        star_stack = []\n        for i, char in enumerate(s):\n            \n            # Add open brackets to open_stack and star to star_stack\n            if char == \"(\":\n                open_stack.append(i)\n            elif char == \"*\":\n                star_stack.append(i)\n                \n            # Check the current opening brackets or star, pop them in case they match the closing bracket\n            # If no matching bracket is found, then the expression is not valid.\n            elif char == \")\":\n                if open_stack:\n                    open_stack.pop()\n                elif star_stack:\n                    star_stack.pop()\n                else:\n                    return False\n\n        # Check the length of the remaining stacks\n        while open_stack and star_stack:\n            o = open_stack.pop()\n            s = star_stack.pop()\n\n            if o > s:\n                return False\n\n        return len(open_stack) == 0"
 },
 {
     "instruction": "重写以下每个句子以表达与问题相同的概念。",
@@ -34976,8 +34977,8 @@
 },
 {
     "instruction": "将下列句子分解成子句并确定每个子句的句法功能：",
-    "input": "讲习班结束了，参与者都回家了。",
-    "output": "主句：研讨会结束\n从句：and the participants have gone home（时间状语从句）"
+    "input": "The workshop had ended and the participants had gone home.",
+    "output": "主句：The workshop had ended\n从句：and the participants have gone home（时间状语从句）"
 },
 {
     "instruction": "通过添加合适的结局来完成故事",
@@ -34987,7 +34988,7 @@
 {
     "instruction": "以下文字代表什么数据类型？",
     "input": "25.09",
-    "output": "漂浮。"
+    "output": "浮点数。"
 },
 {
     "instruction": "确定哪个数据集更有用",
@@ -35091,8 +35092,8 @@
 },
 {
     "instruction": "转换给定代码以使用结构数据类型。",
-    "input": "名字=“约翰”\n年龄=40\n身高=1.87",
-    "output": "person = {&quot;name&quot;: &quot;John&quot;, &quot;age&quot;: 40, &quot;height&quot;: 1.87}"
+    "input": "name=\"John\"\nage=40\nheight=1.87",
+    "output": "person = {\"name\": \"John\", \"age\": 40, \"height\": 1.87}"
 },
 {
     "instruction": "选择与突出显示的词具有正确同义词的词。",
@@ -35121,8 +35122,8 @@
 },
 {
     "instruction": "在给定的代码中添加一个功能，以便它可以接受通配符和特殊字符。",
-    "input": "# 要验证的 Python 3 程序\n# IPv4 地址\n\n# 验证给定 IPv4 地址的函数。\ndef validate_IPv4(s):\n    l = s.split(&quot;.&quot;)\n    如果 len(l) != 4:\n        返回假\n    对于 l 中的 x：\n        如果不是 x.isdigit() 或 int(x)&gt;255：\n            返回假\n    返回真\n\n# 驱动代码\ns = &quot;192.168.1.2&quot;\n如果 validate_IPv4(s):\n    打印（“有效”）\n别的：\n    打印（“无效”）",
-    "output": "# 要验证的 Python 3 程序\n# IPv4地址\n\n# 验证给定 IPv4 地址的函数。\ndef validate_IPv4(s):\n    l = s.split(&quot;.&quot;)\n    如果 len(l) != 4:\n        返回假\n    对于 l 中的 x：\n        如果 x != &#39;*&#39; 和 x != &#39;#&#39; 并且（不是 x.isdigit() 或 int(x)&gt;255）：\n            返回假\n    返回真\n\n# 驱动代码\ns = &quot;192.168.1.*&quot;\n如果 validate_IPv4(s)：\n    打印（“有效”）\n别的：\n    打印（“无效”）"
+    "input": "# Python 3 program to validate \n# IPv4 address \n\n# Function to validate a given IPv4 address. \ndef validate_IPv4(s): \n    l = s.split(\".\") \n    if len(l) != 4: \n        return False\n    for x in l: \n        if not x.isdigit() or int(x)>255: \n            return False\n    return True\n\n# Driver Code \ns = \"192.168.1.2\"\nif validate_IPv4(s): \n    print(\"valid\") \nelse: \n    print(\"Invalid\")",
+    "output": "# Python 3 program to validate \n# IPv4 address \n\n# Function to validate a given IPv4 address. \ndef validate_IPv4(s): \n    l = s.split(\".\") \n    if len(l) != 4: \n        return False\n    for x in l: \n        if x != '*' and x != '#' and (not x.isdigit() or int(x)>255): \n            return False\n    return True\n\n# Driver Code \ns = \"192.168.1.*\"\nif validate_IPv4(s): \n    print(\"valid\") \nelse: \n    print(\"Invalid\")"
 },
 {
     "instruction": "按如下方式编辑句子 - 保持相同的意思，但缩短句子。",
@@ -35397,7 +35398,7 @@
 {
     "instruction": "编写一个 python 程序来计算圆的面积。",
     "input": "",
-    "output": "def area_of_circle（半径）：\n \n    # 计算圆的面积\n    圆周率 = 3.14\n    面积 = PI *（半径 * 半径）\n      \n    # 打印区域\n    print(&quot;圆的面积是：%.2f&quot; %area)\n      \n# 驱动函数\nradius = float(input(&quot; 输入圆的半径：&quot;))\narea_of_circle（半径）"
+    "output": "def area_of_circle(radius): \n \n    # Calculate the area of a circle \n    PI = 3.14\n    area = PI * (radius * radius) \n      \n    # Print the area \n    print(\"The area of the circle is: %.2f\" %area) \n      \n# Driver function \nradius = float(input(\" ENTER THE RADIUS OF CIRCLE: \"))\narea_of_circle(radius)"
 },
 {
     "instruction": "创建 SQL 查询以显示数据库中的所有表",
@@ -35532,7 +35533,7 @@
 {
     "instruction": "编写一个 Python 函数来打印斐波那契数列。",
     "input": "",
-    "output": "def printFibonacci(n):\n    一 = 0\n    b = 1\n    如果 n &lt; 0：\n        print(&quot;输入错误&quot;)\n    elif n == 0:\n        打印（一）\n    elif n == 1:\n        打印(b)\n    别的：\n        打印（一）\n        打印(b)\n        对于范围内的我（2，n）：\n            c = a + b\n            一个=乙\n            b = c\n            打印(b)"
+    "output": "def printFibonacci(n): \n    a = 0\n    b = 1\n    if n < 0: \n        print(\"Incorrect input\") \n    elif n == 0: \n        print(a) \n    elif n == 1: \n        print(b) \n    else: \n        print(a)\n        print(b)\n        for i in range(2,n): \n            c = a + b \n            a = b \n            b = c \n            print(b)"
 },
 {
     "instruction": "说出计算机安全四大要素中的三个。",
@@ -35752,7 +35753,7 @@
 {
     "instruction": "使用 HTML 代码创建网页",
     "input": "",
-    "output": "&lt;html&gt;\n&lt;头&gt;\n  &lt;title&gt;我的网页&lt;/title&gt;\n&lt;/头&gt;\n&lt;正文&gt;\n  &lt;h1&gt; 欢迎来到我的网页！ &lt;/h1&gt;\n  &lt;p&gt; 在这里您可以找到有关我的兴趣和爱好的信息。 &lt;/p&gt;\n  &lt;h2&gt;爱好&lt;/h2&gt;\n  &lt;ul&gt;\n    &lt;li&gt;园艺&lt;/li&gt;\n    &lt;li&gt; 烹饪&lt;/li&gt;\n    &lt;li&gt; 绘画 &lt;/li&gt;\n  &lt;/ul&gt;\n&lt;/body&gt;\n&lt;/html&gt;"
+    "output": "<html>\n<head>\n  <title> My Web Page </title>\n</head>\n<body>\n  <h1> Welcome to my web page! </h1>\n  <p> Here you will find information about my interests and hobbies. </p>\n  <h2> Hobbies </h2>\n  <ul>\n    <li> Gardening </li>\n    <li> Cooking </li>\n    <li> Painting </li>\n  </ul>\n</body>\n</html>"
 },
 {
     "instruction": "生成 3 个逼真的物理实验。",
@@ -35876,8 +35877,8 @@
 },
 {
     "instruction": "在 PostgreSQL 中编写查询以列出特定月份有订单的客户。",
-    "input": "月份：2021 年 4 月",
-    "output": "选择 customers.name\n来自客户\nINNER JOIN 命令\nON customers.id = orders.customer_id\nWHERE EXTRACT（MONTH FROM orders.order_created_at）=&#39;04&#39;\n  AND EXTRACT (YEAR FROM orders.order_created_at) = &#39;2021&#39;"
+    "input": "月份：2021 年 4 月 (April 2021)",
+    "output": "SELECT customers.name \nFROM customers \nINNER JOIN orders \nON customers.id = orders.customer_id \nWHERE EXTRACT(MONTH FROM orders.order_created_at) = '04' \n  AND EXTRACT (YEAR FROM orders.order_created_at) = '2021'"
 },
 {
     "instruction": "解释模态和非模态对话框之间的区别。",
@@ -35931,7 +35932,7 @@
 },
 {
     "instruction": "哪个驱动程序最适合解决给定的问题？输出 A、B、C、D 或 E。",
-    "input": "公司面临的一个问题是需要为其硬件开发自己的监控软件以提高性能。\n\n答：太阳风\nB: 索福斯\nC：施耐德电气的APC\nD：斯普伦克\nE: 扎比克斯",
+    "input": "公司面临的一个问题是需要为其硬件开发自己的监控软件以提高性能。\n\n答：SolarWinds\nB: 索福斯\nC：施耐德电气的APC\nD：斯普伦克\nE: 扎比克斯",
     "output": "E: 扎比克斯"
 },
 {
@@ -36197,7 +36198,7 @@
 {
     "instruction": "用任何编程语言编写一个函数来检查两个单词是否是彼此的变位词。",
     "input": "",
-    "output": "Python代码\n\ndef isAnagram(x, y):\n  \n    # 获取两个字符串的长度\n    x_len = len(x)\n    y_len = len(y)\n  \n    # 如果两个字符串的长度不一样，那么它们\n    # 不是字谜\n    如果 x_len != y_len:\n        返回假\n  \n    x = 排序(x)\n    y = 排序（y）\n  \n    对于范围内的我（0，x_len）：\n        字符 1 = x[i]\n        字符 2 = y[i]\n  \n    # 比较排序后的字符串\n    如果 char1 != char2:\n        返回假\n  \n    返回真"
+    "output": "Python code\n\ndef isAnagram(x, y): \n  \n    # Get lengths of both strings \n    x_len = len(x) \n    y_len = len(y)\n  \n    # If length of both strings is not same, then they  \n    # are not anagram \n    if x_len != y_len: \n        return False\n  \n    x = sorted(x) \n    y = sorted(y) \n  \n    for i in range(0, x_len):\n        char1 = x[i] \n        char2 = y[i]\n  \n    # Compare sorted strings \n    if char1 != char2: \n        return False\n  \n    return True"
 },
 {
     "instruction": "解释“互斥”是什么意思。",
@@ -36361,8 +36362,8 @@
 },
 {
     "instruction": "对该代码进行逆向工程，使其处理给定的输入。",
-    "input": "&quot;&quot;&quot;\ndef process_input（数据）：\n    结果 = &#39;&#39;\n    # 处理数据\n    \n    返回结果\n&quot;&quot;&quot;",
-    "output": "&quot;&quot;&quot;\ndef process_input（数据）：\n    结果 = &#39;&#39;\n    对于数据中的字符：\n        结果 += char.upper()\n    返回结果\n&quot;&quot;&quot;"
+    "input": "\"\"\"\ndef process_input(data):\n    result = ''\n    # Process the data\n    \n    return result\n\"\"\"",
+    "output": "\"\"\"\ndef process_input(data):\n    result = ''\n    for char in data:\n        result += char.upper()\n    return result\n\"\"\""
 },
 {
     "instruction": "分析给定的句子并判断说话者是否在讽刺。",
@@ -36647,7 +36648,7 @@
 {
     "instruction": "生成一个编程代码来解决这个问题",
     "input": "问题：编写一个函数来反转给定的字符串。",
-    "output": "def 反向（字符串）：\n    字符串 = 字符串[::-1]\n    返回字符串"
+    "output": "def reverse(string): \n    string = string[::-1] \n    return string"
 },
 {
     "instruction": "编造一个故事，涉及一个名叫莉迪亚的虚构主角",
@@ -36751,8 +36752,8 @@
 },
 {
     "instruction": "重写代码，使其更高效。",
-    "input": "对于我在范围内（10）：\n    x += 1",
-    "output": "x = 0\n\n对于我在范围内（10）：\n    x += 1"
+    "input": "for i in range(10):\n    x += 1",
+    "output": "x = 0\n\nfor i in range(10):\n    x += 1"
 },
 {
     "instruction": "为单词“wonderful”生成三个反义词。",
@@ -36871,13 +36872,13 @@
 },
 {
     "instruction": "创建动态查询以过滤大量用户数据表",
-    "input": "表：MongoDB 中的 user_data\n列：_id、用户名、性别\n过滤器：男性",
-    "output": "db.user_data.find（{性别：“男”}）"
+    "input": "表 : user_data in MongoDB\n列 : _id, username, gender\nFilter: Male",
+    "output": "db.user_data.find( { gender : \"Male\" } )"
 },
 {
     "instruction": "将以下用 JavaScript 编写的代码转换为 Python。",
-    "input": "变量总和 = 0;\n对于 (var i = 1; i &lt; 10; i++) {\n  如果（我％2 === 0）{\n    总和+=我；\n  }\n}",
-    "output": "总和 = 0\n对于范围内的我（1,10）：\n    如果我 % 2 == 0:\n        和+=我"
+    "input": "var sum = 0;\nfor (var i = 1; i < 10; i++) {\n  if ( i % 2 === 0 ) {\n    sum += i;\n  }\n}",
+    "output": "sum = 0\nfor i in range(1,10):\n    if i % 2 == 0:\n        sum += i"
 },
 {
     "instruction": "比较两种编程语言的优缺点。",
@@ -36902,7 +36903,7 @@
 {
     "instruction": "给定一个方程，求解它并解释步骤",
     "input": "3x + 4 = 2x + 12",
-    "output": "方程3x + 4 = 2x + 12 可以通过两边减去2x 得到3x -2x = 12 - 4。那么，x = 8。\n\n脚步：\n1. 两边减去 2x：3x - 2x = 12 - 4\n2.化简：x = 8\n3.答案：x = 8"
+    "output": "方程3x + 4 = 2x + 12 可以通过两边减去2x 得到3x -2x = 12 - 4。那么，x = 8。\n\n步骤：\n1. 两边减去 2x：3x - 2x = 12 - 4\n2.化简：x = 8\n3.答案：x = 8"
 },
 {
     "instruction": "描述使用 Amazon EC2 实例部署 Web 应用程序的过程。",
@@ -37382,7 +37383,7 @@
 {
     "instruction": "编写一个 Jquery 脚本来隐藏所有具有“hide-this”类的 HTML 元素。",
     "input": "",
-    "output": "$(文档).ready(函数(){\n$(&#39;.hide-this&#39;).hide();\n});"
+    "output": "$(document).ready(function(){\n$('.hide-this').hide();\n});"
 },
 {
     "instruction": "给定一个数学方程式，求解它。",
@@ -37462,7 +37463,7 @@
 {
     "instruction": "编写一些代码以相反的顺序打印数组。",
     "input": "让 arr = [4, 5, 6, 7]",
-    "output": "for (let i = arr.length - 1; i &gt;= 0; i--) {\n  控制台日志（arr[i]）；\n}"
+    "output": "for (let i = arr.length - 1; i >= 0; i--) {\n  console.log(arr[i]);\n}"
 },
 {
     "instruction": "解释英国退欧协议如何影响英国经济。",
@@ -37541,7 +37542,7 @@
 },
 {
     "instruction": "将以下代码分类为不正确或正确。",
-    "input": "让 x = 0",
+    "input": "Let x = 0",
     "output": "正确的。"
 },
 {
@@ -37652,7 +37653,7 @@
 {
     "instruction": "编写查询以查找以字母“d”开头的所有单词。",
     "input": "",
-    "output": "从表名中选择单词\nWHERE 字样 &#39;d%&#39;"
+    "output": "SELECT word FROM table_name\nWHERE word LIKE 'd%'"
 },
 {
     "instruction": "世界如何减少碳排放？",
@@ -37722,7 +37723,7 @@
 {
     "instruction": "编写一段代码来查找数组中的最大数字。",
     "input": "[1, 5, 7, 18, 24, 32]",
-    "output": "int 最大数 = 0;\nforeach（数组中的整数）\n{\n    if (num &gt; largestNum)\n    {\n        最大数 = 数；\n    }\n}\n\nConsole.WriteLine(&quot;数组中最大的数是&quot; + largestNum);"
+    "output": "int largestNum = 0; \nforeach(int num in array)\n{ \n    if (num > largestNum) \n    {\n        largestNum = num; \n    }\n}\n\nConsole.WriteLine(\"The largest number in the array is \" + largestNum);"
 },
 {
     "instruction": "美国最受欢迎的运动是什么？",
@@ -38167,7 +38168,7 @@
 {
     "instruction": "生成适当的解决方案代码以打印 0 到 30 之间的所有 3 的倍数，但 15 除外。",
     "input": "",
-    "output": "对于 range(0, 30) 中的 x：\n    如果 x != 15 且 x % 3 == 0：\n        打印（x）"
+    "output": "for x in range(0, 30):\n    if x != 15 and x % 3 == 0:\n        print(x)"
 },
 {
     "instruction": "概述故事的主要事件。",
@@ -38177,7 +38178,7 @@
 {
     "instruction": "给定两个数字，编写一个 Python 代码来计算它们的和。",
     "input": "x = 7\ny = 4",
-    "output": "总和 = x + y\nprint(sum) # 打印 11"
+    "output": "sum = x + y\nprint(sum) # 打印 11"
 },
 {
     "instruction": "去掉句子中的被动语态。",
@@ -38187,7 +38188,7 @@
 {
     "instruction": "为以下数据提供数据可视化。",
     "input": "2020年各城市每百户汽车保有量\n波士顿：22\n迈阿密：17\n奥斯汀：19",
-    "output": "&lt;无输入&gt;"
+    "output": "<noinput>"
 },
 {
     "instruction": "描绘书中的主人公。",
@@ -38811,7 +38812,7 @@
 },
 {
     "instruction": "找出此代码段中的错误并解释错误发生的原因。",
-    "input": "对于范围 (10) 中的 i：\n    打印（一）",
+    "input": "for i in range (10):\n    print (i)",
     "output": "错误 1：range() 函数的语法不正确。它应该写成带括号的“range(10)”而不是带空格的“range(10)”。\n错误二：打印函数的缩进不正确。该函数应该缩进一次以表明它在 for 循环中。此错误将导致 IndentationError。"
 },
 {
@@ -38822,7 +38823,7 @@
 {
     "instruction": "编写一个简短的程序来打印斐波那契数列，直到用户指定的数字。",
     "input": "",
-    "output": "def print_fibonacci(n):\n    一 = 0\n    b = 1\n \n     print(&quot;斐波那契数列:&quot;)\n    而 a &lt; n:\n        打印（一）\n        c = a + b\n        一个=乙\n        b = c\n\nn = int(input(&quot;请输入一个数字：&quot;))\n打印斐波那契数（n）"
+    "output": "def print_fibonacci(n): \n    a = 0\n    b = 1\n \n     print(\"Fibonacci Sequence:\")\n    while a < n:\n        print(a)\n        c = a + b\n        a = b\n        b = c\n\nn = int(input(\"Enter a number:\"))\nprint_fibonacci(n)"
 },
 {
     "instruction": "必要时使用现在完成时代替简单现在时。",
@@ -39556,8 +39557,8 @@
 },
 {
     "instruction": "构建一个创建表的 SQL 查询。",
-    "input": "表名称：图书\n\n属性：\n- book_id（整数）\n- 标题（可变字符）\n- 作者（varchar）\n- 出版商（varchar）\n- publication_date（日期）",
-    "output": "创建表书（\n  book_id INT,\n  标题 VARCHAR(255),\n  作者 VARCHAR(255)，\n  发布者 VARCHAR(255)，\n  publication_date 日期\n);"
+    "input": "Table Name: Books\n\nAttributes:\n- book_id (int)\n- title (varchar)\n- author (varchar)\n- publisher (varchar)\n- publication_date (date)",
+    "output": "CREATE TABLE Books ( \n  book_id INT, \n  title VARCHAR(255), \n  author VARCHAR(255), \n  publisher VARCHAR(255), \n  publication_date DATE\n);"
 },
 {
     "instruction": "分析印度的新经济形势。",
@@ -39787,7 +39788,7 @@
 {
     "instruction": "开发一个程序来求解这个方程",
     "input": "x^2 + 2x - 15 = 0",
-    "output": "def solve_equation(a, b, c):\n    判别式 = (b**2) - (4*a*c)\n    x1 = (-b + (判别式**(1/2))) / (2*a)\n    x2 = (-b - (判别式**(1/2))) / (2*a)\n    返回 x1, x2\n\n打印（求解方程（1、2、-15））"
+    "output": "def solve_equation(a, b, c):\n    discriminant = (b**2) - (4*a*c)\n    x1 = (-b + (discriminant**(1/2))) / (2*a)\n    x2 = (-b - (discriminant**(1/2))) / (2*a)\n    return x1, x2\n\nprint(solve_equation(1, 2, -15))"
 },
 {
     "instruction": "计算1850美元的所得税",
@@ -40561,8 +40562,8 @@
 },
 {
     "instruction": "将提供的代码重写为匿名函数。",
-    "input": "函数总和（a，b）{\n  返回 a + b；\n}",
-    "output": "const sum = (a,b) =&gt; a+b;"
+    "input": "function sum(a, b) {\n  return a + b;\n}",
+    "output": "const sum = (a,b) => a+b;"
 },
 {
     "instruction": "说出所描述的事件可以被认为是非凡的三个原因。",
@@ -40777,7 +40778,7 @@
 {
     "instruction": "编写一个函数，根据经度和纬度计算距离。",
     "input": "起始经度：-75.45 起始纬度：45.40",
-    "output": "def calc_distance(long1, lat1, long2, lat2):\n    # 以公里为单位的地球近似半径\n    R = 6373.0\n \n    dlon = long2 - long1\n    dlat = lat2 - lat1\n \n    a = sin (dlat / 2) ** 2 + cos (lat 1) * cos (lat 2) * sin (dlon / 2) **2\n    c = 2 * for2(sqrt(a), sqrt(1 - a))\n \n    返回 R*c"
+    "output": "def calc_distance(long1, lat1, long2, lat2):\n    # approximate radius of earth in km\n    R = 6373.0\n \n    dlon = long2 - long1\n    dlat = lat2 - lat1\n \n    a = sin(dlat / 2)**2 + cos(lat1) * cos(lat2) * sin(dlon / 2)**2\n    c = 2 * atan2(sqrt(a), sqrt(1 - a))\n \n    return R * c"
 },
 {
     "instruction": "使用人工智能有哪些优势？",
@@ -40955,9 +40956,9 @@
     "output": "当前的教育体系在为学生提供接受智力挑战和培养成为全面公民所必需的批判性思维技能的机会方面存在重大缺陷；因此，通过增加教师工资、多样化教学方法和为公立学校提供更多资源，可以显着提高全国的教育质量。"
 },
 {
-    "instruction": "该网页应显示以下消息，“此页面正在建设中。请稍后再回来查看。”构造 HTML 代码以显示消息。",
+    "instruction": "该网页应显示以下消息，“此页面维护中。请稍后再回来查看。”构造 HTML 代码以显示消息。",
     "input": "",
-    "output": "&lt;html&gt;\n&lt;头&gt;\n    &lt;title&gt;维护中&lt;/title&gt;\n&lt;/头&gt;\n&lt;正文&gt;\n    &lt;h1&gt;此页面正在建设中。请稍后再回来查看。&lt;/h1&gt;\n&lt;/body&gt;\n&lt;/html&gt;"
+    "output": "<html>\n<head>\n    <title>维护中</title>\n</head>\n<body>\n    <h1>此页面维护中。请稍后再回来查看。</h1>\n</body>\n</html>"
 },
 {
     "instruction": "将下列陈述转化为问题。 “汽车制造商每年生产数百万辆汽车”",
@@ -41012,7 +41013,7 @@
 {
     "instruction": "生成一个网页，显示包含不同国家/地区的人口增长率的图表。",
     "input": "",
-    "output": "&lt;html&gt;\n&lt;头&gt;\n    &lt;title&gt;人口增长率图表&lt;/title&gt;\n&lt;/头&gt;\n&lt;正文&gt;\n    &lt;h1&gt;不同国家的人口增长率&lt;/h1&gt;\n    &lt;div id=&quot;图表&quot;&gt;\n        &lt;canvas id=&quot;myChart&quot; width=&quot;400&quot; height=&quot;400&quot;&gt;&lt;/canvas&gt;\n    &lt;/div&gt;\n\n    &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.js&quot;&gt;&lt;/script&gt;\n    &lt;脚本&gt;\n        var ctx = document.getElementById(&#39;myChart&#39;).getContext(&#39;2d&#39;);\n        var chart = new Chart(ctx, {\n            类型：“线”，\n            数据： {\n                labels : [&quot;美国&quot;, &quot;中国&quot;, &quot;印度&quot;, &quot;日本&quot;, &quot;俄罗斯&quot;],\n                数据集：[{\n                    label: &#39;人口增长率(%)&#39;,\n                    数据：[0.76，0.56，1.12，-0.18，-0.06]，\n                    背景颜色： [\n                        &#39;rgba(255, 99, 132, 0.2)&#39;,\n                    ],\n                    边框颜色： [\n                        &#39;rgba(255, 99, 132, 1)&#39;,\n                    ],\n                    边框宽度：1\n                    }]\n            },\n            选项： {}\n        });\n    &lt;/脚本&gt;\n&lt;/body&gt;\n&lt;/html&gt;"
+    "output": "<html>\n<head>\n    <title>Population Growth Rate Chart</title>\n</head>\n<body>\n    <h1>Population Growth Rate in Different Countries</h1>\n    <div id=\"chart\">\n        <canvas id=\"myChart\" width=\"400\" height=\"400\"></canvas>\n    </div>\n\n    <script src=\"https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.js\"></script>\n    <script>\n        var ctx = document.getElementById('myChart').getContext('2d');\n        var chart = new Chart(ctx, {\n            type: 'line',\n            data: {\n                labels : [\"United States\", \"China\", \"India\", \"Japan\", \"Russia\"],\n                datasets: [{\n                    label: 'Population Growth Rate (%)',\n                    data: [0.76, 0.56, 1.12, -0.18, -0.06],\n                    backgroundColor: [\n                        'rgba(255, 99, 132, 0.2)',\n                    ],\n                    borderColor: [\n                        'rgba(255, 99, 132, 1)',\n                    ],\n                    borderWidth: 1\n                    }]\n            },\n            options: {}\n        });\n    </script>\n</body>\n</html>"
 },
 {
     "instruction": "起草社交媒体帖子以推广新的税务客户会计软件。",
@@ -41052,7 +41053,7 @@
 {
     "instruction": "编写一个 C 程序来计算给定数组中所有元素的总和。",
     "input": "数组 = {2, 4, 3, 7, 5}",
-    "output": "#include&lt;stdio.h&gt;\n\n主函数()\n{\nint array[] = {2, 4, 3, 7, 5};\nint 总和 = 0, i;\n\n对于 (i = 0; i &lt; 5; i++) {\n总和+=数组[i]；\n}\n\nprintf(&quot;数组中所有元素的总和 = %d&quot;, sum);\n\n返回 0；\n}"
+    "output": "#include<stdio.h>\n\nint main()\n{\n\tint array[] = {2, 4, 3, 7, 5};\n\tint sum = 0, i;\n\t\n\tfor (i = 0; i < 5; i++) {\n\t\tsum += array[i];\n\t}\n\t\n\tprintf(\"Sum of all elements in the array = %d\", sum);\n\t\n\treturn 0;\n}"
 },
 {
     "instruction": "讨论气压计的历史和用途。",
@@ -41361,23 +41362,23 @@
 },
 {
     "instruction": "扭转砍伐树木决定的最佳方法是什么？",
-    "input": "没有输入。",
+    "input": "",
     "output": "扭转砍伐树木决定的最好方法是重新种植它们，并确保重新种植的树木在未来得到妥善照顾。"
 },
 {
     "instruction": "找一个工作休息的理由。",
-    "input": "没有输入。",
+    "input": "",
     "output": "在工作中休息一下可以帮助您提神醒脑，让您有机会整理思绪，这可以让您在重返工作岗位时更有效率。"
 },
 {
     "instruction": "为网上银行创建一个独特且令人难忘的密码。",
-    "input": "没有输入。",
+    "input": "",
     "output": "P@ssw0rdB@nking123#！"
 },
 {
     "instruction": "编写代码将用户信息存储在数据库中。",
-    "input": "没有输入。",
-    "output": "创建表用户（\n  id 序列主键，\n  名称 VARCHAR(255),\n  电子邮件 VARCHAR(255)\n);"
+    "input": "",
+    "output": "CREATE TABLE users(\n  id SERIAL PRIMARY KEY,\n  name VARCHAR(255),\n  email VARCHAR(255)\n);"
 },
 {
     "instruction": "对于以下每种蔬菜，按颜色对它们进行分类。",
@@ -41616,7 +41617,7 @@
 },
 {
     "instruction": "解释为什么以下两行 Python 代码产生不同的输出。",
-    "input": "一 = [1, 2]\nb = 一个",
+    "input": "a = [1, 2]\nb = a",
     "output": "这两行 Python 代码产生不同的输出，因为第一行创建了一个包含两个元素的列表，而第二行创建了对同一列表的引用。这意味着当对列表“b”进行更改时，它也会影响“a”引用的对象。"
 },
 {
@@ -42022,7 +42023,7 @@
 {
     "instruction": "构造一个 SQL 查询以从表“Orders”中获取销售总数。",
     "input": "",
-    "output": "从表“Orders”中获取销售总数的 SQL 查询是：\n从订单中选择 COUNT(*)；"
+    "output": "从表“Orders”中获取销售总数的 SQL 查询是：\nSELECT COUNT(*) FROM Orders;"
 },
 {
     "instruction": "给定半径计算圆的面积。",
@@ -42032,7 +42033,7 @@
 {
     "instruction": "编写 CSS 代码以在悬停时提供动画。",
     "input": "",
-    "output": "提供悬停动画的 CSS 代码是：\n\n。元素 {\n  过渡：所有 0.5s 缓入缓出；\n}\n\n.元素：悬停{\n  变换：scale3d(1.1, 1.1, 1.1);\n  动画名称：悬停动画；\n  动画持续时间：0.3s；\n}\n\n@keyframes 悬停动画{\n  0% {\n    边界半径：0px；\n    背景色：蓝色；\n  }\n  100% {\n    边界半径：20px；\n    背景色：黄色；\n  }\n}"
+    "output": "在悬停时提供动画的CSS 代码:\n\n.element {\n  transition: all 0.5s ease-in-out;\n}\n\n.element:hover {\n  transform: scale3d(1.1, 1.1, 1.1);\n  animation-name: animation-on-hover;\n  animation-duration: 0.3s;\n}\n\n@keyframes animation-on-hover {\n  0% {\n    border-radius: 0px;\n    background-color: blue;\n  }\n  100% {\n    border-radius: 20px;\n    background-color: yellow;\n  }\n}"
 },
 {
     "instruction": "概述基于云的应用程序可能的访问控制策略。",
@@ -42077,7 +42078,7 @@
 {
     "instruction": "编写一个 Python 函数根据给定的列索引对二维数组进行排序",
     "input": "数组 = [[1,2,3], [4,5,6], [7,8,9]]\n列索引 = 2",
-    "output": "def sortByColIndex(arr, col_index):\n  \n    arr.sort(key=lambda x : x[col_index])\n    返回 arr\n\n排序数组 = sortByColIndex(arr, 2)\n打印（排序数组）\n\n输出：\n[[3, 2, 1], [6, 5, 4], [9, 8, 7]]"
+    "output": "def sortByColIndex(arr, col_index): \n  \n    arr.sort(key=lambda x : x[col_index]) \n    return arr \n\nsortedArray = sortByColIndex(arr, 2) \nprint(sortedArray) \n\nOutput:\n[[3, 2, 1], [6, 5, 4], [9, 8, 7]]"
 },
 {
     "instruction": "解释使用决策树的优点和缺点",
@@ -42107,7 +42108,7 @@
 {
     "instruction": "构造一个查询以选择网站上评分最高的前 5 部电影",
     "input": "",
-    "output": "选择电影标题、评分\n来自电影\n按评级降序排序\n限制 5；"
+    "output": "SELECT movie_title, rating \nFROM movies\nORDER BY rating DESC\nLIMIT 5;"
 },
 {
     "instruction": "设计一个包含 10 个问题的与在线购物相关的调查",
@@ -42402,7 +42403,7 @@
 {
     "instruction": "创建解决此问题的算法。",
     "input": "给定一个整数列表，只返回该列表中的偶数。",
-    "output": "def return_even_nums(num_list):\n    even_nums = []\n    对于 num_list 中的 num：\n        如果 num % 2 == 0:\n            even_nums.append(num)\n    返回 even_nums"
+    "output": "num_list = [1, 2, 3, 4, 5]\nfor number in num_list:\n  if number < 3:\n    print(\"smaller than 3\")\n  else:\n    if number == 3:\n      print(\"equal to 3\")  \n    else:\n      print(\"larger than 3\")"
 },
 {
     "instruction": "给定两个句子，找出它们的主语和动词。",
@@ -42417,7 +42418,7 @@
 {
     "instruction": "设计一个代表服装品牌的类。",
     "input": "",
-    "output": "类服装品牌：\n    def __init__(self, name, style, colors):\n        self.name = 名字\n        self.style = 风格\n        self.colors = 颜色\n    \n    def get_name（自我）：\n        返回 self.name\n    \n    def set_name（自我，名称）：\n        self.name = 名字\n    \n    def get_style（自我）：\n        回归自我风格\n    \n    def set_style（自我，风格）：\n        self.style = 风格\n    \n    def get_colors（自我）：\n        返回 self.colors\n    \n    def set_colors（自我，颜色）：\n        self.colors = 颜色"
+    "output": "class ClothingBrand:\n    def __init__(self, name, style, colors):\n        self.name = name\n        self.style = style\n        self.colors = colors\n    \n    def get_name(self):\n        return self.name\n    \n    def set_name(self, name):\n        self.name = name\n    \n    def get_style(self):\n        return self.style\n    \n    def set_style(self, style):\n        self.style = style\n    \n    def get_colors(self):\n        return self.colors\n    \n    def set_colors(self, colors):\n        self.colors = colors"
 },
 {
     "instruction": "描述 Python 和 JavaScript 之间的区别",
@@ -42582,7 +42583,7 @@
 {
     "instruction": "编写一个函数来检查字符串是否为回文。",
     "input": "",
-    "output": "def isPalindrome（字符串）：\n    # 删除非字母数字字符\n    alphanumeric_string = re.sub(&#39;[\\W_]+&#39;, &#39;&#39;, string).lower()\n  \n    # 反转字符串\n    reversed_string = alphanumeric_string[::-1]\n  \n    # 检查字符串是否等于它的反转\n    返回 alphanumeric_string == reversed_string"
+    "output": "def isPalindrome(string): \n    # remove non-alphanumeric characters \n    alphanumeric_string = re.sub('[\\W_]+', '', string).lower() \n  \n    # reverse the string \n    reversed_string = alphanumeric_string[::-1] \n  \n    # check if the string is equal to its reverse \n    return alphanumeric_string == reversed_string"
 },
 {
     "instruction": "从给定的网站中提取公司十名员工的联系信息。",
@@ -42921,8 +42922,8 @@
 },
 {
     "instruction": "重构以下代码。",
-    "input": "num_list = [1, 2, 3, 4, 5]\n对于 num_list 中的数字：\n  如果数字 &lt; 3：\n    print(&quot;小于 3&quot;)\n  elif 编号 == 3：\n    print(&quot;等于 3&quot;)\n  别的：\n    print(&quot;大于 3&quot;)",
-    "output": "num_list = [1, 2, 3, 4, 5]\n对于 num_list 中的数字：\n  如果数字 &lt; 3：\n    print(&quot;小于 3&quot;)\n  别的：\n    如果数字 == 3：\n      print(&quot;等于 3&quot;)\n    别的：\n      print(&quot;大于 3&quot;)"
+    "input": "num_list = [1, 2, 3, 4, 5]\nfor number in num_list:\n  if number < 3:\n    print(\"smaller than 3\")\n  elif number == 3:\n    print(\"equal to 3\")  \n  else:\n    print(\"larger than 3\")",
+    "output": "num_list = [1, 2, 3, 4, 5]\nfor number in num_list:\n  if number < 3:\n    print(\"smaller than 3\")\n  else:\n    if number == 3:\n      print(\"equal to 3\")  \n    else:\n      print(\"larger than 3\")"
 },
 {
     "instruction": "从这句话生成一个多项选择题。",
@@ -42967,7 +42968,7 @@
 {
     "instruction": "生成代码以显示包含两列的表格。",
     "input": "",
-    "output": "&lt;表&gt;\n  &lt;tr&gt;\n    &lt;th&gt;第 1 列&lt;/th&gt;\n    &lt;th&gt;第 2 栏&lt;/th&gt;\n  &lt;/tr&gt;\n&lt;/表&gt;"
+    "output": "<table>\n  <tr>\n    <th>Column 1</th>\n    <th>Column 2</th>\n  </tr>\n</table>"
 },
 {
     "instruction": "描述一幅名画。",
@@ -43102,7 +43103,7 @@
 {
     "instruction": "生成使内容缩放到设备宽度的媒体查询",
     "input": "",
-    "output": "@media all and (max-width: 100%) {\n  内容 {\n    宽度：100%；\n  }\n}"
+    "output": "@media all and (max-width: 100%) { \n  content {\n    width: 100%;\n  } \n}"
 },
 {
     "instruction": "使用单词“鲸鱼”、“海洋”和“船”生成一个句子。",
@@ -43192,7 +43193,7 @@
 {
     "instruction": "给定一个输入字符串和一个字典，创建一个函数来查找字典中最长的单词，该单词是给定字符串的子序列。",
     "input": "输入字符串：abpppl\n字典：[able, apple, sample, abppl, pl]",
-    "output": "def findLongestWord（字符串，字典）：\n    最大长度 = 0\n    结果=“”\n\n    对于字典中的单词：\n        如果是子序列（单词，字符串）：\n            如果 len(word) &gt; maxLen：\n                maxLen = len(单词)\n                结果=单词\n  \n    返回结果"
+    "output": "def findLongestWord(string, dict): \n    maxLen = 0\n    result = \"\" \n\n    for word in dict: \n        if isSubsequence(word, string): \n            if len(word) > maxLen: \n                maxLen = len(word) \n                result = word  \n  \n    return result"
 },
 {
     "instruction": "计算这个数学表达式：9*(4+2)",
@@ -43267,7 +43268,7 @@
 {
     "instruction": "输出一个接受两位数输入并确定它是否为素数的程序。",
     "input": "",
-    "output": "def is_prime(n):\n    如果（n &lt;= 1）：\n        返回假\n    \n    如果（n &lt;= 3）：\n        返回真\n    \n  \n    如果（n % 2 == 0 或 n % 3 == 0）：\n        返回假\n  \n    对于范围内的 i(5,int(n**0.5) + 1, 6)：\n        如果（n % i == 0 或 n % (i + 2) == 0）：\n            返回假\n  \n    返回真\n  \nnum = int(input(&quot;请输入一个数字：&quot;))\n如果 is_prime(num):\n    print(num, &quot;是一个质数&quot;)\n别的：\n    print(num, &quot;不是质数&quot;)"
+    "output": "def is_prime(n): \n    if (n <= 1): \n        return False\n    \n    if (n <= 3): \n        return True\n    \n  \n    if (n % 2 == 0 or n % 3 == 0): \n        return False\n  \n    for i in range(5,int(n**0.5) + 1, 6):  \n        if (n % i == 0 or n % (i + 2) == 0): \n            return False\n  \n    return True\n  \nnum = int(input(\"Enter a number: \")) \nif is_prime(num): \n    print(num, \"is a prime number\") \nelse: \n    print(num, \"is not a prime number\")"
 },
 {
     "instruction": "检查给定的输入是否是字谜。",
@@ -43482,7 +43483,7 @@
 {
     "instruction": "编写 C 代码打印以下语句。",
     "input": "铃儿响叮当，铃儿响叮当，一路叮当",
-    "output": "#include&lt;stdio.h&gt;\n\n主函数()\n{\n  printf(&quot;铃儿响叮当，铃儿响叮当，一路叮当\\n&quot;);\n  返回 0；\n}"
+    "output": "#include<stdio.h>\n\nint main() \n{ \n  printf(\"Jingle bells, jingle bells, Jingle all the way\\n\"); \n  return 0; \n}"
 },
 {
     "instruction": "用简短的段落描述经典的文本编辑器“emacs”。",
@@ -43677,7 +43678,7 @@
 {
     "instruction": "编写一个函数来验证电子邮件地址。",
     "input": "",
-    "output": "def validate_email（电子邮件地址）：\n&quot;&quot;&quot; 验证电子邮件地址的功能。\n\n此函数将电子邮件地址作为参数，并且\n如果电子邮件地址有效则返回 True，否则返回 False。\n\n：param email_address：要验证的电子邮件地址。\n:return: True 如果有效，False 如果无效。\n&quot;&quot;&quot;\n    如果重新匹配（“^[\\w\\.\\+\\-]+\\@[\\w]+\\.[a-z]{2,3}$”，email_address）：\n        返回真\n    别的：\n        返回假"
+    "output": "def validate_email(email_address):\n\"\"\" Function to validate an email address.\n\nThis function will take an email address as an argument and\nreturn True if the email address is valid or False if it is not.\n\n:param email_address: The email address to validate.\n:return: True if valid, False if invalid.\n\"\"\"\n    if re.match(\"^[\\w\\.\\+\\-]+\\@[\\w]+\\.[a-z]{2,3}$\", email_address):\n        return True\n    else:\n        return False"
 },
 {
     "instruction": "用一句话描述一种计算机编程语言。",
@@ -43696,13 +43697,13 @@
 },
 {
     "instruction": "编辑给定的 HTML 代码，以便它可以用作登录表单。",
-    "input": "&lt;表格&gt;\n&lt;label&gt;用户名&lt;/label&gt;\n&lt;文本域宽度=&quot;20&quot;&gt;\n&lt;/表格&gt;",
-    "output": "&lt;表格&gt;\n  &lt;label&gt;用户名&lt;/label&gt;\n  &lt;input type=&quot;text&quot; name=&quot;username&quot; width=&quot;20&quot; /&gt;\n  &lt;label&gt;密码&lt;/label&gt;\n  &lt;input type=&quot;password&quot; name=&quot;password&quot; width=&quot;20&quot; /&gt;\n  &lt;input type=&quot;submit&quot; value=&quot;登录&quot; /&gt;\n&lt;/表格&gt;"
+    "input": "<form>\n<label>Username</label>\n<textfield width=\"20\">\n</form>",
+    "output": "<form>\n  <label>Username</label>\n  <input type=\"text\" name=\"username\" width=\"20\" />\n  <label>Password</label>\n  <input type=\"password\" name=\"password\" width=\"20\" />\n  <input type=\"submit\" value=\"Login\" />\n</form>"
 },
 {
     "instruction": "编写一段 Python 代码来获取两个数中的最大值。",
     "input": "",
-    "output": "定义最大值（a，b）：\n&quot;&quot;&quot; 函数求两个数中的最大值\n\n这个函数将两个数字作为参数，\n返回两者中的最大值。\n\n:param a: 第一个数字。\n:param b: 第二个数字。\n:return: 两个数字中的最大值。\n&quot;&quot;&quot;\n    如果 a &gt; b:\n        返回一个\n    别的：\n        返回 b"
+    "output": "def max(a, b):\n\"\"\" Function to get the maximum of two numbers\n\nThis function will take two numbers as arguments and\nreturn the maximum of the two.\n\n:param a: The first number.\n:param b: The second number.\n:return: The maximum of two numbers.\n\"\"\"\n    if a > b:\n        return a\n    else:\n        return b"
 },
 {
     "instruction": "求数字 95 的百分比。",
@@ -43727,7 +43728,7 @@
 {
     "instruction": "编写一个函数来反转列表的顺序。",
     "input": "列表 1 = [10, 20, 30, 40]",
-    "output": "def reverse_list（list1）：\n  返回列表 1[::-1]\n  \n列表 1 = [10, 20, 30, 40]\n\nlist1 = reverse_list(list1)\n\n打印（清单 1）\n\n# 输出：[40, 30, 20, 10]"
+    "output": "def reverse_list(list1):\n  return list1[::-1]\n  \nlist1 = [10, 20, 30, 40]\n\nlist1 = reverse_list(list1)\n\nprint(list1)\n\n# Output: [40, 30, 20, 10]"
 },
 {
     "instruction": "描述你最大的成就。",
@@ -43762,7 +43763,7 @@
 {
     "instruction": "编写一个打印“Hello World!”的 C++ 程序。",
     "input": "",
-    "output": "#include &lt;iostream&gt;\n \n诠释主要（）{\n  std::cout &lt;&lt; “你好世界！” &lt;&lt; 标准::结束;\n  返回 0；\n}"
+    "output": "#include <iostream>\n \nint main() {\n  std::cout << \"Hello World!\" << std::endl;\n  return 0;\n}"
 },
 {
     "instruction": "“一闪一闪，小星星”这首诗的出处是什么？",
@@ -43817,7 +43818,7 @@
 {
     "instruction": "创建 3 个示例 HTTP 请求以将新用户添加到数据库。",
     "input": "",
-    "output": "请求 1：\n发布/用户 HTTP/1.1\n主机：example.com\n内容类型：application/json\n{\n  “用户名”：“newuser_123”，\n  “电子邮件”：“newuser_123@example.com”，\n  “密码”：“pa$$w0rd”\n}\n\n请求 2：\nPUT /用户 HTTP/1.1\n主机：example.com\n内容类型：application/json\n{\n  “用户名”：“newuser_123”，\n  “电子邮件”：“newuser_123@example.com”，\n  “密码”：“pa$$w0rd”\n}\n\n请求 3：\n发布/用户/添加 HTTP/1.1\n主机：example.com\n内容类型：application/json\n{\n  “用户名”：“newuser_123”，\n  “电子邮件”：“newuser_123@example.com”，\n  “密码”：“pa$$w0rd”\n}"
+    "output": "Request 1:\nPOST /user HTTP/1.1 \nHost: example.com\nContent-Type: application/json\n{\n  \"username\": \"newuser_123\", \n  \"email\": \"newuser_123@example.com\",\n  \"password\": \"pa$$w0rd\"\n}\n\nRequest 2:\nPUT /user HTTP/1.1 \nHost: example.com\nContent-Type: application/json\n{\n  \"username\": \"newuser_123\", \n  \"email\": \"newuser_123@example.com\",\n  \"password\": \"pa$$w0rd\"\n}\n\nRequest 3:\nPOST /user/add HTTP/1.1 \nHost: example.com\nContent-Type: application/json\n{\n  \"username\": \"newuser_123\", \n  \"email\": \"newuser_123@example.com\",\n  \"password\": \"pa$$w0rd\"\n}"
 },
 {
     "instruction": "最准确地支持标题“不应在公立学校教授宗教教育”的论点是什么？",
@@ -44102,7 +44103,7 @@
 {
     "instruction": "用将来完成时重写这句话：She has seen the movie",
     "input": "",
-    "output": "她会看过这部电影的。"
+    "output": "She will have seen the movie."
 },
 {
     "instruction": "光合作用速率如何随光照强度变化？",
@@ -44217,7 +44218,7 @@
 {
     "instruction": "告诉我一些关于日产叶子的事情。",
     "input": "",
-    "output": "日产聆风是一款由日产汽车公司生产的电动汽车。它于 2010 年首次发布，目前是全球最受欢迎的电动汽车之一。一次充电可行驶 243 英里，最高时速为 93 英里/小时。它还具有快速充电功能，可在不到 40 分钟的时间内为电池充电高达 80%。"
+    "output": "日产叶子是一款由日产汽车公司生产的电动汽车。它于 2010 年首次发布，目前是全球最受欢迎的电动汽车之一。一次充电可行驶 243 英里，最高时速为 93 英里/小时。它还具有快速充电功能，可在不到 40 分钟的时间内为电池充电高达 80%。"
 },
 {
     "instruction": "用主动语态重写此语句。",
@@ -44272,7 +44273,7 @@
 {
     "instruction": "检测以下陈述的语气并将其分类为悲伤、快乐或中性。",
     "input": "非常感谢你的帮助。",
-    "output": "快乐的"
+    "output": "快乐"
 },
 {
     "instruction": "用 18 个音节重写这首诗。",
@@ -44295,9 +44296,9 @@
     "output": "年老的狗斜倚在阳光下。"
 },
 {
-    "instruction": "列出包含字母“g”的非洲国家。",
+    "instruction": "列出英文里包含字母“g”的非洲国家。",
     "input": "",
-    "output": "-加纳\n-埃及\n-阿尔及利亚\n-蒙古\n-多哥\n-刚果\n-乌干达\n-安哥拉\n-毛里塔尼亚\n-博茨瓦纳"
+    "output": "-加纳（Ghana）\n-埃及（Egypt）\n-阿尔及利亚（Algeria）\n-多哥（Togo）\n-刚果（Congo）\n-乌干达（Uganda）\n-安哥拉（Angola）"
 },
 {
     "instruction": "为自己生成一个独特的座右铭。",
@@ -44807,7 +44808,7 @@
 {
     "instruction": "给我五个成语。",
     "input": "",
-    "output": "“行动胜于雄辩”，\n“一块蛋糕”，\n“一块一块”，\n“切入正题”，\n“花一条胳膊和一条腿”。"
+    "output": "“行胜于言”，\n“小菜一碟”，\n“庖丁解牛”，\n“直截了当”，\n“价值连城”。"
 },
 {
     "instruction": "识别给定描述中的心理障碍。",
@@ -44856,8 +44857,8 @@
 },
 {
     "instruction": "使用贪心算法构建“字符串匹配”程序。",
-    "input": "字符串A：ababcab\n字符串 B：驾驶室",
-    "output": "//使用贪心算法进行字符串匹配的程序\n\n#include&lt;stdio.h&gt;\n#include&lt;stdbool.h&gt;\n\n// 查找给定字符串和模式之间匹配的函数\n布尔字符串匹配（字符字符串[]，字符模式[]）\n{\n//计算给定字符串的长度\nint n = strlen(字符串);\n\n//计算给定模式的长度\nint m = strlen(模式);\n\n// 字符串和模式的索引\nint i = 0, j = 0;\n\n// 贪心循环匹配\nwhile(i &lt; n &amp;&amp; j &lt; m) {\n如果（字符串[i] == 模式[j]）{\n我++；\nj++;\n}\n// 返回字符串中的一个位置\n别的 {\n我 = 我 - j + 1;\nj = 0;\n}\n}\n\n// 检查是否找到模式\n如果（j == m）\n返回真；\n\n返回假；\n}\n\n// 驱动程序代码\n主函数()\n{\nchar string[] = &quot;ababcab&quot;;\n字符模式[] =“驾驶室”；\n\nbool flag = stringMatching(string, pattern);\n\n如果（标志）\nprintf(&quot;模式匹配&quot;);\n别的\nprintf(&quot;模式不匹配&quot;);\n\n返回 0；\n}"
+    "input": "字符串 A:ababcab\n字符串 B:cab",
+    "output": "//使用贪心算法进行字符串匹配的程序\n\n#include<stdio.h>\n#include<stdbool.h>\n\n// Function to find match between given string and pattern \nbool stringMatching(char string[], char pattern[]) \n{ \n\t//calculate length of given string \n\tint n = strlen(string);  \n\n\t//calculate length of given pattern  \n\tint m = strlen(pattern);  \n\n\t// indices of string and pattern \n\tint i = 0, j = 0;  \n\n\t// Greedy loop to match \n\twhile(i < n && j < m) { \n\t\tif(string[i] == pattern[j]) { \n\t\t\ti++; \n\t\t\tj++; \n\t\t} \n\t\t// Go back one position in string \n\t\telse { \n\t\t\ti = i - j + 1; \n\t\t\tj = 0; \n\t\t}\t \n\t} \n\n\t// Check whether pattern is found or not \n\tif(j == m) \n\t\treturn true; \n\t\n\treturn false; \n} \n\n// Driver code \nint main() \n{ \n\tchar string[] = \"ababcab\"; \n\tchar pattern[] = \"cab\"; \n\t\n\tbool flag = stringMatching(string, pattern); \n\t\n\tif (flag) \n\t\tprintf(\"Pattern matches\"); \n\telse\n\t\tprintf(\"Pattern do not matches\"); \n\t\t\n\treturn 0; \n}"
 },
 {
     "instruction": "想一个道德困境的例子，并解释为什么很难做出决定。",
@@ -44867,7 +44868,7 @@
 {
     "instruction": "创建一个程序来实现“冒泡排序”算法。",
     "input": "",
-    "output": "// 实现冒泡排序算法的程序\n#include &lt;stdio.h&gt;\n\nvoid bubbleSort(int arr[], int n)\n{\n诠释我，j;\n对于 (i = 0; i &lt; n-1; i++)\n\n// 最后 i 个元素已经到位\n对于 (j = 0; j &lt; n-i-1; j++)\n如果 (arr[j] &gt; arr[j+1])\n交换(&amp;arr[j], &amp;arr[j+1]);\n}\n\nvoid swap(int *a, int *b)\n{\nint temp = *a;\n*a = *b;\n*b = 温度；\n}\n\n// 驱动程序\n主函数()\n{\nint arr[] = {64, 34, 25, 12, 22, 11, 90};\nint n = sizeof(arr)/sizeof(arr[0]);\n气泡排序（arr，n）；\n返回 0；\n}"
+    "output": "// 实现“冒泡排序”算法 \n#include <stdio.h> \n\nvoid bubbleSort(int arr[], int n) \n{ \n\tint i, j; \n\tfor (i = 0; i < n-1; i++)\t \n\t\n\t// Last i elements are already in place \n\tfor (j = 0; j < n-i-1; j++) \n\t\tif (arr[j] > arr[j+1]) \n\t\t\tswap(&arr[j], &arr[j+1]); \n} \n\nvoid swap(int *a, int *b) \n{ \n\tint temp = *a; \n\t*a = *b; \n\t*b = temp; \n} \n\n// Driver program \nint main() \n{ \n\tint arr[] = {64, 34, 25, 12, 22, 11, 90}; \n\tint n = sizeof(arr)/sizeof(arr[0]); \n\tbubbleSort(arr, n); \n\treturn 0; \n}"
 },
 {
     "instruction": "用你自己的话解释给定的文本。",
@@ -45051,8 +45052,8 @@
 },
 {
     "instruction": "协助调试 Python 脚本。",
-    "input": "该脚本有两个参数，游戏中所需的玩家数量和玩游戏的数量。然后它生成一个报表来报告玩家的平均数量。\n\n导入系统\n \n如果 len(sys.argv) == 3:\n    玩家 = int(sys.argv[1])\n    游戏 = int(sys.argv[2]):\n\n平均值 = str（玩家/游戏）\nprint(&quot;玩家的平均人数是：&quot; + average)",
-    "output": "第三行有句法错误，应该去掉“:”。所以正确的代码应该是这样的：\n\n导入系统\n \n如果 len(sys.argv) == 3:\n    玩家 = int(sys.argv[1])\n    游戏 = int(sys.argv[2])\n\n平均值 = str（玩家/游戏）\nprint(&quot;玩家的平均人数是：&quot; + average)"
+    "input": "该脚本有两个参数，游戏中所需的玩家数量和玩游戏的数量。然后它生成一个报表来报告玩家的平均数量。\n\nimport sys\n \nif len(sys.argv) == 3:\n    players = int(sys.argv[1])\n    games = int(sys.argv[2]):\n\naverage = str( players / games)\nprint(\"The average number of players was: \" + average)",
+    "output": "第三行有句法错误，应该去掉“:”。所以正确的代码应该是这样的：\n\nimport sys\n \nif len(sys.argv) == 3:\n    players = int(sys.argv[1])\n    games = int(sys.argv[2])\n\naverage = str( players / games)\nprint(\"The average number of players was: \" + average)"
 },
 {
     "instruction": "阅读以下段落并找出一个比喻性语言的例子。",
@@ -45106,8 +45107,8 @@
 },
 {
     "instruction": "根据给定要求在 SQL 中构建查询",
-    "input": "从表 &#39;sales&#39; 中检索所有记录",
-    "output": "从销售中选择 *；"
+    "input": "从表 'sales' 中检索所有记录",
+    "output": "SELECT * FROM sales;"
 },
 {
     "instruction": "总结给定书中的要点",
@@ -45197,7 +45198,7 @@
 {
     "instruction": "编写一个实现链表的C++库",
     "input": "",
-    "output": "#include&lt;iostream&gt;\n使用命名空间标准；\n\n结构节点{\n    整数数据；\n    结构节点*下一个；\n};\n\n// 添加一个新节点到链表的末尾\nvoid append(struct Node** head_ref, int new_data)\n{\n    节点* new_node = 新节点；\n  \n    节点 *last = *head_ref;\n  \n    new_node-&gt;data = new_data;\n  \n    new_node-&gt;next = NULL;\n  \n    如果（*head_ref == NULL）{\n        *head_ref = new_node;\n        返回;\n    }\n  \n    while (last-&gt;next != NULL)\n        最后=最后-&gt;下一个；\n  \n    最后-&gt;下一个=新节点；\n    返回;\n}\n\n// 删除给定位置的节点\nvoid deleteNode(struct Node **head_ref, int position)\n{\n    如果 (*head_ref == NULL)\n        返回;\n    结构节点 *temp = *head_ref;\n    如果（位置== 0）\n    {\n        *head_ref = temp-&gt;next;\n        免费（临时）；\n        返回;\n    }\n\n   for (int i=0; temp!=NULL &amp;&amp; i&lt;position-1; i++)\n         temp = temp-&gt;下一个；\n  \n    如果 (temp == NULL || temp-&gt;next == NULL)\n         返回;\n  \n   结构节点 *next = temp-&gt;next-&gt;next;\n\n   免费（临时-&gt;下一个）；\n   临时-&gt;下一个=下一个；\n}"
+    "output": "#include<iostream>\nusing namespace std;\n\nstruct Node {\n    int data;\n    struct Node *next;\n};\n\n// Add a new node to the end of the list \nvoid append(struct Node** head_ref, int new_data) \n{ \n    Node* new_node = new Node; \n  \n    Node *last = *head_ref;\n  \n    new_node->data = new_data; \n  \n    new_node->next = NULL; \n  \n    if (*head_ref == NULL) { \n        *head_ref = new_node; \n        return; \n    } \n  \n    while (last->next != NULL) \n        last = last->next; \n  \n    last->next = new_node; \n    return; \n} \n\n// Delete the node at a given position \nvoid deleteNode(struct Node **head_ref, int position) \n{ \n    if (*head_ref == NULL) \n        return; \n    struct Node *temp = *head_ref; \n    if (position == 0) \n    { \n        *head_ref = temp->next;   \n        free(temp);               \n        return; \n    } \n\n   for (int i=0; temp!=NULL && i<position-1; i++) \n         temp = temp->next; \n  \n    if (temp == NULL || temp->next == NULL) \n         return; \n  \n   struct Node *next = temp->next->next; \n\n   free(temp->next);  \n   temp->next = next;  \n}"
 },
 {
     "instruction": "为给定的短语创建首字母缩写词",
@@ -45231,8 +45232,8 @@
 },
 {
     "instruction": "模拟给定代码的输出",
-    "input": "公共课 HelloWorld {\n   public static void main(String[] args) {\n      System.out.println(&quot;你好，世界&quot;);\n   }\n}",
-    "output": "你好世界"
+    "input": "public class HelloWorld {\n   public static void main(String[] args) {\n      System.out.println(\"Hello, World\");\n   }\n}",
+    "output": "Hello, World"
 },
 {
     "instruction": "将这篇文章分类为观点或新闻",
@@ -45407,7 +45408,7 @@
 {
     "instruction": "编写一个函数来查找给定数组的最大元素。",
     "input": "int array[] = {8, 3, 5, 9, 3, 1, 5};",
-    "output": "int findMax(int 数组[])\n{\n    int 最大值 = 数组 [0];\n    对于 (int i = 1; i &lt; sizeof(array)/sizeof(array[0]); i++)\n    {\n        如果（数组[i] &gt; 最大值）\n            最大值 = 数组 [i];\n    }\n    返回最大值；\n}"
+    "output": "int findMax(int array[])\n{\n    int max = array[0];\n    for (int i = 1; i < sizeof(array)/sizeof(array[0]); i++)\n    {\n        if (array[i] > max)\n            max = array[i];\n    }\n    return max;\n}"
 },
 {
     "instruction": "向小组介绍自己的最佳方式是什么？",
@@ -45827,7 +45828,7 @@
 {
     "instruction": "写一篇关于非洲野狗的真实描述",
     "input": "",
-    "output": "非洲野狗，或 Lycaon pictus，是一种中型哺乳动物，原产于撒哈拉以南非洲。它是其属中唯一的物种，也是最大的非洲犬科动物。非洲野犬有浅棕色的皮毛，大而圆的耳朵和独特的黑白斑纹。它们是群居动物，通常以 8-11 只为一组生活。非洲野犬具有很强的领地意识，会凶猛地捍卫自己的领地。他们通过追逐猎物来捕猎，主要是小羚羊、野兔和鸟类。它们的速度可达每小时 44 英里，是地球上最快的动物之一。非洲野狗是一种濒危物种，估计总种群数量约为 6,600 只。"
+    "output": "非洲野狗（African Wild Dog），别名 Lycaon pictus，是一种中型哺乳动物，原产于撒哈拉以南非洲。它是其属中唯一的物种，也是最大的非洲犬科动物。非洲野犬有浅棕色的皮毛，大而圆的耳朵和独特的黑白斑纹。它们是群居动物，通常以 8-11 只为一组生活。非洲野犬具有很强的领地意识，会凶猛地捍卫自己的领地。他们通过追逐猎物来捕猎，主要是小羚羊、野兔和鸟类。它们的速度可达每小时 44 英里，是地球上最快的动物之一。非洲野狗是一种濒危物种，估计总种群数量约为 6,600 只。"
 },
 {
     "instruction": "想出另一种说法来表达“海浪拍岸”",
@@ -45996,8 +45997,8 @@
 },
 {
     "instruction": "建议两种改进给定代码的方法。",
-    "input": "常量 = 3;\n常量 b = 5;\n常量 c = a * b;",
-    "output": "改进代码的两种方法是向常量添加描述性变量名称并使用数学函数代替乘法：\n\n常数 num_a = 3;\n常数 num_b = 5;\nconst product = Math.multiply(num_a, num_b);"
+    "input": "const a = 3;\nconst b = 5;\nconst c = a * b;",
+    "output": "改进代码的两种方法是向常量添加描述性变量名称并使用数学函数代替乘法:\n\nconst num_a = 3;\nconst num_b = 5;\nconst product = Math.multiply(num_a, num_b);"
 },
 {
     "instruction": "给我一个关于一个人在自家后院发现隐藏宝石的故事的创意标题。",
@@ -46006,8 +46007,8 @@
 },
 {
     "instruction": "重写这句话，不要使用“very hard”这个短语。",
-    "input": "他工作很努力。",
-    "output": "他付出了相当大的努力。"
+    "input": "He worked very hard.",
+    "output":  "He exerted a considerable amount of effort."
 },
 {
     "instruction": "找出以下句子描述的是哪种类型的工作。",
@@ -46081,8 +46082,8 @@
 },
 {
     "instruction": "找出句子中的错误并描述应该更正的地方。",
-    "input": "现在做什么都晚了。",
-    "output": "错误在于单词“too”的拼写。更正应该是“做任何事情都来不及了”。"
+    "input": "It was to late to do anything.",
+    "output": "错误在于单词“too”的拼写。更正应该是“It was too late to do anything”。"
 },
 {
     "instruction": "确定给定的陈述是隐喻还是明喻。",
@@ -46172,7 +46173,7 @@
 {
     "instruction": "分析给定的成语以确定其含义。",
     "input": "一针见血",
-    "output": "成语“hit the nail on the head”的意思是做某事完全正确或做出正确的猜测或假设。"
+    "output": "成语“一针见血”的意思是做某事完全正确或做出正确的猜测或假设。"
 },
 {
     "instruction": "为最近的求职者写一封推荐信。",
@@ -46191,7 +46192,7 @@
 },
 {
     "instruction": "阅读下面的代码片段并解释它的作用。",
-    "input": "arr = [1,2,3,4,5]\n对于 arr 中的数字：\n    打印(数字*2)",
+    "input": "arr = [1,2,3,4,5]\nfor num in arr:\n    print(num*2)",
     "output": "此代码片段创建一个名为“arr”的数组，其中包含元素 1、2、3、4 和 5。然后它遍历数组中的元素并打印出每个元素乘以 2。输出将是 2、4、 6、8 和 10。"
 },
 {
@@ -46231,32 +46232,32 @@
 },
 {
     "instruction": "生成一个关于一个人实现的目标的故事。",
-    "input": "无输入",
+    "input": "",
     "output": "从前有一个人，他的目标是成为世界上最强壮的人。他每天努力锻炼，吃健康的食物。最终，他成功了，成为了史上最强的男人！"
 },
 {
     "instruction": "列出少吃肉有利于环境的三个原因。",
-    "input": "无输入",
+    "input": "",
     "output": "1. 少吃肉可以减少甲烷等气体的排放，甲烷是一种强大的温室气体。\n2. 肉类生产需要过度使用水和谷物等资源。\n3. 畜牧业经常导致森林砍伐，进一步加剧全球变暖。"
 },
 {
     "instruction": "描述机器如何帮助人们完成日常任务。",
-    "input": "无输入",
+    "input": "",
     "output": "机器可以通过腾出时间、快速准确地执行繁重的任务以及改进现有流程来帮助人们完成日常任务。例如，机器可用于自动化办公任务，例如数据输入、归档和安排会议。它们还可用于执行复杂的任务，例如自然语言处理、图像识别和机器学习。此外，它们还可用于使工厂生产自动化或为老年人或残疾人提供帮助。"
 },
 {
     "instruction": "解释下棋的规则和策略。",
-    "input": "无输入",
+    "input": "",
     "output": "国际象棋是在一个棋盘上玩的，棋盘上有 64 个方格，排列成 8×8 的图案。每个玩家以 16 个棋子开始游戏：1 个国王、1 个皇后、2 个车、2 个象、2 个马和 8 个兵。游戏的目标是将死或俘虏对手的国王。为了实现这一点，玩家必须有策略地在棋盘上移动他们的棋子，尽可能地捕获棋子并试图保护自己的棋子。"
 },
 {
     "instruction": "举例说明计算机如何处理数据。",
-    "input": "无输入",
+    "input": "",
     "output": "计算机通过获取输入、使用指令集处理它并产生输出来处理数据。例如，当您将一组单词输入文字处理器时，输入就是您输入的单词。然后指令集告诉处理器在屏幕上显示你的话。输出是屏幕上键入的单词。"
 },
 {
     "instruction": "写一篇 300 字的文章，总结人工智能的好处。",
-    "input": "无输入",
+    "input": "",
     "output": "人工智能 (AI) 是一种技术形式，它正在彻底改变我们与周围世界互动的方式。人工智能为个人和企业都带来了诸多好处。通过利用人工智能，我们能够做出明智的决策并自动执行日常任务，从而使我们能够将精力集中在要求更高、更复杂的任务上。\n\n人工智能的主要好处之一是它为任何流程带来的效率。通过利用人工智能，企业可以显着降低劳动力成本、提高生产力并提高客户满意度。人工智能还能够比人类更准确地执行任务，从而减少出错或失误的可能性。此外，AI 支持主动式客户服务，使客户服务代理能够专注于更复杂的客户查询，并在问题成为问题之前快速响应客户查询。\n\n人工智能还为企业提供了更好地分析客户数据的能力，使客户洞察具有可操作性。通过利用人工智能，企业能够做出明智的决策，从而提高客户参与度、减少客户流失并以更有效的方式锁定客户。人工智能在帮助企业了解其客户群和预测客户行为方面也具有无可估量的价值，使公司能够在客户需求出现之前对其进行预测。\n\n最后，人工智能还能够帮助企业进行决策。人工智能算法可以筛选大量数据并发现人类不费吹灰之力就无法发现的模式。这使企业能够预测客户行为、创建客户档案并提供定制服务。人工智能还可用于部署机器学习，使企业能够更好地了解客户偏好并开发新产品。\n\n总体而言，人工智能的使用为企业和个人带来了诸多好处，使其成为希望利用数字革命的企业的宝贵工具。人工智能可以帮助企业提高效率、改善客户服务并提供更好的客户洞察，最终提高客户满意度。"
 },
 {
@@ -46271,12 +46272,12 @@
 },
 {
     "instruction": "创作关于季节的俳句。",
-    "input": "无输入",
+    "input": "",
     "output": "夏日的微风凉爽/秋天的树叶低语/冬天的寂静加深。"
 },
 {
     "instruction": "创建一个心智模型来说明 AI 程序的工作原理。",
-    "input": "无输入",
+    "input": "",
     "output": "AI 程序通过接收数据、使用算法处理数据并提供输出来工作。数据被输入到 AI 系统中，通过一系列算法层对其进行处理，最终产生输出。每层算法都旨在提取某种类型的信息，例如识别模式或做出决策。这些层还相互提供反馈，使系统能够不断学习并提高其准确性。"
 },
 {
@@ -46302,7 +46303,7 @@
 {
     "instruction": "求以下方程关于 x 的导数：",
     "input": "y=5x^2 - 3x",
-    "output": "10 倍 - 3。"
+    "output": "10x - 3."
 },
 {
     "instruction": "为一家电脑商店写一则广告。",
@@ -46937,7 +46938,7 @@
 {
     "instruction": "创建一个脚本来计算 10000 美元贷款的单利。",
     "input": "",
-    "output": "&quot;&quot;&quot;\n计算单利的函数\n\n输入：金额-贷款金额\n       利率 - 利率\n       年 - 贷款年数\n\n&quot;&quot;&quot;\n\ndef simple_interest（金额，利率，年）：\n    回报率（金额*利率*年限）/100\n\n如果 __name__ == &#39;__main__&#39;:\n    打印（简单兴趣（10000、5、4））"
+    "output": "\"\"\"\n计算单利的脚本 \n\nInput: amount - loan amount\n       rate - interest rate\n       years - number of years for the loan\n\n\"\"\"\n\ndef simple_interest(amount, rate, years):\n    return (amount * rate * years) / 100\n\nif __name__ == '__main__':\n    print(simple_interest(10000, 5, 4))"
 },
 {
     "instruction": "确定创作这幅画的艺术家的姓名。",
@@ -46952,7 +46953,7 @@
 {
     "instruction": "编写一个 Python 脚本来对数字列表进行排序。",
     "input": "[100, 15, -50, 0, 20]",
-    "output": "&quot;&quot;&quot;\n用于对数字列表进行排序的 Python 脚本\n\n&quot;&quot;&quot;\n\ndef sort_nums(nums):\n    sorted_nums = 排序（nums）\n    返回 sorted_nums\n\n如果 __name__ == &#39;__main__&#39;:\n    print(sort_nums([100, 15, -50, 0, 20]))"
+    "output": "\"\"\"\n一个对数字列表的 Python 脚本\n\n\"\"\"\n\ndef sort_nums(nums):\n    sorted_nums = sorted(nums)\n    return sorted_nums\n\nif __name__ == '__main__':\n    print(sort_nums([100, 15, -50, 0, 20]))"
 },
 {
     "instruction": "将此动物分类为爬行动物、哺乳动物或两栖动物",
@@ -47277,12 +47278,12 @@
 {
     "instruction": "识别单词“flies”和“lumber”之间的动词。",
     "input": "",
-    "output": "翱翔。"
+    "output": "Soar"
 },
 {
-    "instruction": "自动更正以下句子中的语法：“The two dogs sleeps in the garden”。",
+    "instruction": "自动更正以下句子中的语法：\"The two dogs sleeps in the garden\"",
     "input": "",
-    "output": "两只狗睡在花园里。"
+    "output": "The two dogs sleep in the garden"
 },
 {
     "instruction": "列出三个普遍使用人工智能的职业。",
@@ -47300,9 +47301,9 @@
     "output": "1. 约翰沿着外面的小路前进。\n2. 约翰在外面散步。\n3. 约翰在外面闲逛。"
 },
 {
-    "instruction": "生成所有四种常见数据类型（字符串、整数、浮点数和布尔值）的示例？",
+    "instruction": "生成所有四种常见数据类型（字符串、整型、浮点数和布尔值）的示例？",
     "input": "",
-    "output": "字符串：你好\n整数：20\n浮动：27.5\n布尔值：真"
+    "output": "字符串: Hello\n整型: 20\n浮点数: 27.5\n布尔值: True"
 },
 {
     "instruction": "为单词“book”创建类型定义。",
@@ -47486,8 +47487,8 @@
 },
 {
     "instruction": "创建一个函数来查找最接近给定数字的数字。",
-    "input": "数 = 10，列表 = [3、5、7、8、11、16]",
-    "output": "def closest_num(num, 列表):\n    最接近 = 无\n    对于列表中的我：\n        如果 closest 是 None 或 abs(num - i) &lt; abs(num - closest)：\n            最近=我\n    返回最近\n\nclosest_num(10, [3, 5, 7, 8, 11, 16])\n# 输出：8"
+    "input": "num = 10, list = [3, 5, 7, 8, 11, 16]",
+    "output": "def closest_num(num, list):\n    closest = None\n    for i in list:\n        if closest is None or abs(num - i) < abs(num - closest):\n            closest = i\n    return closest\n\nclosest_num(10, [3, 5, 7, 8, 11, 16]) \n# Output: 8"
 },
 {
     "instruction": "在开发聊天机器人时生成一份道德考虑清单。",
@@ -47917,7 +47918,7 @@
 {
     "instruction": "生成计算机程序以从字符串中删除所有“a”",
     "input": "abcabcabc",
-    "output": "def remove_a（字符串）：\n    新字符串 = &quot;&quot;\n    对于字符串中的字符：\n        如果 char != &#39;a&#39;:\n            新字符串 += 字符\n    返回新字符串\n\n结果 = remove_a(&quot;abcabcabc&quot;)\n打印（结果）#输出：“bcbcbc”"
+    "output": "def remove_a(string):\n    new_string = \"\"\n    for char in string:\n        if char != 'a':\n            new_string += char\n    return new_string\n\nresult = remove_a(\"abcabcabc\")\nprint(result)  # output: \"bcbcbc\""
 },
 {
     "instruction": "形容浪子的行为",
@@ -47926,7 +47927,7 @@
 },
 {
     "instruction": "识别此代码中的错误",
-    "input": "def add_two_numbers(a, b):\n    总计 = a + b + 1\n    返回总计",
+    "input": "def add_two_numbers(a, b):\n    total = a + b + 1\n    return total",
     "output": "这段代码中的错误在于它将 a 和 b 的和加 1。正确的代码应该是没有 +1 的“total = a + b”。"
 },
 {
@@ -47992,7 +47993,7 @@
 {
     "instruction": "构建一个算法，找出 2 到 100 之间的所有质数。",
     "input": "",
-    "output": "def is_prime(n):\n    如果 n == 2：\n        返回真\n    如果 n &lt; 2 或 n % 2 == 0：\n        返回假\n    # 检查一个数字是否可以被其他数字整除\n    我 = 3\n    而我 * 我 &lt;= n:\n        如果 n % i == 0:\n            返回假\n        我 += 2\n    返回真\n\n# 打印2到100之间的所有素数\nprint(&quot;2 到 100 之间的素数:&quot;)\n对于范围内的我 (2, 101)：\n    如果 is_prime(i):\n        打印(i)"
+    "output": "def is_prime(n): \n    if n == 2: \n        return True\n    if n < 2 or n % 2 == 0: \n        return False\n    # Check if a number is divisible by other numbers\n    i = 3\n    while i * i <= n: \n        if n % i == 0: \n            return False\n        i += 2\n    return True\n\n# Print all prime numbers between 2 and 100\nprint(\"Prime numbers between 2 and 100:\")\nfor i in range(2, 101): \n    if is_prime(i): \n        print(i)"
 },
 {
     "instruction": "生成有效 HTML 代码示例。",
@@ -48007,7 +48008,7 @@
 {
     "instruction": "编写代码生成一个 8 个字符的随机密码。",
     "input": "",
-    "output": "&quot;&quot;&quot;\n生成一个8个字符的随机密码\n&quot;&quot;&quot;\n随机导入\n导入字符串\n\ndef get_random_password():\n    chars = string.ascii_lowercase + string.ascii_uppercase + string.digits\n    返回 &#39;​​&#39;.join(random.choice(chars) for x in range(8))\n\n如果 __name__ == &#39;__main__&#39;:\n    打印（get_random_password（））"
+    "output": "\"\"\"\n生成一个 8 个字符的随机密码\n\"\"\"\nimport random\nimport string\n\ndef get_random_password():\n    chars = string.ascii_lowercase + string.ascii_uppercase + string.digits\n    return ''.join(random.choice(chars) for x in range(8))\n\nif __name__ == '__main__':\n    print(get_random_password())"
 },
 {
     "instruction": "创建一篇关于计算机视觉如何用于医学成像的文章。",
@@ -48057,7 +48058,7 @@
 {
     "instruction": "编写一个 Java 程序来打印数组的所有排列。",
     "input": "",
-    "output": "导入 java.util.Arrays；\n\n公共类排列{\npublic static void main (String[] args) {\nint[] arr = {1, 2, 3};\n置换（arr，0）；\n}\n\npublic static void permute(int[] arr, int index){\n如果（索引 &gt;= arr.length - 1）{\nSystem.out.println(Arrays.toString(arr));\n}\n\nfor (int i = index; i &lt; arr.length; i++){\n交换（arr，索引，i）；\n置换（arr，索引+ 1）；\n交换（arr，索引，i）；\n}\n}\n\npublic static void swap(int[] arr, int i, int j){\nint temp = arr[i];\narr[i] = arr[j];\narr[j] = 温度；\n}\n}"
+    "output": "import java.util.Arrays; \n\npublic class Permutations { \n\tpublic static void main (String[] args) {\n\t\tint[] arr = {1, 2, 3}; \n\t\tpermute(arr, 0); \n\t} \n\n\tpublic static void permute(int[] arr, int index){ \n\t\tif (index >= arr.length - 1){ \n\t\t\tSystem.out.println(Arrays.toString(arr)); \n\t\t} \n\n\t\tfor (int i = index; i < arr.length; i++){ \n\t\t\tswap(arr, index, i); \n\t\t\tpermute(arr, index + 1); \n\t\t\tswap(arr, index, i); \n\t\t} \n\t} \n\n\tpublic static void swap(int[] arr, int i, int j){ \n\t\tint temp = arr[i]; \n\t\tarr[i] = arr[j]; \n\t\tarr[j] = temp; \n\t} \n}"
 },
 {
     "instruction": "解释超参数优化的概念",
@@ -48081,12 +48082,12 @@
 },
 {
     "instruction": "编写查询以选择订阅仍处于活动状态的所有客户。",
-    "input": "表名：客户\n列：id、名称、订阅、状态",
-    "output": "选择 *\n来自客户\nWHERE 订阅 = &#39;活动&#39;\nAND 状态 = &#39;活跃&#39;"
+    "input": "Table Name: customers\nColumns: id, name, subscription, status",
+    "output": "SELECT *\nFROM customers\nWHERE subscription = 'active'\nAND status = 'active'"
 },
 {
     "instruction": "根据以下数据计算回归系数 (r)",
-    "input": "x: 1, 2, 3, 4\n和：6、5、7、8",
+    "input": "x: 1, 2, 3, 4\n和y：6、5、7、8",
     "output": "回归系数 (r) 可以使用公式 r = (Σxy - (Σx)(Σy)/n)/σxσy 计算，其中 Σxy 是 x 和 y 的乘积之和，(Σx)(Σy)/n是 x 和 y 之和除以样本量的乘积，σxσy 是 x 和 y 标准差的乘积。\n在此问题中，回归系数 (r) 为 0.8。"
 },
 {
@@ -48101,7 +48102,7 @@
 },
 {
     "instruction": "输入两个数字以计算百分比。",
-    "input": "第一名：20\n2 号：70",
+    "input": "1号：20\n2号：70",
     "output": "20相对于70的百分比是28.57%。"
 },
 {
@@ -48110,9 +48111,9 @@
     "output": "大象是大型四足哺乳动物，皮肤厚实，耳朵大。大象的鼻子用于呼吸、嗅觉和抓取物体。它们有两个大象牙，用于抓取食物和防御。大象有粗壮的柱状腿，它们的脚有坚韧的皮革垫。它们还有一个躯干，这是一根长而柔软的管子，用于交流、饮水和呼吸。"
 },
 {
-    "instruction": "告诉我台湾的首都。",
+    "instruction": "告诉我中国的首都。",
     "input": "",
-    "output": "台湾的首都是台北。"
+    "output": "中国的首都是北京。"
 },
 {
     "instruction": "创建四到五帧的漫画。",
@@ -48146,7 +48147,7 @@
 },
 {
     "instruction": "为快递员创建一条高效的路线来运送五个包裹。",
-    "input": "以下五个包裹需要投递到以下地点：\n套餐1 - 400 Main Street\n套餐二-商业街850号\n套餐 3 - 克罗夫顿巷 340 号\n套餐 4 - 74 Lantana Drive\n套餐5 - 871 Hilltop Road",
+    "input": "以下五个包裹需要投递到以下地点：\n套餐1 - 400 Main Street\n套餐二-850 Commerce Street\n套餐 3 - 340 Crofton Lane\n套餐 4 - 74 Lantana Drive\n套餐5 - 871 Hilltop Road",
     "output": "该路线将从 400 Main Street 开始，然后前往 850 Commerce Street、340 Crofton Lane、74 Lantana Drive，并在 871 Hilltop Road 结束。这以有效的方式交付包裹并避免回溯。如果快递员开车，他们应该考虑使用 GPS 导航系统的最快路线。此外，他们应该按照包裹按列出的顺序交付包裹的方式来规划路线。"
 },
 {
@@ -48345,7 +48346,7 @@
     "output": "我简直不敢相信！"
 },
 {
-    "instruction": "提供一个 3 到 4 个单词的短语，我可以用它来邀请某人共进晚餐。",
+    "instruction": "提供一句话，我可以用它来邀请某人共进晚餐。",
     "input": "",
     "output": "愿意和我一起吃饭吗？"
 },
@@ -48376,8 +48377,8 @@
 },
 {
     "instruction": "编写一个 Python 程序来查找给定数字的阶乘。",
-    "input": "7",
-    "output": "def阶乘（n）：\n    ＃ 基本情况\n    如果 n == 0：\n        返回 1\n\n    # 递归情况\n    别的：\n        返回 n*阶乘(n - 1)\n\n# 输入一个数字\nnum = int(input(&#39;请输入一个数字：&#39;))\n\n# 输出数字的阶乘\nprint(&#39;的阶乘&#39;, num, &#39;is&#39;, factorial(num))"
+    "input": "",
+    "output": "def factorial(n):\n    if n == 0:\n        return 1\n    return n * factorial(n-1)"
 },
 {
     "instruction": "描述你的团队过去面临的一个具有挑战性的问题，以及你是如何解决它的。",
@@ -48457,7 +48458,7 @@
 {
     "instruction": "创建一个 JavaScript 程序来打印出 hello world。",
     "input": "",
-    "output": "&lt;脚本&gt;\n    console.log(&quot;你好，世界！&quot;);\n&lt;/脚本&gt;"
+    "output": "console.log('Hello World');"
 },
 {
     "instruction": "提供一个真实的例子，说明人工智能如何改善客户服务。",
@@ -48602,7 +48603,7 @@
 {
     "instruction": "检查给定日期是否为星期五。",
     "input": "2020 年 3 月 6 日",
-    "output": "不。"
+    "output": "不是。"
 },
 {
     "instruction": "生成以单词“run”开头的绕口令。",
@@ -48702,7 +48703,7 @@
 {
     "instruction": "找出与“风”相关的词语。",
     "input": "",
-    "output": "Gale, breezy, bluster, gust, squall, gusty, air, gusty breeze, windy, 和风。"
+    "output": "大风, 凉风习习, 狂风, 阵风, 风口, 微风, 阵风, 和风。"
 },
 {
     "instruction": "想出一个有创意的句子来解释你今天的感受。",
@@ -48942,10 +48943,10 @@
 {
     "instruction": "将以下推文分类为“正面”、“负面”或“中性”：\n\n（推文）终于完成了那个项目！",
     "input": "",
-    "output": "积极的"
+    "output": "正面"
 },
 {
-    "instruction": "为聊天机器人生成对话启动器。",
+    "instruction": "为聊天机器人生成对话。",
     "input": "",
     "output": "你好！今天我能帮到你什么？"
 },
@@ -48953,11 +48954,6 @@
     "instruction": "给定一个用户查询，以下列表中最相关的 FAQ 主题是什么？",
     "input": "查询：如何重设密码？\n常见问题解答主题：\n1. 开设账户\n2. 重置密码\n3.查询订单状态",
     "output": "2. 重置密码"
-},
-{
-    "instruction": "以相反的顺序返回以下句子。",
-    "input": "我一直在努力",
-    "output": "努力让我永远"
 },
 {
     "instruction": "使用人工智能进行市场分析有哪些好处？",
@@ -49205,9 +49201,9 @@
     "output": "凡尔赛条约是第一次世界大战后签署的和平协议，结束了同盟国与德国之间的战争状态。它对德国军队施加了严格的限制，减少了德国的领土，并要求战败国进行巨额赔款。此外，该条约建立了国际联盟，并赋予德国挑起战争的责任。尽管最初被德国政府接受，但苛刻的条件和压倒性的债务导致了强烈的反弹，并最终为纳粹德国的崛起创造了肥沃的土壤。"
 },
 {
-    "instruction": "用“dapple”和“giggle”这两个词创造一个游戏",
+    "instruction": "Create a play on the words \"dapple\" and \"giggle\"",
     "input": "",
-    "output": "一个斑点和一个傻笑，\n讨论所有的摆动。\n聊起风暴，\n 一直聊到凌晨。\n对于每一个故事和笑话，\n斑纹和咯咯笑声处于最佳状态。"
+    "output": "A dapple and a giggle,\nDiscussing all beneath the wiggle.\nChatting up a storm,\n Talking until the morn.\nFor every tale and jest,\nThe dapple and giggle are at their best."
 },
 {
     "instruction": "说出印度两个重要的政党",
@@ -49452,21 +49448,21 @@
 {
     "instruction": "编写代码以查找数组中的最大值",
     "input": "[2, 4, 5, 7, 1]",
-    "output": "arr = [2, 4, 5, 7, 1]\n\ndef findMax(arr):\n    最大值 = arr[0]\n  \n    对于我在范围内（1，len（arr））：\n        如果 arr[i] &gt; 最大值：\n            最大值 = arr[i]\n    返回最大值\n  \n打印（查找最大值（arr））"
+    "output": "arr = [2, 4, 5, 7, 1] \n\ndef findMax(arr): \n    max = arr[0] \n  \n    for i in range(1, len(arr)): \n        if arr[i] > max: \n            max = arr[i] \n    return max \n  \nprint(findMax(arr))"
 },
 {
     "instruction": "使用伪代码重写以下算法。",
-    "input": "函数 simpleSum(n: INTEGER)\n//计算前n个自然数之和\n变量总和，数字：整数\n总和：= 0\n数 := 0\n\nwhile number &lt; n 做\n  总和 := 总和 + 数字\n  数字 := 数字 + 1\n结束时\n\n返回总和",
-    "output": "函数 simpleSum(n: INTEGER)\n    // 声明变量\n    声明总和，数字：整数\n\n    // 将初始值设置为 0\n    设置总和 = 0\n    设置编号 = 0\n\n    //循环直到到达n\n    WHILE 数 &lt; n DO\n        SET总和=总和+数字\n        SET 数 = 数 + 1\n    结束时\n\n    // 返回总和\n    返回总和\n结束功能"
+    "input": "function simpleSum(n: INTEGER)\n// calculates the sum of the first n natural numbers\nvar sum, number: INTEGER\nsum := 0\nnumber := 0\n\nwhile number < n do\n  sum := sum + number\n  number := number + 1\nend while\n\nreturn sum",
+    "output": "FUNCTION simpleSum(n: INTEGER) \n    // declares variables \n    DECLARE sum, number : INTEGER \n\n    // sets initial values to 0 \n    SET sum = 0 \n    SET number = 0 \n\n    // loop until n is reached \n    WHILE number < n DO\n        SET sum = sum + number \n        SET number = number + 1 \n    END WHILE \n\n    // returns the sum\n    RETURN sum \nEND FUNCTION"
 },
 {
     "instruction": "生成执行以下任务的 Python 脚本。",
     "input": "打印数字列表中第二大的数字",
-    "output": "# 数字列表\n列表 1 = [10, 20, 4, 45, 99]\n  \n# 对列表进行排序\nlist1.排序()\n  \n# 打印倒数第二个元素\nprint(&quot;第二大数是：&quot;, list1[-2])"
+    "output": "# List of numbers \nlist1 = [10, 20, 4, 45, 99] \n  \n# 对列表进行排序 \nlist1.sort() \n  \n# 打印倒数第二个元素 \nprint(\"第二大数是:\", list1[-2])"
 },
 {
     "instruction": "将以下表达式重写为更易读的格式",
-    "input": "x &gt; 0 或（y == 0 和 z != 0）",
+    "input": "x > 0 or (y == 0 and z != 0)",
     "output": "如果 x 大于 0 或（y 等于 0 且 z 不等于 0）："
 },
 {
@@ -49522,7 +49518,7 @@
 {
     "instruction": "创建一个函数，将两个数字作为参数并将第一个数字除以第二个数字。",
     "input": "",
-    "output": "定义划分（a，b）：\n  返回 a / b"
+    "output": "def divide(a, b): \n  return a / b"
 },
 {
     "instruction": "对以下金额加 10% 的税：100 美元",
@@ -49531,8 +49527,8 @@
 },
 {
     "instruction": "将以下计算机代码从 Python 转换为 Java。",
-    "input": "定义问候（名称）：\n  打印（f“你好，{name}！”）",
-    "output": "公共无效问候语（字符串名称）{\n  System.out.println(&quot;你好，&quot; + 姓名 + &quot;!&quot;);\n}"
+    "input": "def greet(name):\n  print(f\"Hello, {name}!\")",
+    "output": "public void greet(String name) {\n  System.out.println(\"Hello, \" + name + \"!\");\n}"
 },
 {
     "instruction": "将这句话从西班牙语翻译成英语：El sol no brilla hoy。",
@@ -49541,8 +49537,8 @@
 },
 {
     "instruction": "在 Python 3 中生成此代码片段的输出。",
-    "input": "名字=“吉尔”\n打印（“你好”+姓名+“！”）",
-    "output": "你好吉尔！"
+    "input": "name = \"Jill\"\nprint(\"Hello \" + name + \"!\")",
+    "output": "Hello Jill!"
 },
 {
     "instruction": "你能举一个同音词的例子吗？",
@@ -50012,7 +50008,7 @@
 {
     "instruction": "确定一年中的周数。",
     "input": "",
-    "output": "一年的周数是 52 周。"
+    "output": "一年有52周。"
 },
 {
     "instruction": "列出确保项目成功的 5 个步骤。",
@@ -50085,9 +50081,9 @@
     "output": "他说可能是因为下雨。"
 },
 {
-    "instruction": "将这句话分类为正式或非正式：\n“这是怎么回事？”",
+    "instruction": "将这句话分类为正式说法或随意说法：\n“这是怎么回事？”",
     "input": "",
-    "output": "这句话是非正式的。"
+    "output": "这句话是随意说法。"
 },
 {
     "instruction": "把这个陈述变成一个问题：\n飞行很有趣。",
